@@ -1,38 +1,37 @@
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <div className="container-fluid footer">
             <div className='container'>
-                <div className='row'>
-                    <div className='col-lg-4 col-md-4'>
-                        <Link to={'/'}>Logo</Link>
-                    </div>
-
-                    <div className='col-lg-4 col-md-4'>
-                        <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap:'wrap'}}>
+                    <div style={{flexBasis:'30%'}}>
+                        <div style={{textAlign:'center'}}>
                             <h3>Member</h3>
                         </div>
-                        <div className='row'>
-                            <div className='col-lg-6 col-md-6'>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap:'wrap'}}>
+                            <div>
                                 <p>Phạm Minh Tuấn</p>
                                 <p>Phan Nguyễn Tú Anh</p>
                             </div>
-                            
-                            <div className='col-lg-6 col-md-6'>
+
+                            <div>
                                 <p>Ngô Quang Bá</p>
                                 <p>Ngô Hữu Nam</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className='col-lg-4 col-md-4' style={{textAlign:"right"}}>
+                    <div style={{flexBasis:'15%'}}>
                         <div>
-                            <h3>Contact</h3>
+                            <h3>Contact us</h3>
                         </div>
                         <div>
-                            <p>Số điện thoại</p>
-                            <p>Email</p>
+                            <i className="fas fa-phone-square-alt"></i>
+                            <span style={{ marginLeft: '12px' }}>0123445678</span>
+                        </div>
+                        <div>
+                            <i className="far fa-envelope"></i>
+                            <span style={{ marginLeft: '12px' }}>acb@gmail.com</span>
                         </div>
                     </div>
                 </div>

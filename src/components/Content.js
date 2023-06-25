@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Content = () => {
 
@@ -10,7 +11,7 @@ const Content = () => {
         fetch('http://localhost:9999/category')
             .then(res => res.json())
             .then(data => setCategories(data))
-    })
+    }, [])
 
     useEffect(() => {
         fetch(`http://localhost:9999/houseInformation?category_id=${cateID}`)
@@ -23,7 +24,7 @@ const Content = () => {
             <div className='category'>
                 {
                     categories.map(category => 
-                            <button>{category.name}</button>
+                            <button key={category.id} onClick={() => setCateID(category.id)} className={ category.id === cateID ? 'btn-category active-category' : 'btn-category'}>{category.name}</button>
                         )
                 }
             </div>
@@ -31,12 +32,17 @@ const Content = () => {
             <div className='row house'>
                 {
                     houses.map(house =>
-                            <div className='house-item col-lg-3 col-md-3'>
-                                <div>
-                                    <img style={{ width: "100px", height: "100px" }} src={house.thumb} alt='#' />
-                                </div>
-                                <div>{house.name}</div>
-                                <div>{house.description}</div>
+                            <div key={house.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                <Link to={`/house/detail/${house.id}`}>
+                                    <div className='house-img'>
+                                        <img style={{ width: "100%", height: "300px" }} src={house.thumb} alt='#' />
+                                    </div>
+                                    <div className='house-name'>{house.name}</div>
+                                    <div>
+                                        <span>Liên hệ: </span>
+                                        <span>{house.contact}</span>
+                                    </div>
+                                </Link>
                             </div>
                         )
                 }

@@ -1,9 +1,10 @@
-*{
-  margin:0px; 
+* {
+  margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
+/* Các class css của Header.js */
 .header {
   min-height: 60px;
   line-height: 60px;
@@ -30,11 +31,113 @@
   padding: 20px 20px;
 }
 
+/* Hết */
+
+
+/* Các class css của Content.js */
 .content {
-  margin-top: 110px;
+  margin: 110px 0;
 }
 
 .category {
   display: flex;
   margin-bottom: 20px;
 }
+
+.btn-category {
+  border: transparent;
+  margin-right: 12px;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.btn-category:hover {
+  background-color: rgb(224, 215, 215);
+}
+
+.active-category {
+  border-bottom: 1px solid gray;
+}
+
+.house-item {
+  margin-bottom: 20px;
+  padding: 12px 0;
+}
+
+.house-item a {
+  color: black;
+  text-decoration: none;
+}
+
+.house-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+}
+
+.house-img {
+  margin-bottom: 8px;
+}
+
+.house-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Hết */
+
+/* Các class css của Detail.js */
+.detail {
+  margin: 110px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.house-detail {
+  flex-basis: 65%;
+}
+
+.house-detail-name {
+  margin-top: 12px;
+}
+
+.infor-host {
+  flex-basis: 30%;
+  background-color: #febb02;
+  max-height: 364px;
+  display: flex;
+  justify-content: center;
+}
+
+.infor-host img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.infor-host-item {
+  text-align: center;
+  margin-top: 12px;
+  color: white;
+}
+
+.infor-host-item p {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.infor-host-item i {
+  margin-right: 8px;
+}
+
+/* Hết */
+
+/* Các class css của Footer.js */
+.footer {
+  border-top: 1px solid gray;
+  padding: 12px 0;
+}
+
+/* Hết */
