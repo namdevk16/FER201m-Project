@@ -134,6 +134,34 @@
 
 /* Hết */
 
+/* Login */
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #e8f8ec, #57de57, #2f9831, #147129);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #e8f8ec, #57de57, #2f9831, #147129);
+}
+
+.login-form{
+  margin-top: 200px;
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
 /* Các class css của Footer.js */
 .footer {
   border-top: 1px solid gray;
