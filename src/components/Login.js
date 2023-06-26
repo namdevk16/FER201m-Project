@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import {
     MDBBtn,
     MDBContainer,
@@ -43,8 +44,8 @@ function Login() {
 
 
                         <div className="text-center pt-1 mb-5 pb-1">
-                            <MDBBtn className="mb-4 w-100 gradient-custom-2">Sign in</MDBBtn>
-                            <a className="text-muted" href="#!">Forgot password?</a>
+                            <MDBBtn className="mb-4 w-100 gradient-custom-2">Login</MDBBtn>
+                            <NavLink to={'/changepassword'} style={{color: 'rgb(42, 42, 42)'}} className={({ isActive }) => isActive ? "active-body" : ""}>Forgot Password?</NavLink>
                         </div>
 
                     </div>

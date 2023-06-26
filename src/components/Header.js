@@ -8,28 +8,16 @@ const Header = () => {
         <div className='container-fluid header'>
             <div className='container'>
                 <div className='header-item'>
-                    <div>
+                    <div className='header-item-left'>
                         <NavLink to={'/'}><img style={{height:'56px'}} src='https://admin.googleusercontent.com/logo-scs-key2294502' alt='#' /></NavLink>
+                        <NavLink to={'/'} className={({ isActive }) => isActive ? "active-header" : ""}>HOME    </NavLink>
+                        <NavLink to={'/about'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>About us    </NavLink>
+                        <NavLink to={'/contact'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>Contact    </NavLink>
                     </div>
 
-                    <div>
-                        <NavLink to={'/'} className={({ isActive }) => isActive ? "active-header" : ""}>HOME</NavLink>
-                    </div>
-
-                    <div>
-                        <NavLink to={'/about'} className={({ isActive }) => isActive ? "active-header" : ""}>About us</NavLink>
-                    </div>
-
-                    <div>
-                        <NavLink to={'/contact'} className={({ isActive }) => isActive ? "active-header" : ""}>Contact</NavLink>
-                    </div>
-
-                    <div>
-                        <NavLink to={'/login'} className={({ isActive }) => isActive ? "active-header" : ""}>Login</NavLink>
-                    </div>
-
-                    <div>
-                        <NavLink to={'/signup'} className={({ isActive }) => isActive ? "active-header" : ""}>Sign up</NavLink>
+                    <div className='header-item-right'>
+                        <NavLink to={'/login'} className={({ isActive }) => isActive ? "active-header" : ""}>Login    </NavLink>
+                        <NavLink to={'/signup'} style={{paddingLeft:'20px'}} className={({ isActive }) => isActive ? "active-header" : ""}>Sign up    </NavLink>
                     </div>
                 </div>
             </div>
