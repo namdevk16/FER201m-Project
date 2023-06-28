@@ -46,7 +46,7 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className='login-form'>
             <MDBContainer className="my-5 gradient-form">
 
                 <MDBRow>
@@ -71,7 +71,7 @@ const Login = () => {
                                     style={{ width: '185px' }} alt="logo" />
 
                             </div>
-                            <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
+                            <form onSubmit={(e) => handleSubmit(e)}>
                                 <div>
                                     <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                                     <span style={{ color: "red" }} className="error-email" ></span>

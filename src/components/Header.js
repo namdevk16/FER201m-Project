@@ -31,8 +31,8 @@ const Header = () => {
                     </div>
 
                     <div className='header-item-right'>
-                        {!sessionStorage.getItem('account') ? <NavLink to={'/login'} className={({isActive}) => isActive ? "active-header" : ""}>Login</NavLink> : <NavLink to={'/login'} className={({isActive}) => isActive ? "active-header" : ""}>{JSON.parse(sessionStorage.getItem('account')).fullname}</NavLink>}
-                        {!sessionStorage.getItem('account') ? <NavLink to={'/register'} className={({isActive}) => isActive ? "active-header" : ""}>Sigup</NavLink> : <Link onClick={handleLogout} className={({isActive}) => isActive ? "active-header" : ""}>Signout</Link>}
+                        {!sessionStorage.getItem('account') ? <NavLink to={'/login'} style={{paddingLeft:'30px'}} className={({isActive}) => isActive ? "active-header" : ""}>Login</NavLink> : <NavLink to={'/login'} className={({isActive}) => isActive ? "active-header" : ""}>{JSON.parse(sessionStorage.getItem('account')).fullname}</NavLink>}
+                        {!sessionStorage.getItem('account') ? <NavLink to={'/signup'} style={{paddingLeft:'30px'}} className={({isActive}) => isActive ? "active-header" : ""}>Sigup</NavLink> : <Link onClick={handleLogout} className={({isActive}) => isActive ? "active-header" : ""}>Signout</Link>}
                     </div>
                 </div>
             </div>
