@@ -11,7 +11,7 @@ const Header = () => {
                     <div className='header-item-left'>
                         <NavLink to={'/'}><img style={{height:'56px'}} src='https://admin.googleusercontent.com/logo-scs-key2294502' alt='#' /></NavLink>
                         <NavLink to={'/'} className={({ isActive }) => isActive ? "active-header" : ""}>HOME    </NavLink>
-                        <NavLink to={'/about'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>About us    </NavLink>
+                        <NavLink to={'/aboutus'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>About us    </NavLink>
                         <NavLink to={'/contact'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>Contact    </NavLink>
                     </div>
 
