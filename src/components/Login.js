@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
     MDBBtn,
     MDBContainer,
@@ -10,51 +10,94 @@ import {
     from 'mdb-react-ui-kit';
 
 
-function Login() {
+const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [check, setCheck] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (localStorage.getItem('account')) {
+            const obj = JSON.parse(localStorage.getItem('account'));
+            setEmail(obj.email);
+            setPassword(obj.password);
+        }
+    }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:9999/account?email=${email}&password=${password}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data[0] !== undefined) {
+                    sessionStorage.setItem('account', JSON.stringify(data[0]));
+                    if (check === true) {
+                        localStorage.setItem('account', JSON.stringify(data[0]));
+                    }
+                    navigate('/')
+                } else {
+                    alert('Your account not exist')
+                }
+            })
+    }
+
+
+
+
     return (
-        <div className='login-form'> 
-        <MDBContainer className="my-5 gradient-form">
+        <div className='login-form'>
+            <MDBContainer className="my-5 gradient-form">
 
-            <MDBRow>
-                <MDBCol col='6' className="mb-5">
-                    <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
+                <MDBRow>
+                    <MDBCol col='6' className="mb-5">
+                        <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
 
-                        <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                            <h4 class="mb-4">First Time Here?</h4>
-                            <p class="small mb-0">Feel free to join with us</p>
+                            <div className="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h4 class="mb-4">First Time Here?</h4>
+                                <p class="small mb-0">Feel free to join with us</p>
+                            </div>
+
                         </div>
 
-                    </div>
-
-                </MDBCol>
+                    </MDBCol>
 
 
-                <MDBCol col='6' className="mb-5">
-                    <div className="d-flex flex-column ms-5">
+                    <MDBCol col='6' className="mb-5">
+                        <div className="d-flex flex-column ms-5">
 
-                        <div className="text-center">
-                            <img src="https://admin.googleusercontent.com/logo-scs-key2294502"
-                                style={{ width: '185px' }} alt="logo" />
-                            
+                            <div className="text-center">
+                                <img src="https://admin.googleusercontent.com/logo-scs-key2294502"
+                                    style={{ width: '185px' }} alt="logo" />
+
+                            </div>
+                            <form onSubmit={(e) => handleSubmit(e)}>
+                                <div>
+                                    <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <span style={{ color: "red" }} className="error-email" ></span>
+                                </div>
+                                <div>
+                                    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <span style={{ color: "red" }} className="error-password" ></span>
+                                </div>
+                                <div>
+                                    <input type='checkbox' checked={check} onChange={(e) => setCheck(e.target.checked)} name='Remember Me' /><i style={{ paddingLeft: '5px' }}>Remember Me</i>
+                                </div>
+
+
+
+                                <div className="text-center pt-1 mb-5 pb-1">
+                                    <MDBBtn className="mb-4 w-100 gradient-custom-2" type='submit'>Login</MDBBtn>
+                                    <NavLink to={'/changepassword'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Forgot Password?</NavLink>
+                                </div>
+                            </form>
                         </div>
 
+                    </MDBCol>
 
-                        <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' />
-                        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' />
+                </MDBRow>
 
-
-                        <div className="text-center pt-1 mb-5 pb-1">
-                            <MDBBtn className="mb-4 w-100 gradient-custom-2">Login</MDBBtn>
-                            <NavLink to={'/changepassword'} style={{color: 'rgb(42, 42, 42)'}} className={({ isActive }) => isActive ? "active-body" : ""}>Forgot Password?</NavLink>
-                        </div>
-
-                    </div>
-
-                </MDBCol>
-
-            </MDBRow>
-
-        </MDBContainer>
+            </MDBContainer>
         </div>
     );
 }
