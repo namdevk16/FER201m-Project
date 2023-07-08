@@ -67,7 +67,40 @@
       "phone": "0123456789",
       "password": "12345678",
       "role_id": 1
+    },
+    {
+      "fullName": "Vũ Hồng Quang ",
+      "password": "12345678",
+      "email": "QuangVH@gmail.com",
+      "phone": "0948273842",
+      "role_id": 2,
+      "id": 8
+    },
+    {
+      "fullName": "Ngô Toàn Thông",
+      "password": "12345678",
+      "email": "ThongNT@gmail.com",
+      "phone": "923842822",
+      "role_id": 2,
+      "id": 9
+    },
+    {
+      "fullName": "Hoàng Cửu bảo",
+      "password": "12345678",
+      "email": "BaoHC@gmail.com",
+      "phone": "0947452458",
+      "role_id": 3,
+      "id": 10
+    },
+    {
+      "fullName": "Bùi Việt Hoàng",
+      "password": "12345678",
+      "email": "HoangBV@gmail.com",
+      "phone": "0988422834",
+      "role_id": 3,
+      "id": 11
     }
+
   ],
   "region": [
     {

@@ -1,22 +1,130 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBInput
-}
-    from 'mdb-react-ui-kit';
+import { useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 
 
-function SignUp() {
+const SignUp = () => {
+    const [fullName, setFullName] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [role_id, setRole_id] = useState('3');
+
+    const handleFullNameChange = (event) => {
+        setFullName(event.target.value);
+    };
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    };
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handlePhoneNumberChange = (event) => {
+        setPhoneNumber(event.target.value);
+    };
+
+    const handleRoleChange = (event) => {
+        setRole_id(parseInt(event.target.value));
+    };
+
+    const handleRegister = (e) => {
+        // // Tạo một đối tượng tài khoản mới
+        // const newAccount = {
+        //     fullName: fullName,
+        //     password: password,
+        //     email: email,
+        //     phone: phoneNumber,
+        //     role_id: role_id
+        // };
+
+        // // Gửi yêu cầu POST để thêm tài khoản mới vào tệp JSON
+        // // axios.post('http://localhost:9999/account', { account: newAccount })
+        // //     .then((response) => {
+        // //         console.log(response);
+        // //         setMessage('Đăng ký thành công.');
+        // //     })
+        // //     .catch((error) => {
+        // //         console.log(error);
+        // //         setMessage('Có lỗi xảy ra khi đăng ký.');
+        // //     });
+
+        // const option = {
+        //     method: "POST",
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //     },
+        //     body: JSON.stringify(newAccount)
+        // }
+        // fetch(`http://localhost:9999/account`, option)
+        //     .then(res => res.json())
+        //     .then(() => {
+        //         alert('Đăng ký thành công.');
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //         alert('Có lỗi xảy ra khi đăng ký.');
+        //     });
+        const listInputs = document.querySelectorAll('.form-control');
+        const listErrors = document.querySelectorAll('.error');
+        if ([...listInputs].every(listInput => listInput.value !== '')) {
+            const newAccount = {
+                fullName: fullName,
+                password: password,
+                email: email,
+                phone: phoneNumber,
+                role_id: role_id
+            };
+            const option = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(newAccount)
+            }
+            fetch(`http://localhost:9999/account`, option)
+                .then(res => res.json())
+                .then(() => {
+                    alert('Đăng ký thành công.');
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert('Có lỗi xảy ra khi đăng ký.');
+                });
+        }
+
+        e.preventDefault();
+        if ([...listInputs].every(listInput => listInput.value === '')) {
+            [...listErrors].forEach(listError =>
+                listError.style.display = 'block'
+            )
+        }
+        for (var i = 0; i < listInputs.length; i++) {
+            if (listInputs[i].value !== '') {
+                listErrors[i].style.display = 'none'
+                for (var j = 0; j < listInputs.length; j++) {
+                    if (i !== j && listInputs[i].value === '') {
+                        listErrors[j].style.display = 'block';
+                    }
+                }
+            }
+        }
+    };
+
+
+
+
     return (
         <div className='signup-form'>
-            <MDBContainer className="my-5 gradient-form">
+            <Container className="my-5 gradient-form">
 
-                <MDBRow>
-                    <MDBCol col='6' className="mb-5">
+                <Row>
+                    <div className='col-lg-6 col-md-12 col-sm-12 p-left'>
                         <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
 
                             <div className="text-white px-3 py-4 p-md-5 mx-md-4">
@@ -26,31 +134,50 @@ function SignUp() {
 
                         </div>
 
-                    </MDBCol>
+                    </div>
 
-
-                    <MDBCol col='6' className="mb-5">
+                    <form onSubmit={e => handleRegister(e)} className='col-lg-6 col-md-12 col-sm-12 p-right' >
                         <div className="d-flex flex-column ms-5">
                             <h3>Sign Up</h3>
+                            <div className="input">
+                                <label>FullName</label>
+                                <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='text' value={fullName} onChange={handleFullNameChange} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label>Password</label>
+                                <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='password' value={password} onChange={handlePasswordChange} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label>Email address</label>
+                                <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='email' value={email} onChange={handleEmailChange} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label>Phone Number</label>
+                                <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='number' value={phoneNumber} onChange={handlePhoneNumberChange} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <label>Role</label>
+                            <select value={role_id} style={{ padding: '5px', borderRadius: '7px' }} onChange={handleRoleChange} >
+                                <option value={3} selected>Chủ sở hữu</option>
+                                <option value={2}>Người dùng</option>
+                            </select>
 
-                            <MDBInput wrapperClass='mb-4' label='UserName' id='form1' type='text' />
-                            <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' />
-                            <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' />
-                            <MDBInput wrapperClass='mb-4' label='Phone Number' id='form1' type='number' />
-                            <MDBInput wrapperClass='mb-4' label='Role' id='form1' type='checkbox' />
 
-                            <div className="text-center pt-1 mb-5 pb-1">
-                                <MDBBtn className="mb-4 w-100 gradient-custom-2">Sign Up</MDBBtn>
-                                <NavLink to={'/login'} style={{color: 'rgb(42, 42, 42)'}} className={({ isActive }) => isActive ? "active-body" : ""}>Back to Login?</NavLink>
+                            <div className="text-center pt-1 mb-5 pb-1" style={{ marginTop: '20px' }}>
+                                <button className="mb-4 w-100 gradient-custom-2" style={{ padding: '5px', color: 'white' }} type='submit'>Sign Up</button>
+                                <NavLink to={'/login'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Back to Login?</NavLink>
                             </div>
 
                         </div>
 
-                    </MDBCol>
+                    </form>
 
-                </MDBRow>
+                </Row>
 
-            </MDBContainer>
+            </Container>
         </div>
     );
 }
