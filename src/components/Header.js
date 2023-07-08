@@ -1,4 +1,5 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap'
 
 
 const Header = () => {
@@ -11,32 +12,34 @@ const Header = () => {
 
     const handleCheckLogin = (e) => {
         e.preventDefault();
-        if(!sessionStorage.getItem('account')) {
+        if (!sessionStorage.getItem('account')) {
             navigate('/login');
         } else {
-            navigate('/post');
+            if (JSON.parse(sessionStorage.getItem('account')).role_id !== 3) {
+                alert('Bạn không có quyền truy cập');
+            } else {
+                navigate('/post');
+            }
         }
     }
 
 
     return (
-        <div className='container-fluid header'>
-            <div className='container'>
-                <div className='header-item'>
-                    <div className='header-item-left'>
-                        <NavLink to={'/'}><img style={{height:'56px'}} src='https://admin.googleusercontent.com/logo-scs-key2294502' alt='#' /></NavLink>
-                        <NavLink to={'/'} className={({ isActive }) => isActive ? "active-header" : ""}>HOME    </NavLink>
-                        <NavLink to={'/aboutus'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>About us    </NavLink>
-                        <NavLink to={'/contact'} style={{paddingLeft:'30px'}} className={({ isActive }) => isActive ? "active-header" : ""}>Contact    </NavLink>
-                    </div>
-
-                    <div className='header-item-right'>
-                        {!sessionStorage.getItem('account') ? <NavLink to={'/login'} style={{paddingLeft:'30px'}} className={({isActive}) => isActive ? "active-header" : ""}>Login</NavLink> : <NavLink to={'/login'} className={({isActive}) => isActive ? "active-header" : ""}>{JSON.parse(sessionStorage.getItem('account')).fullname}</NavLink>}
-                        {!sessionStorage.getItem('account') ? <NavLink to={'/signup'} style={{paddingLeft:'30px'}} className={({isActive}) => isActive ? "active-header" : ""}>Sigup</NavLink> : <Link onClick={handleLogout} className={({isActive}) => isActive ? "active-header" : ""}>Signout</Link>}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Navbar expand="lg" className="bg-body-tertiary">
+            <Container>
+                <Navbar.Brand><NavLink to={'/'}><img style={{height:'56px'}} src='https://admin.googleusercontent.com/logo-scs-key2294502' alt='#'/></NavLink></Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link as={NavLink} to={'/'}>Home</Nav.Link>
+                        <Nav.Link as={NavLink} to={'/aboutus'}>About us</Nav.Link>
+                        <Nav.Link as={NavLink} to={'/post'} onClick={(e) => handleCheckLogin(e)}>Post</Nav.Link>
+                        {!sessionStorage.getItem('account') ? <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link> : <Nav.Link as={NavLink} to={'/login'}>{JSON.parse(sessionStorage.getItem('account')).fullname}</Nav.Link>}
+                        {!sessionStorage.getItem('account') ? <Nav.Link as={NavLink} to={'/signup'}>Sigup</Nav.Link> : <Nav.Link onClick={handleLogout}>Signout</Nav.Link>}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 

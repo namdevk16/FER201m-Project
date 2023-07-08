@@ -17,25 +17,28 @@ const Login = () => {
     const [check, setCheck] = useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
+    const loginRemember = () => {
         if (localStorage.getItem('account')) {
             const obj = JSON.parse(localStorage.getItem('account'));
             setEmail(obj.email);
             setPassword(obj.password);
         }
-    }, [])
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch(`http://localhost:9999/account?email=${email}&password=${password}`)
             .then(res => res.json())
             .then(data => {
-                if (data[0] !== undefined) {
+                if (data[0] !== undefined && data[0].role_id !== 1) {
                     sessionStorage.setItem('account', JSON.stringify(data[0]));
                     if (check === true) {
                         localStorage.setItem('account', JSON.stringify(data[0]));
                     }
                     navigate('/')
+                } else if (data[0] !== undefined && data[0].role_id === 1) {
+                    sessionStorage.setItem('account', JSON.stringify(data[0]));
+                    navigate('/admin');
                 } else {
                     alert('Your account not exist')
                 }
@@ -73,11 +76,11 @@ const Login = () => {
                             </div>
                             <form onSubmit={(e) => handleSubmit(e)}>
                                 <div>
-                                    <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                    <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} onMouseOver={loginRemember} />
                                     <span style={{ color: "red" }} className="error-email" ></span>
                                 </div>
                                 <div>
-                                    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)} onMouseOver={loginRemember} />
                                     <span style={{ color: "red" }} className="error-password" ></span>
                                 </div>
                                 <div>

@@ -1,412 +1,433 @@
 {
-    "role": [
-      {
-        "id": 1,
-        "role_name": "admin"
-      },
-      {
-        "id": 2,
-        "role_name": "user"
-      },
-      {
-        "id": 3,
-        "role_name": "host"
-      }
-    ],
-    "account": [
-      {
-        "id": 1,
-        "fullname": "Phạm Minh Tuấn",
-        "email": "tuanpm@gmail.com",
-        "phone": "0123456789",
-        "password": "12345678",
-        "role_id": 2
-      },
-      {
-        "id": 2,
-        "fullname": "Phan Nguyễn Tú Anh",
-        "email": "tuanhphan@gmail.com",
-        "phone": "0123456789",
-        "password": "12345678",
-        "role_id": 3
-      },
-      {
-        "id": 3,
-        "fullname": "Ngô Quang Bá",
-        "email": "banq@gmail.com",
-        "phone": "0123456789",
-        "password": "12345678",
-        "role_id": 3
-      },
-      {
-        "id": 4,
-        "fullname": "Ngô Hữu Nam",
-        "email": "namnh1@gmail.com",
-        "phone": "0123456789",
-        "password": "12345678",
-        "role_id": 2
-      },
-      {
-        "fullname": "Nguyễn Hoàng Nam",
-        "email": "namnh@gmail.com",
-        "password": "123456789",
-        "role_id": 2,
-        "id": 5
-      },
-      {
-        "fullname": "Ngô Bá Khá",
-        "email": "khanb@gmail.com",
-        "password": "123456789",
-        "role_id": 2,
-        "id": 6
-      }
-    ],
-    "region": [
-      {
-        "name": "Thị trấn Liên Quan",
-        "id": 1
-      },
-      {
-        "name": "Xã Bình Phú",
-        "id": 2
-      },
-      {
-        "name": "Xã Bình Yên",
-        "id": 3
-      },
-      {
-        "name": "Xã Cẩm Yên",
-        "id": 4
-      },
-      {
-        "name": "Xã Cần Kiệm",
-        "id": 5
-      },
-      {
-        "name": "Xã Canh Nậu",
-        "id": 6
-      },
-      {
-        "name": "Xã Chàng Sơn",
-        "id": 7
-      },
-      {
-        "name": "Xã Đại Đồng",
-        "id": 8
-      },
-      {
-        "name": "Xã Dị Nậu",
-        "id": 9
-      },
-      {
-        "name": "Xã Đồng Trúc",
-        "id": 10
-      },
-      {
-        "name": "Xã Hạ Bằng",
-        "id": 11
-      },
-      {
-        "name": "Xã Hương Ngải",
-        "id": 12
-      },
-      {
-        "name": "Xã Hữu Bằng",
-        "id": 13
-      },
-      {
-        "name": "Xã Kim Quan",
-        "id": 14
-      },
-      {
-        "name": "Xã Lại Thượng",
-        "id": 15
-      },
-      {
-        "name": "Xã Phú Kim",
-        "id": 16
-      },
-      {
-        "name": "Xã Phùng Xá",
-        "id": 17
-      },
-      {
-        "name": "Xã Tân Xã",
-        "id": 18
-      },
-      {
-        "name": "Xã Thạch Hoà",
-        "id": 19
-      },
-      {
-        "name": "Xã Thạch Xá",
-        "id": 20
-      },
-      {
-        "name": "Xã Tiến Xuân",
-        "id": 21
-      },
-      {
-        "name": "Xã Yên Bình",
-        "id": 22
-      },
-      {
-        "name": "Xã Yên Trung",
-        "id": 23
-      }
-    ],
-    "category": [
-      {
-        "id": 1,
-        "name": "dorm"
-      },
-      {
-        "id": 2,
-        "name": "house"
-      },
-      {
-        "id": 3,
-        "name": "hotel"
-      }
-    ],
-    "post": [
-  
-    ],
-    "houseInformation": [
-      {
-        "id": "1",
-        "category_id": 1,
-        "host_id": 2,
-        "name": "Nhà Trọ Anh Khang",
-        "contact": "0123456789",
-        "distance": "3",
-        "price": "2tr - 2.5tr",
-        "description": "Địa chỉ: Thôn 4 Hạ Bằng. tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 11,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Ban-sao-cua-Anh-Khang.png",
-        "area": "18-20m2"
-      },
-      {
-        "id": "2",
-        "category_id": "2",
-        "host_id": 3,
-        "name": "Nhà Trọ Anh Khánh",
-        "contact": "0946636721",
-        "distance": "3.5",
-        "price": "1.8tr - 2tr",
-        "description": "Địa chỉ: Thôn 4 Hạ Bằng. tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 11,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Khanh.png",
-        "area": "18-20m2"
-      },
-      {
-        "id": "3",
-        "category_id": "3",
-        "host_id": 4,
-        "name": "Nhà Trọ Long Thành",
-        "contact": "0946768456-0961143662",
-        "distance": "1.5",
-        "price": "1.6tr - 2.2tr",
-        "description": "Mô tả: Địa chỉ: Thôn 4 Thạch Hòa, Thạch Thất. tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Nhuan.png",
-        "area": "15-20m2"
-      },
-      {
-        "id": "4",
-        "category_id": "3",
-        "host_id": 2,
-        "name": "Nhà Trọ Anh Sơn",
-        "contact": "0523459999",
-        "distance": "5",
-        "price": "2tr - 3tr",
-        "description": "Địa chỉ: Thôn 1 - Thạch Hòa - TT - tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Sơn.jpeg",
-        "area": "15-30m2"
-      },
-      {
-        "id": "5",
-        "category_id": "2",
-        "host_id": 3,
-        "name": "Nhà trọ Anh Thu",
-        "contact": "0981110616 - 0936281879",
-        "distance": "3.5",
-        "price": "1.8tr -2.5tr",
-        "description": "Địa chỉ: Đồng Trạng - Đồng Trúc - ST - tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 10,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Thu.jpg",
-        "area": "20-25m2"
-      },
-      {
-        "id": "6",
-        "category_id": "1",
-        "host_id": 4,
-        "name": "Nhà trọ Anh Tuấn",
-        "contact": "0971249994",
-        "distance": "3.5",
-        "price": "1.7tr",
-        "description": "Địa chỉ: Mục Uyên 1 - Tân xã - TT - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 18,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Tuan.png",
-        "area": "16m2"
-      },
-      {
-        "id": "7",
-        "category_id": "1",
-        "host_id": 2,
-        "name": "Nhà trọ Bác Chính",
-        "contact": "0914836983",
-        "distance": "3",
-        "price": "1.2tr",
-        "description": "Địa chỉ: Thôn 3 Hạ Bằng cách ĐH FPT - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 11,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Bac-chinh.png",
-        "image_details": null,
-        "area": "20m2"
-      },
-      {
-        "id": "8",
-        "category_id": "2",
-        "host_id": 3,
-        "name": "Nhà trọ Chị Hương",
-        "contact": "0974631654",
-        "distance": "2.5",
-        "price": "1.8tr - 2.4tr",
-        "description": "Địa chỉ: Thôn 4, Thạch Hòa, Thạch Thất - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Huong.png",
-        "area": "15-20m2"
-      },
-      {
-        "id": "9",
-        "category_id": "3",
-        "host_id": 4,
-        "name": "Nhà trọ Chị Phương",
-        "contact": "0946882868 - 0914361239",
-        "distance": "2.5",
-        "price": "3.2tr",
-        "description": "Địa chỉ: Thôn 2 Thạch Hòa , Thạch Thất, Mặt đường 21A - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Phuong.png",
-        "area": "30m2"
-      },
-      {
-        "id": "10",
-        "category_id": "1",
-        "host_id": 2,
-        "name": "Nhà trọ Chị Thu",
-        "contact": "0972951319",
-        "distance": "2",
-        "price": "3tr - 3.5tr",
-        "description": "Địa chỉ: Thôn mục Uyên, xã Tân Xã, ngã 3 chợ Tân Xã - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 18,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Thu.png",
-        "area": "30m2"
-      },
-      {
-        "id": "11",
-        "category_id": "2",
-        "host_id": 3,
-        "name": "Nhà trọ Hải Anh",
-        "contact": "0979209777",
-        "distance": "4.5",
-        "price": "3tr - 4tr",
-        "description": "Địa chỉ: Phú Cát, Thạch Hòa, Thạch Thất - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát Giá: 3 - 4 (triệu đồng)",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Hai-anh.png",
-        "area": "25 - 35m2"
-      },
-      {
-        "id": "12",
-        "category_id": "3",
-        "host_id": 4,
-        "name": "Tòa nhà Happy House",
-        "contact": "0973223396",
-        "distance": "3.5",
-        "price": "3tr",
-        "description": "Địa chỉ: Thôn 2, Thạch Hòa, Thạch Thất - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Happy-house.jpg",
-        "area": "18 - 22m2"
-      },
-      {
-        "id": "13",
-        "category_id": "1",
-        "host_id": 2,
-        "name": "Nhà Trọ Hoàng Anh",
-        "contact": "0976972878",
-        "distance": "2.5",
-        "price": "2tr",
-        "description": "Địa chỉ: Thôn 1 - Thạch Hòa - TT - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Hoang-Anh.png",
-        "area": "16m2"
-      },
-      {
-        "id": "14",
-        "category_id": "2",
-        "host_id": 3,
-        "name": "Nhà trọ anh Thuận",
-        "contact": "0976605695",
-        "distance": "1.5",
-        "price": "1.5tr - 2tr",
-        "description": "Địa chỉ: Thôn 4 Thạch Hòa, TT - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Nha-tro-anh-Thuan.png",
-        "area": "18m2"
-      },
-      {
-        "id": "15",
-        "category_id": "3",
-        "host_id": 4,
-        "name": "Nhà trọ Sky - Homes",
-        "contact": "0912390638 - 0368309352",
-        "distance": "4.5",
-        "price": "3.5tr",
-        "description": "Địa chỉ: Khu TĐC Thạch Hòa, Thạch Thất, cách Phenikaa 200m -Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Sky-homes.png",
-        "area": "26m2"
-      },
-      {
-        "id": "16",
-        "category_id": "1",
-        "host_id": 2,
-        "name": "Nhà Trọ Việt Anh",
-        "contact": "0979209777",
-        "distance": "3.5",
-        "price": "3tr - 4.5tr",
-        "description": "Địa chỉ: Khu tái định cư, Phú Cát, Thạch Hòa Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Viet-anh.png",
-        "area": "25 - 32m2"
-      },
-      {
-        "id": "17",
-        "category_id": "2",
-        "host_id": 3,
-        "name": "Nhà trọ Việt Hằng",
-        "contact": "0989229321",
-        "distance": "3",
-        "price": "2tr",
-        "description": "Địa chỉ: chợ Hòa Lạc, Thôn 5, Thạch Hòa, Thạch Thất - Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 19,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Viet-Hang.jpg",
-        "area": "18 - 22m2"
-      },
-      {
-        "id": "18",
-        "category_id": "3",
-        "host_id": 4,
-        "name": "Nhà trọ Thúy Yêu",
-        "contact": "0976459738",
-        "distance": "2",
-        "price": "1.8tr - 2tr",
-        "description": " Địa chỉ: Thôn Mục Uyên - Tân Xã - Ngã 3 chợ -Tiện ích Giường, điều hòa, nóng lạnh, bồn rửa bát",
-        "address": 18,
-        "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Yeu-Thuy.png",
-        "area": "18 - 20m2"
-      }
-    ]
-  }
+  "role": [
+    {
+      "id": 1,
+      "role_name": "admin"
+    },
+    {
+      "id": 2,
+      "role_name": "user"
+    },
+    {
+      "id": 3,
+      "role_name": "host"
+    }
+  ],
+  "account": [
+    {
+      "id": 1,
+      "fullname": "Phạm Minh Tuấn",
+      "email": "tuanpm@gmail.com",
+      "phone": "0123456789",
+      "password": "12345678",
+      "role_id": 2
+    },
+    {
+      "id": 2,
+      "fullname": "Phan Nguyễn Tú Anh",
+      "email": "tuanhphan@gmail.com",
+      "phone": "0123456789",
+      "password": "12345678",
+      "role_id": 3
+    },
+    {
+      "id": 3,
+      "fullname": "Ngô Quang Bá",
+      "email": "banq@gmail.com",
+      "phone": "0123456789",
+      "password": "12345678",
+      "role_id": 3
+    },
+    {
+      "id": 4,
+      "fullname": "Ngô Hữu Nam",
+      "email": "namnh1@gmail.com",
+      "phone": "0123456789",
+      "password": "12345678",
+      "role_id": 3
+    },
+    {
+      "fullname": "Nguyễn Hoàng Nam",
+      "email": "namnh@gmail.com",
+      "password": "123456789",
+      "role_id": 2,
+      "id": 5
+    },
+    {
+      "fullname": "Ngô Bá Khá",
+      "email": "khanb@gmail.com",
+      "password": "123456789",
+      "role_id": 2,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "fullname": "Vương Minh Tuấn",
+      "email": "tuanvm@fpt.edu.vn",
+      "phone": "0123456789",
+      "password": "12345678",
+      "role_id": 1
+    }
+  ],
+  "region": [
+    {
+      "name": "Thị trấn Liên Quan",
+      "id": 1
+    },
+    {
+      "name": "Xã Bình Phú",
+      "id": 2
+    },
+    {
+      "name": "Xã Bình Yên",
+      "id": 3
+    },
+    {
+      "name": "Xã Cẩm Yên",
+      "id": 4
+    },
+    {
+      "name": "Xã Cần Kiệm",
+      "id": 5
+    },
+    {
+      "name": "Xã Canh Nậu",
+      "id": 6
+    },
+    {
+      "name": "Xã Chàng Sơn",
+      "id": 7
+    },
+    {
+      "name": "Xã Đại Đồng",
+      "id": 8
+    },
+    {
+      "name": "Xã Dị Nậu",
+      "id": 9
+    },
+    {
+      "name": "Xã Đồng Trúc",
+      "id": 10
+    },
+    {
+      "name": "Xã Hạ Bằng",
+      "id": 11
+    },
+    {
+      "name": "Xã Hương Ngải",
+      "id": 12
+    },
+    {
+      "name": "Xã Hữu Bằng",
+      "id": 13
+    },
+    {
+      "name": "Xã Kim Quan",
+      "id": 14
+    },
+    {
+      "name": "Xã Lại Thượng",
+      "id": 15
+    },
+    {
+      "name": "Xã Phú Kim",
+      "id": 16
+    },
+    {
+      "name": "Xã Phùng Xá",
+      "id": 17
+    },
+    {
+      "name": "Xã Tân Xã",
+      "id": 18
+    },
+    {
+      "name": "Xã Thạch Hoà",
+      "id": 19
+    },
+    {
+      "name": "Xã Thạch Xá",
+      "id": 20
+    },
+    {
+      "name": "Xã Tiến Xuân",
+      "id": 21
+    },
+    {
+      "name": "Xã Yên Bình",
+      "id": 22
+    },
+    {
+      "name": "Xã Yên Trung",
+      "id": 23
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "dorm"
+    },
+    {
+      "id": 2,
+      "name": "house"
+    },
+    {
+      "id": 3,
+      "name": "hotel"
+    }
+  ],
+  "posts": [
+    {
+      "category_id": 2,
+      "host_id": 2,
+      "name": "Nhà trọ Tú Anh",
+      "contact": "0123453154",
+      "price": "3tr/tháng",
+      "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 3 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/4f371cef-2d56-44d0-80e0-3e1aa9f5683e",
+      "area": "3m2",
+      "is_post": false,
+      "id": 1
+    }
+  ],
+  "houseInformation": [
+    {
+      "id": "1",
+      "category_id": 1,
+      "host_id": 2,
+      "name": "Nhà Trọ Anh Khang",
+      "contact": "0123456789",
+      "price": "2-2.5tr/tháng",
+      "description": "Giá Phòng 2tr-2.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 11,
+      "address": "Thôn 4 Hạ Bằng",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Ban-sao-cua-Anh-Khang.png",
+      "area": "18-20m2"
+    },
+    {
+      "id": "2",
+      "category_id": "2",
+      "host_id": 3,
+      "name": "Nhà Trọ Anh Khánh",
+      "contact": "0946636721",
+      "price": "1.8-2tr/tháng",
+      "description": "Giá Phòng 1.8tr-2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 11,
+      "address": "Thôn 4 Hạ Bằng",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Khanh.png",
+      "area": "18-20m2"
+    },
+    {
+      "id": "3",
+      "category_id": "3",
+      "host_id": 4,
+      "name": "Nhà Trọ Long Thành",
+      "contact": "0946768456-0961143662",
+      "price": "1.6-2.2/tháng",
+      "description": "Giá Phòng 1.6tr-2.2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 4 Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Nhuan.png",
+      "area": "15-20m2"
+    },
+    {
+      "id": "4",
+      "category_id": "3",
+      "host_id": 2,
+      "name": "Nhà Trọ Anh Sơn",
+      "contact": "0523459999",
+      "price": "2-3tr/tháng",
+      "description": "Giá Phòng 2tr-3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 1 Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Sơn.jpeg",
+      "area": "15-30m2"
+    },
+    {
+      "id": "5",
+      "category_id": "2",
+      "host_id": 3,
+      "name": "Nhà trọ Anh Thu",
+      "contact": "0981110616 - 0936281879",
+      "price": "1.8-2.5tr/tháng",
+      "description": "Giá Phòng 1.8tr-2.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 10,
+      "address": "Đồng Trạng Đồng Trúc, ST",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Thu.jpg",
+      "area": "20-25m2"
+    },
+    {
+      "id": "6",
+      "category_id": "1",
+      "host_id": 4,
+      "name": "Nhà trọ Anh Tuấn",
+      "contact": "0971249994",
+      "price": "1.7tr/tháng",
+      "description": "Giá Phòng 1.7tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 18,
+      "address": "Mục Uyên 1 Tân xã, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Tuan.png",
+      "area": "16m2"
+    },
+    {
+      "id": "7",
+      "category_id": "1",
+      "host_id": 2,
+      "name": "Nhà trọ Bác Chính",
+      "contact": "0914836983",
+      "price": "1.2tr/tháng",
+      "description": "Giá Phòng 1.2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 11,
+      "address": "Thôn 3 Hạ Bằng",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Bac-chinh.png",
+      "image_details": null,
+      "area": "20m2"
+    },
+    {
+      "id": "8",
+      "category_id": "2",
+      "host_id": 3,
+      "name": "Nhà trọ Chị Hương",
+      "contact": "0974631654",
+      "price": "1.8-2.4tr/tháng",
+      "description": "Giá Phòng 1.8tr-2.4tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 4, Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Huong.png",
+      "area": "15-20m2"
+    },
+    {
+      "id": "9",
+      "category_id": "3",
+      "host_id": 4,
+      "name": "Nhà trọ Chị Phương",
+      "contact": "0946882868 - 0914361239",
+      "price": "3.2tr/tháng",
+      "description": "Giá Phòng 3.2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 2 Thạch Hòa , Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Phuong.png",
+      "area": "30m2"
+    },
+    {
+      "id": "10",
+      "category_id": "1",
+      "host_id": 2,
+      "name": "Nhà trọ Chị Thu",
+      "contact": "0972951319",
+      "price": "3-3.5tr/tháng",
+      "description": "Giá Phòng 3tr-3.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 18,
+      "address": "Thôn Mục Uyên Tân Xã, ngã 3 chợ Tân Xã",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Thu.png",
+      "area": "30m2"
+    },
+    {
+      "id": "11",
+      "category_id": "2",
+      "host_id": 3,
+      "name": "Nhà trọ Hải Anh",
+      "contact": "0979209777",
+      "price": "3-4tr/tháng",
+      "description": "Giá Phòng 3tr-4tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Phú Cát, Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Hai-anh.png",
+      "area": "25 - 35m2"
+    },
+    {
+      "id": "12",
+      "category_id": "3",
+      "host_id": 4,
+      "name": "Tòa nhà Happy House",
+      "contact": "0973223396",
+      "price": "3tr/tháng",
+      "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 2, Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Happy-house.jpg",
+      "area": "18 - 22m2"
+    },
+    {
+      "id": "13",
+      "category_id": "1",
+      "host_id": 2,
+      "name": "Nhà Trọ Hoàng Anh",
+      "contact": "0976972878",
+      "price": "2tr/tháng",
+      "description": "Giá Phòng 2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 1 Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Hoang-Anh.png",
+      "area": "16m2"
+    },
+    {
+      "id": "14",
+      "category_id": "2",
+      "host_id": 3,
+      "name": "Nhà trọ anh Thuận",
+      "contact": "0976605695",
+      "price": "1.5-2tr/tháng",
+      "description": "Giá Phòng 1.5tr-2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 4 Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Nha-tro-anh-Thuan.png",
+      "area": "18m2"
+    },
+    {
+      "id": "15",
+      "category_id": "3",
+      "host_id": 4,
+      "name": "Nhà trọ Sky - Homes",
+      "contact": "0912390638 - 0368309352",
+      "price": "3.5tr/tháng",
+      "description": "Giá Phòng 3.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Khu TĐC Thạch Hòa, Thạch Thất, cách Phenikaa 200m",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Sky-homes.png",
+      "area": "26m2"
+    },
+    {
+      "id": "16",
+      "category_id": "1",
+      "host_id": 2,
+      "name": "Nhà Trọ Việt Anh",
+      "contact": "0979209777",
+      "price": "3-4.5tr/tháng",
+      "description": "Giá Phòng 3tr-4.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Khu tái định cư, Phú Cát, Thạch Hòa",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Viet-anh.png",
+      "area": "25 - 32m2"
+    },
+    {
+      "id": "17",
+      "category_id": "2",
+      "host_id": 3,
+      "name": "Nhà trọ Việt Hằng",
+      "contact": "0989229321",
+      "price": "2tr/tháng",
+      "description": "Giá Phòng 2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Chợ Hòa Lạc, Thôn 5, Thạch Hòa, Thạch Thất",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Viet-Hang.jpg",
+      "area": "18 - 22m2"
+    },
+    {
+      "id": "18",
+      "category_id": "3",
+      "host_id": 4,
+      "name": "Nhà trọ Thúy Yêu",
+      "contact": "0976459738",
+      "price": "1.8-2tr/tháng",
+      "description": "Giá Phòng 1.8tr-2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 18,
+      "address": "Thôn Mục Uyên Tân Xã, Ngã 3 chợ Hòa Lạc",
+      "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Yeu-Thuy.png",
+      "area": "18 - 20m2"
+    }
+  ]
+}
