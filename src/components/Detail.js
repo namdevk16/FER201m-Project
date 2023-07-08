@@ -38,17 +38,17 @@ const Detail = () => {
                     <h2 style={{ color: 'red' }}>{house.name}</h2>
                 </div>
                 <div className='house-detail-address'>
-                    <i class="fas fa-map-marker-alt"></i>
+                    <i style={{marginRight:'8px'}} class="fas fa-map-marker-alt"></i>
                     <span>{house.address}</span>
                 </div>
                 <div className='house-detail-price'>
-                <i class="far fa-money-bill-alt"></i>
+                    <i style={{marginRight:'8px'}} class="far fa-money-bill-alt"></i>
                     <span>{house.price}</span>
                 </div>
                 <div className='house-detail-description'>
                     <p style={{ fontSize: '20px', fontWeight: '700' }}>Thông tin mô tả</p>
                     {
-                        house.description && house.description.split('.').map(des =>
+                        house.description && house.description.split('. ').map(des =>
                                 <p>{des}.</p>
                             )
                     }

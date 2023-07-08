@@ -32,43 +32,6 @@ const SignUp = () => {
     };
 
     const handleRegister = (e) => {
-        // // Tạo một đối tượng tài khoản mới
-        // const newAccount = {
-        //     fullName: fullName,
-        //     password: password,
-        //     email: email,
-        //     phone: phoneNumber,
-        //     role_id: role_id
-        // };
-
-        // // Gửi yêu cầu POST để thêm tài khoản mới vào tệp JSON
-        // // axios.post('http://localhost:9999/account', { account: newAccount })
-        // //     .then((response) => {
-        // //         console.log(response);
-        // //         setMessage('Đăng ký thành công.');
-        // //     })
-        // //     .catch((error) => {
-        // //         console.log(error);
-        // //         setMessage('Có lỗi xảy ra khi đăng ký.');
-        // //     });
-
-        // const option = {
-        //     method: "POST",
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //         // 'Content-Type': 'application/x-www-form-urlencoded',
-        //     },
-        //     body: JSON.stringify(newAccount)
-        // }
-        // fetch(`http://localhost:9999/account`, option)
-        //     .then(res => res.json())
-        //     .then(() => {
-        //         alert('Đăng ký thành công.');
-        //     })
-        //     .catch((error) => {
-        //         console.log(error);
-        //         alert('Có lỗi xảy ra khi đăng ký.');
-        //     });
         const listInputs = document.querySelectorAll('.form-control');
         const listErrors = document.querySelectorAll('.error');
         if ([...listInputs].every(listInput => listInput.value !== '')) {
@@ -97,7 +60,6 @@ const SignUp = () => {
                     alert('Có lỗi xảy ra khi đăng ký.');
                 });
         }
-
         e.preventDefault();
         if ([...listInputs].every(listInput => listInput.value === '')) {
             [...listErrors].forEach(listError =>

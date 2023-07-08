@@ -67,40 +67,7 @@
       "phone": "0123456789",
       "password": "12345678",
       "role_id": 1
-    },
-    {
-      "fullName": "Vũ Hồng Quang ",
-      "password": "12345678",
-      "email": "QuangVH@gmail.com",
-      "phone": "0948273842",
-      "role_id": 2,
-      "id": 8
-    },
-    {
-      "fullName": "Ngô Toàn Thông",
-      "password": "12345678",
-      "email": "ThongNT@gmail.com",
-      "phone": "923842822",
-      "role_id": 2,
-      "id": 9
-    },
-    {
-      "fullName": "Hoàng Cửu bảo",
-      "password": "12345678",
-      "email": "BaoHC@gmail.com",
-      "phone": "0947452458",
-      "role_id": 3,
-      "id": 10
-    },
-    {
-      "fullName": "Bùi Việt Hoàng",
-      "password": "12345678",
-      "email": "HoangBV@gmail.com",
-      "phone": "0988422834",
-      "role_id": 3,
-      "id": 11
     }
-
   ],
   "region": [
     {
@@ -220,15 +187,57 @@
       "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 3 xã Thạch Hòa, Thạch Thất",
-      "thumb": "blob:http://localhost:3000/4f371cef-2d56-44d0-80e0-3e1aa9f5683e",
+      "thumb": "blob:http://localhost:3000/e2e1772f-8759-46bc-b3e2-27745c0dfb6c",
       "area": "3m2",
-      "is_post": false,
+      "is_post": true,
       "id": 1
+    },
+    {
+      "category_id": 2,
+      "host_id": 3,
+      "name": "Nhà Trọ Anh Bá",
+      "contact": "0123453165",
+      "price": "4tr/tháng",
+      "description": "Giá Phòng 4tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 7 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/3a151c59-47d4-4f27-a108-1343619ec20e",
+      "area": "5m2",
+      "is_post": true,
+      "id": 2
+    },
+    {
+      "category_id": 2,
+      "host_id": 3,
+      "name": "Nhà trọ Nguyễn Tuấn",
+      "contact": "0123453143",
+      "price": "2tr/tháng",
+      "description": "Giá Phòng 2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 4 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/f73d65f4-fa40-459c-ad5d-9817b79ee01c",
+      "area": "3m2",
+      "is_post": true,
+      "id": 3
+    },
+    {
+      "category_id": 1,
+      "host_id": 4,
+      "name": "Nhà trọ Ngô Thùy",
+      "contact": "0123453178",
+      "price": "3tr/tháng",
+      "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 8 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/d73196c1-43b9-470e-8212-3a140f3701ec",
+      "area": "2m2",
+      "is_post": true,
+      "id": 4
     }
   ],
   "houseInformation": [
     {
-      "id": "1",
+      "id": 1,
       "category_id": 1,
       "host_id": 2,
       "name": "Nhà Trọ Anh Khang",
@@ -241,8 +250,8 @@
       "area": "18-20m2"
     },
     {
-      "id": "2",
-      "category_id": "2",
+      "id": 2,
+      "category_id": 2,
       "host_id": 3,
       "name": "Nhà Trọ Anh Khánh",
       "contact": "0946636721",
@@ -254,8 +263,8 @@
       "area": "18-20m2"
     },
     {
-      "id": "3",
-      "category_id": "3",
+      "id": 3,
+      "category_id": 3,
       "host_id": 4,
       "name": "Nhà Trọ Long Thành",
       "contact": "0946768456-0961143662",
@@ -267,8 +276,8 @@
       "area": "15-20m2"
     },
     {
-      "id": "4",
-      "category_id": "3",
+      "id": 4,
+      "category_id": 3,
       "host_id": 2,
       "name": "Nhà Trọ Anh Sơn",
       "contact": "0523459999",
@@ -280,8 +289,8 @@
       "area": "15-30m2"
     },
     {
-      "id": "5",
-      "category_id": "2",
+      "id": 5,
+      "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Anh Thu",
       "contact": "0981110616 - 0936281879",
@@ -293,8 +302,8 @@
       "area": "20-25m2"
     },
     {
-      "id": "6",
-      "category_id": "1",
+      "id": 6,
+      "category_id": 1,
       "host_id": 4,
       "name": "Nhà trọ Anh Tuấn",
       "contact": "0971249994",
@@ -306,8 +315,8 @@
       "area": "16m2"
     },
     {
-      "id": "7",
-      "category_id": "1",
+      "id": 7,
+      "category_id": 1,
       "host_id": 2,
       "name": "Nhà trọ Bác Chính",
       "contact": "0914836983",
@@ -316,12 +325,11 @@
       "address_id": 11,
       "address": "Thôn 3 Hạ Bằng",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Bac-chinh.png",
-      "image_details": null,
       "area": "20m2"
     },
     {
-      "id": "8",
-      "category_id": "2",
+      "id": 8,
+      "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Chị Hương",
       "contact": "0974631654",
@@ -333,8 +341,8 @@
       "area": "15-20m2"
     },
     {
-      "id": "9",
-      "category_id": "3",
+      "id": 9,
+      "category_id": 3,
       "host_id": 4,
       "name": "Nhà trọ Chị Phương",
       "contact": "0946882868 - 0914361239",
@@ -346,8 +354,8 @@
       "area": "30m2"
     },
     {
-      "id": "10",
-      "category_id": "1",
+      "id": 10,
+      "category_id": 1,
       "host_id": 2,
       "name": "Nhà trọ Chị Thu",
       "contact": "0972951319",
@@ -359,8 +367,8 @@
       "area": "30m2"
     },
     {
-      "id": "11",
-      "category_id": "2",
+      "id": 11,
+      "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Hải Anh",
       "contact": "0979209777",
@@ -372,8 +380,8 @@
       "area": "25 - 35m2"
     },
     {
-      "id": "12",
-      "category_id": "3",
+      "id": 12,
+      "category_id": 3,
       "host_id": 4,
       "name": "Tòa nhà Happy House",
       "contact": "0973223396",
@@ -385,8 +393,8 @@
       "area": "18 - 22m2"
     },
     {
-      "id": "13",
-      "category_id": "1",
+      "id": 13,
+      "category_id": 1,
       "host_id": 2,
       "name": "Nhà Trọ Hoàng Anh",
       "contact": "0976972878",
@@ -398,8 +406,8 @@
       "area": "16m2"
     },
     {
-      "id": "14",
-      "category_id": "2",
+      "id": 14,
+      "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ anh Thuận",
       "contact": "0976605695",
@@ -411,8 +419,8 @@
       "area": "18m2"
     },
     {
-      "id": "15",
-      "category_id": "3",
+      "id": 15,
+      "category_id": 3,
       "host_id": 4,
       "name": "Nhà trọ Sky - Homes",
       "contact": "0912390638 - 0368309352",
@@ -424,8 +432,8 @@
       "area": "26m2"
     },
     {
-      "id": "16",
-      "category_id": "1",
+      "id": 16,
+      "category_id": 1,
       "host_id": 2,
       "name": "Nhà Trọ Việt Anh",
       "contact": "0979209777",
@@ -437,8 +445,8 @@
       "area": "25 - 32m2"
     },
     {
-      "id": "17",
-      "category_id": "2",
+      "id": 17,
+      "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Việt Hằng",
       "contact": "0989229321",
@@ -450,8 +458,8 @@
       "area": "18 - 22m2"
     },
     {
-      "id": "18",
-      "category_id": "3",
+      "id": 18,
+      "category_id": 3,
       "host_id": 4,
       "name": "Nhà trọ Thúy Yêu",
       "contact": "0976459738",
@@ -461,6 +469,58 @@
       "address": "Thôn Mục Uyên Tân Xã, Ngã 3 chợ Hòa Lạc",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Yeu-Thuy.png",
       "area": "18 - 20m2"
+    },
+    {
+      "category_id": 2,
+      "host_id": 2,
+      "name": "Nhà trọ Tú Anh",
+      "contact": "0123453154",
+      "price": "3tr/tháng",
+      "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 3 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/e2e1772f-8759-46bc-b3e2-27745c0dfb6c",
+      "area": "3m2",
+      "id": 19
+    },
+    {
+      "category_id": 2,
+      "host_id": 3,
+      "name": "Nhà Trọ Anh Bá",
+      "contact": "0123453165",
+      "price": "4tr/tháng",
+      "description": "Giá Phòng 4tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 7 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/3a151c59-47d4-4f27-a108-1343619ec20e",
+      "area": "5m2",
+      "id": 20
+    },
+    {
+      "category_id": 2,
+      "host_id": 3,
+      "name": "Nhà trọ Nguyễn Tuấn",
+      "contact": "0123453143",
+      "price": "2tr/tháng",
+      "description": "Giá Phòng 2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 4 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/f73d65f4-fa40-459c-ad5d-9817b79ee01c",
+      "area": "3m2",
+      "id": 21
+    },
+    {
+      "category_id": 1,
+      "host_id": 4,
+      "name": "Nhà trọ Ngô Thùy",
+      "contact": "0123453178",
+      "price": "3tr/tháng",
+      "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "address_id": 19,
+      "address": "Thôn 8 xã Thạch Hòa, Thạch Thất",
+      "thumb": "blob:http://localhost:3000/d73196c1-43b9-470e-8212-3a140f3701ec",
+      "area": "2m2",
+      "id": 22
     }
   ]
 }
