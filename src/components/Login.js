@@ -76,11 +76,11 @@ const Login = () => {
                             </div>
                             <form onSubmit={(e) => handleSubmit(e)}>
                                 <div>
-                                    <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} onMouseOver={loginRemember} />
+                                    <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
                                     <span style={{ color: "red" }} className="error-email" ></span>
                                 </div>
                                 <div>
-                                    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)} onMouseOver={loginRemember} />
+                                    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
                                     <span style={{ color: "red" }} className="error-password" ></span>
                                 </div>
                                 <div>

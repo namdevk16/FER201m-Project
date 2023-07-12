@@ -17,6 +17,7 @@ const Post = () => {
     const [houses, setHouses] = useState([]);
 
     const navigate = useNavigate();
+    console.log(image);
 
     useEffect(() => {
         fetch(`http://localhost:9999/houseInformation?host_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
@@ -44,6 +45,14 @@ const Post = () => {
     const closeModal = () => {
         const modal = document.querySelector('.modal-house');
         modal.classList.remove('open');
+    }
+
+    const handleImage = (e) => {
+        const fr = new FileReader();
+        fr.readAsDataURL(e.target.files[0]);
+        fr.addEventListener('load', () => {
+            setImage(fr.result)
+        })
     }
 
     const hadleSubmit = (e) => {
@@ -160,7 +169,7 @@ const Post = () => {
                         </div>
                         <div className="input-image">
                             <label htmlFor="image">Image</label>
-                            <input id="image" type="file" className="form-control" onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))} />
+                            <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => handleImage(e)} />
                             <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="select">

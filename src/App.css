@@ -38,7 +38,7 @@
 
 /* Các class css của Content.js */
 .content {
-  margin: 110px 0;
+  margin: 80px 0;
 }
 
 .category {
@@ -91,47 +91,86 @@
 
 /* Các class css của Detail.js */
 .detail {
-  margin: 110px 0;
-  display: flex;
-  justify-content: space-between;
+  margin: 80px 0;
 }
 
-.house-detail {
-  flex-basis: 65%;
+.detail img {
+  width: 100%;
+  height: 500px;
+  min-height: 200px;
 }
 
-.house-detail-name {
-  margin-top: 12px;
-}
-
-.infor-host {
-  flex-basis: 30%;
-  background-color: #febb02;
-  max-height: 364px;
-  display: flex;
-  justify-content: center;
-}
-
-.infor-host img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-
-.infor-host-item {
-  text-align: center;
-  margin-top: 12px;
-  color: white;
-}
-
-.infor-host-item p {
-  font-size: 16px;
+.detail-title .title-text {
+  margin-top: 20px;
+  font-size: 45px;
   font-weight: 600;
 }
 
-.infor-host-item i {
+.detail-address i {
   margin-right: 8px;
+  color: rgb(39, 211, 211)
+}
+
+.detail-address span {
+  font-size: 20px;
+}
+
+.detail-houseinfor i {
+  margin-right: 8px;
+  color: rgb(225, 104, 124);
+  font-size: 25px;
+}
+
+.detail-hostinfor i {
+  margin-right: 8px;
+  color: rgb(0, 98, 255);
+  font-size: 25px;
+}
+
+.note-title i {
+  margin-right: 8px;
+  color: rgb(226, 98, 120);
+  font-size: 25px;
+}
+
+.infor .title {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.detail-hostinfor img {
+  width: 150px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.capacity {
+  display: flex;
+  justify-content: space-around;
+}
+
+.large, .medium, .smalll {
+  flex-basis: 30%;
+}
+
+.capacity-number {
+  padding: 8px 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+}
+
+.capacity-number-large {
+  background-color: #0F88A1;
+}
+
+.capacity-number-medium {
+  background-color: #1EDB4C;
+}
+
+.capacity-number-small {
+  background-color: #FFAB1D;
 }
 
 /* Hết */
@@ -163,7 +202,7 @@
 
 /* Các class css của Content.js */
 .post {
-  margin: 110px 0;
+  margin: 80px 0;
 }
 .create {
   padding: 8px;
@@ -240,11 +279,6 @@
   display: flex;
   justify-content: space-between;
 }
-
-/* Hết */
-
-
-/* Các class css của Content.js */
 
 /* Hết */
 
