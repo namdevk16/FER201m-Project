@@ -91,7 +91,7 @@ const Login = () => {
 
                                 <div className="text-center pt-1 mb-5 pb-1">
                                     <MDBBtn className="mb-4 w-100 gradient-custom-2" type='submit'>Login</MDBBtn>
-                                    <NavLink to={'/changepassword'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Forgot Password?</NavLink>
+                                    <NavLink to={'/forgotpassword'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Forgot Password?</NavLink>
                                 </div>
                             </form>
                         </div>

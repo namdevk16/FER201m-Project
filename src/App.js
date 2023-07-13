@@ -8,7 +8,9 @@ import SignUpPage from './pages/SignUpPage';
 import AboutUsPage from './pages/AboutUsPage';
 import PostPage from './pages/PostPage';
 import AdminPage from './pages/AdminPage';
-import HouseOfHostPage from './pages/HouseOfHostPage'
+import HouseOfHostPage from './pages/HouseOfHostPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path='/post' element={<PostPage />}></Route>
         <Route path='/admin' element={<AdminPage />}></Route>
         <Route path='/houseofhost' element={<HouseOfHostPage />}></Route>
+        <Route path='/forgotpassword' element={<ForgotPasswordPage />}></Route>
+        <Route path='/resetpassword/:email' element={<ResetPasswordPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

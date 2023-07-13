@@ -1,0 +1,102 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
+
+
+const ResetPassword = () => {
+    const { email } = useParams();
+    const navigate = useNavigate();
+    const [account, setAccount] = useState();
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+
+    useEffect(() => {
+        fetch(`http://localhost:9999/account?email=${email}`)
+            .then(res => res.json())
+            .then(data => setAccount(data[0]))
+    })
+
+    const handleResetPassword = async (e) => {
+        e.preventDefault();
+
+        if (newPassword === confirmPassword) {
+            try {
+                const response = await fetch(`http://localhost:9999/account/${account.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        fullname: account.fullname,
+                        email: email,
+                        phone: account.phone,
+                        password: newPassword,
+                        role_id: account.role_id
+                    }),
+                });
+
+                if (response.ok) {
+                    alert('Password updated successfully');
+                    navigate('/login');
+                } else {
+                    alert('Failed to update password');
+                }
+            } catch (error) {
+                console.log('Error:', error);
+            }
+        } else {
+            console.log('Passwords do not match');
+        }
+    };
+
+    return (
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                    <div class="d-table-cell align-middle">
+
+                        <div class="text-center mt-4">
+                            <h1 class="h2">Reset password</h1>
+                            <p class="lead">
+                                Set a new password.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="m-sm-4">
+                                    <form onSubmit={handleResetPassword}>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-lg"
+                                                type="password"
+                                                placeholder="New Password"
+                                                value={newPassword}
+                                                onChange={(e) => setNewPassword(e.target.value)} />
+                                            <input class="form-control form-control-lg"
+                                                type="password"
+                                                placeholder="Confirm Password"
+                                                value={confirmPassword}
+                                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <button type="submit" class="btn btn-lg btn-primary">Save Change</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    );
+};
+
+export default ResetPassword;
