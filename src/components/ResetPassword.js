@@ -31,6 +31,7 @@ const ResetPassword = () => {
                         email: email,
                         phone: account.phone,
                         password: newPassword,
+                        avatar: account.avatar,
                         role_id: account.role_id
                     }),
                 });
