@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 const Detail = () => {
 
     const { id } = useParams();
+    
     const [house, setHouse] = useState({});
     const [hosts, setHosts] = useState([]);
     const [relateHouses, setRelateHouses] = useState([]);

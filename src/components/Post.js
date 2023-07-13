@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Post = () => {
 
@@ -16,11 +16,8 @@ const Post = () => {
     const [region, setRegion] = useState([]);
     const [houses, setHouses] = useState([]);
 
-    const navigate = useNavigate();
-    console.log(image);
-
     useEffect(() => {
-        fetch(`http://localhost:9999/houseInformation?host_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
+        fetch(`http://localhost:9999/posts?host_id=${JSON.parse(sessionStorage.getItem('account')).id}&is_post=false`)
             .then(res => res.json())
             .then(data => setHouses(data))
     }, [])
@@ -47,13 +44,13 @@ const Post = () => {
         modal.classList.remove('open');
     }
 
-    const handleImage = (e) => {
-        const fr = new FileReader();
-        fr.readAsDataURL(e.target.files[0]);
-        fr.addEventListener('load', () => {
-            setImage(fr.result)
-        })
-    }
+    // const handleImage = (e) => {
+    //     const fr = new FileReader();
+    //     fr.readAsDataURL(e.target.files[0]);
+    //     fr.addEventListener('load', () => {
+    //         setImage(fr.result)
+    //     })
+    // }
 
     const hadleSubmit = (e) => {
         const listInputs = document.querySelectorAll('.form-control');
@@ -141,7 +138,7 @@ const Post = () => {
                         <div key={house.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
                             <Link to={`/house/detail/${house.id}`}>
                                 <div className='house-img'>
-                                    <img style={{ width: "100%", height: "300px" }} src={house.thumb} alt='#' />
+                                    <img style={{ width: "100%", height: "300px" }} src={`http://localhost:3000/images/${house.thumb}`} alt='#' />
                                 </div>
                                 <div className='house-name'>{house.name}</div>
                                 <div>
@@ -150,6 +147,7 @@ const Post = () => {
                                 </div>
                             </Link>
                             <span style={{float:"left"}}><button className="btn btn-success">Edit</button></span>
+                            <span>{house.is_post ? 'Đang chờ xử lý' : ''}</span>
                             <span style={{float:"right"}}><button className="btn btn-danger" onClick={(() => handleDelete(house.id))}>Delete</button></span>
                         </div>
                     )
@@ -194,7 +192,7 @@ const Post = () => {
                         </div>
                         <div className="input-image">
                             <label htmlFor="image">Image</label>
-                            <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => handleImage(e)} />
+                            <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
                             <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="select">

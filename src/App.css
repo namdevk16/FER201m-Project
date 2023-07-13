@@ -15,22 +15,21 @@
   left: 0;
 }
 
-.header-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.header-post {
+  position: relative;
 }
 
-
-.header-item a {
-  text-decoration: none;
-  font-weight: 600;
-  color: rgb(0, 0, 0);
-  padding: 0 10px;
-}
-
-.active-header {
-  background-color: #57de57;
+.header-quantity {
+  position: absolute;
+  background-color: rgb(255, 0, 85);
+  font-size: 12px;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  color: white;
+  width: 12px;
+  text-align: center;
+  padding-left: 1px;
 }
 
 /* Hết */

@@ -1,9 +1,23 @@
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 
 const Header = () => {
+
     const navigate = useNavigate();
+
+    const [quantity, setQuantity] = useState();
+
+    useEffect(() => {
+        if(sessionStorage.getItem('account') == null) {
+            setQuantity(0)
+        } else {
+            fetch(`http://localhost:9999/posts?host_id=${JSON.parse(sessionStorage.getItem('account')).id}&is_post=false`)
+                .then(res => res.json())
+                .then(data => setQuantity(data.length))
+        }
+    }, [])
 
     const handleLogout = () => {
         sessionStorage.removeItem('account');
@@ -33,11 +47,15 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Nav.Link as={NavLink} to={'/'}>Home</Nav.Link>
                         <Nav.Link as={NavLink} to={'/aboutus'}>About us</Nav.Link>
-                        <Nav.Link as={NavLink} to={'/post'} onClick={(e) => handleCheckLogin(e)}>Post</Nav.Link>
+                        <Nav.Link className='header-post' as={NavLink} to={'/post'} onClick={(e) => handleCheckLogin(e)}>
+                            <span>Post</span>
+                            <span className='header-quantity'>{quantity}</span>
+                        </Nav.Link>
                         {
                             !sessionStorage.getItem('account') ? <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link> :
                                 <NavDropdown title={JSON.parse(sessionStorage.getItem('account')).fullname} id="basic-nav-dropdown">
                                     <NavDropdown.Item href="#action/3.2">Trang cá nhân</NavDropdown.Item>
+                                    <NavDropdown.Item as={NavLink} to={'/houseofhost'}>Nhà của bạn</NavDropdown.Item>
                                     <NavDropdown.Item as={NavLink} to={'/changepassword'}>Thay đổi mật khẩu</NavDropdown.Item>
                                 </NavDropdown>
                         }

@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage';
 import AboutUsPage from './pages/AboutUsPage';
 import PostPage from './pages/PostPage';
 import AdminPage from './pages/AdminPage';
+import HouseOfHostPage from './pages/HouseOfHostPage'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/aboutus' element={<AboutUsPage/>}/>
         <Route path='/post' element={<PostPage />}></Route>
         <Route path='/admin' element={<AdminPage />}></Route>
+        <Route path='/houseofhost' element={<HouseOfHostPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
