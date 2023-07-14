@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Post = () => {
 
@@ -12,20 +12,32 @@ const Post = () => {
     const [image, setImage] = useState();
     const [village, setVillage] = useState(1);
     const [category, setCategory] = useState(1);
+
+
     const [categories, setCategories] = useState([]);
     const [region, setRegion] = useState([]);
-    const [houses, setHouses] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [accounts, setAccounts] = useState([]);
+
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`http://localhost:9999/posts?host_id=${JSON.parse(sessionStorage.getItem('account')).id}&is_post=false`)
             .then(res => res.json())
-            .then(data => setHouses(data))
+            .then(data => setPosts(data))
     }, [])
 
     useEffect(() => {
         fetch('http://localhost:9999/region')
             .then(res => res.json())
             .then(data => setRegion(data))
+    }, [])
+
+    useEffect(() => {
+        fetch('http://localhost:9999/account')
+            .then(res => res.json())
+            .then(data => setAccounts(data))
     }, [])
 
     useEffect(() => {
@@ -44,13 +56,13 @@ const Post = () => {
         modal.classList.remove('open');
     }
 
-    // const handleImage = (e) => {
-    //     const fr = new FileReader();
-    //     fr.readAsDataURL(e.target.files[0]);
-    //     fr.addEventListener('load', () => {
-    //         setImage(fr.result)
-    //     })
-    // }
+    const handleImage = (e) => {
+        const fr = new FileReader();
+        fr.readAsDataURL(e.target.files[0]);
+        fr.addEventListener('load', () => {
+            setImage(fr.result)
+        })
+    }
 
     const hadleSubmit = (e) => {
         const listInputs = document.querySelectorAll('.form-control');
@@ -104,28 +116,19 @@ const Post = () => {
         }
     }
 
-        const handleDelete = (id) => {
+    const handleDelete = (id) => {
         if (window.confirm("Do you want to remove")) {
-          Promise.all([
-            fetch(`http://localhost:9999/post/${id}`, {
-              method: "DELETE"
-            }),
-            fetch(`http://localhost:9999/houseInformation/${id}`, {
-              method: "DELETE"
-            })
-          ])
-            .then(() => {
-              alert("Delete success.");
-              // Sau khi xóa thành công, cần cập nhật danh sách bài đăng
-              fetch(`http://localhost:9999/houseInformation?host_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
-                .then(res => res.json())
-                .then(data => setHouses(data));
-            })
-            .catch(err => {
-              console.log(err.message);
-            });
+            const option = {
+                method: "DELETE",
+            }
+            fetch(`http://localhost:9999/posts/${id}`, option)
+                .then(() => {
+                    alert("Delete success.");
+                    navigate('/post')
+                }
+                )
         }
-      };
+    }
 
     return (
         <div className="container post">
@@ -134,21 +137,24 @@ const Post = () => {
 
             <div className='row'>
                 {
-                    houses.map(house =>
-                        <div key={house.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                            <Link to={`/house/detail/${house.id}`}>
+                    posts.map(post =>
+                        <div key={post.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                            <Link to={`/post/edit/${post.id}`}>
                                 <div className='house-img'>
-                                    <img style={{ width: "100%", height: "300px" }} src={`http://localhost:3000/images/${house.thumb}`} alt='#' />
+                                    <img style={{ width: "100%", height: "300px" }} src={post.thumb} alt='#' />
                                 </div>
-                                <div className='house-name'>{house.name}</div>
+                                <div className='house-name'>{post.name}</div>
                                 <div>
                                     <span>Liên hệ: </span>
-                                    <span>{house.contact}</span>
+                                    <span>
+                                        {
+                                            accounts.map(acc => acc.id === post.host_id ? acc.phone : '')
+                                        }
+                                    </span>
                                 </div>
                             </Link>
-                            <span style={{float:"left"}}><button className="btn btn-success">Edit</button></span>
-                            <span>{house.is_post ? 'Đang chờ xử lý' : ''}</span>
-                            <span style={{float:"right"}}><button className="btn btn-danger" onClick={(() => handleDelete(house.id))}>Delete</button></span>
+                            <span style={{ float: "left" }}><button className="btn btn-success"><Link style={{color:'white'}} to={`/post/edit/${post.id}`}>Edit</Link></button></span>
+                            <span style={{ float: "right" }}><button className="btn btn-danger" onClick={(() => handleDelete(post.id))}>Delete</button></span>
                         </div>
                     )
                 }
@@ -177,7 +183,7 @@ const Post = () => {
                         </div>
                         <div className="input">
                             <label htmlFor="description">Description</label>
-                            <input id="description" type="text" className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
+                            <textarea id="description" type="text" className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
                             <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input">
@@ -192,7 +198,7 @@ const Post = () => {
                         </div>
                         <div className="input-image">
                             <label htmlFor="image">Image</label>
-                            <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => setImage(e.target.files[0])} />
+                            <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => handleImage(e)} />
                             <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="select">

@@ -17,7 +17,7 @@ const Header = () => {
                 .then(res => res.json())
                 .then(data => setQuantity(data.length))
         }
-    }, [])
+    }, [sessionStorage.getItem('account')])
 
     const handleLogout = () => {
         sessionStorage.removeItem('account');
@@ -48,16 +48,22 @@ const Header = () => {
                         <Nav.Link as={NavLink} to={'/'}>Home</Nav.Link>
                         <Nav.Link as={NavLink} to={'/aboutus'}>About us</Nav.Link>
                         <Nav.Link className='header-post' as={NavLink} to={'/post'} onClick={(e) => handleCheckLogin(e)}>
-                            <span>Post</span>
-                            <span className='header-quantity'>{quantity}</span>
+                            <span className='header-post-span'>
+                                Post
+                                <span className='header-quantity'>{quantity}</span>
+                            </span>
+                            
                         </Nav.Link>
                         {
                             !sessionStorage.getItem('account') ? <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link> :
+                            <div style={{display:'flex', marginLeft:'8px'}}>
+                                <img style={{width:'30px', height:'30px', borderRadius:'50%'}} src={JSON.parse(sessionStorage.getItem('account')).avatar} alt='#'/>
                                 <NavDropdown title={JSON.parse(sessionStorage.getItem('account')).fullname} id="basic-nav-dropdown">
-                                    <NavDropdown.Item href="#action/3.2">Trang cá nhân</NavDropdown.Item>
+                                    <NavDropdown.Item as={NavLink} to={`/profile`}>Trang cá nhân</NavDropdown.Item>
                                     <NavDropdown.Item as={NavLink} to={'/houseofhost'}>Nhà của bạn</NavDropdown.Item>
                                     <NavDropdown.Item as={NavLink} to={'/changepassword'}>Thay đổi mật khẩu</NavDropdown.Item>
                                 </NavDropdown>
+                            </div>
                         }
                         {!sessionStorage.getItem('account') ? <Nav.Link as={NavLink} to={'/signup'}>Sigup</Nav.Link> : <Nav.Link onClick={handleLogout}>Logout</Nav.Link>}
                     </Nav>

@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const HouseOfHost = () => {
 
-    const [categories, setCategories] = useState([]);
-    const [region, setRegion] = useState([]);
     const [houses, setHouses] = useState([]);
-    
+    const [accounts, setAccounts] = useState([]);
+
     useEffect(() => {
         fetch(`http://localhost:9999/houseInformation?host_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
             .then(res => res.json())
@@ -14,15 +13,9 @@ const HouseOfHost = () => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:9999/region')
+        fetch('http://localhost:9999/account')
             .then(res => res.json())
-            .then(data => setRegion(data))
-    }, [])
-
-    useEffect(() => {
-        fetch('http://localhost:9999/category')
-            .then(res => res.json())
-            .then(data => setCategories(data))
+            .then(data => setAccounts(data))
     }, [])
 
     const handleDelete = (id) => {
@@ -56,14 +49,18 @@ const HouseOfHost = () => {
                 {
                     houses.map(house =>
                         <div key={house.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                            <Link to={`/house/detail/${house.id}`}>
+                            <Link to={`/house/edit/${house.id}`}>
                                 <div className='house-img'>
                                     <img style={{ width: "100%", height: "300px" }} src={house.thumb} alt='#' />
                                 </div>
                                 <div className='house-name'>{house.name}</div>
                                 <div>
                                     <span>Liên hệ: </span>
-                                    <span>{house.contact}</span>
+                                    <span>
+                                        {
+                                            accounts.map(acc => acc.id === house.host_id ? acc.phone : '')
+                                        }
+                                    </span>
                                 </div>
                             </Link>
                             <span style={{ float: "left" }}><button className="btn btn-success">Edit</button></span>
@@ -71,7 +68,7 @@ const HouseOfHost = () => {
                         </div>
                     )
                 }
-            </div> 
+            </div>
         </div>
     );
 }
