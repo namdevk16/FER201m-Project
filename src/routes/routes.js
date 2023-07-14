@@ -11,6 +11,8 @@ import HouseOfHostPage from '../pages/HouseOfHostPage'
 import EditPostPage from '../pages/EditPostPage';
 import EditHousePage from '../pages/EditHousePage';
 import ProfilePage from '../pages/ProfilePage';
+import ForgotPasswordPage from '../pages/ForgotPasswordPage';
+import ResetPasswordPage from '../pages/ResetPasswordPage';
 
 
 const ListRoutes = () => {
@@ -28,6 +30,9 @@ const ListRoutes = () => {
             <Route path='/admin' element={<AdminPage />}></Route>
             <Route path='/houseofhost' element={<HouseOfHostPage />}></Route>
             <Route path='/profile' element={<ProfilePage />}></Route>
+            <Route path='/forgotpassword' element={<ForgotPasswordPage />}></Route>
+            <Route path='/resetpassword/:email' element={<ResetPasswordPage />}></Route>
+
         </Routes>
     );
 }
