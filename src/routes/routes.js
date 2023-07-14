@@ -32,7 +32,6 @@ const ListRoutes = () => {
             <Route path='/profile' element={<ProfilePage />}></Route>
             <Route path='/forgotpassword' element={<ForgotPasswordPage />}></Route>
             <Route path='/resetpassword/:email' element={<ResetPasswordPage />}></Route>
-
         </Routes>
     );
 }

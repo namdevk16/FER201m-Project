@@ -56,7 +56,7 @@ const Header = () => {
                         </Nav.Link>
                         {
                             !sessionStorage.getItem('account') ? <Nav.Link as={NavLink} to={'/login'}>Login</Nav.Link> :
-                            <div style={{display:'flex', marginLeft:'8px'}}>
+                            <div className='header-dropdown'>
                                 <img style={{width:'30px', height:'30px', borderRadius:'50%'}} src={JSON.parse(sessionStorage.getItem('account')).avatar} alt='#'/>
                                 <NavDropdown title={JSON.parse(sessionStorage.getItem('account')).fullname} id="basic-nav-dropdown">
                                     <NavDropdown.Item as={NavLink} to={`/profile`}>Trang cá nhân</NavDropdown.Item>

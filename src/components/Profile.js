@@ -60,9 +60,6 @@ const Profile = () => {
 
     return (
         <div className='container profile'>
-            <div className='profile-title'>
-                <h4>Thay đổi thông tin cá nhân</h4>
-            </div>
             <div className='profile-items'>
                 <label className='profile-items-title' htmlFor='name'>Tên hiển thị</label>
                 <input id='name' className="form-control profile-items-input" style={{ width: '100%' }} type='text' value={fullname} onChange={(e) => setFullname(e.target.value)} />

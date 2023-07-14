@@ -46,7 +46,7 @@ const ResetPassword = () => {
                 console.log('Error:', error);
             }
         } else {
-            console.log('Passwords do not match');
+            alert('Passwords do not match');
         }
     };
 

@@ -36,6 +36,11 @@
   padding-left: 1px;
 }
 
+.header-dropdown {
+  display: flex;
+  margin-left: 8px;
+}
+
 /* Hết */
 
 
@@ -190,6 +195,13 @@
     height: 100vh !important;
   }
 }
+
+@media (max-width: 992px) {
+  .header-dropdown {
+    margin-left: 0px;
+  }
+}
+
 @media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
@@ -311,6 +323,7 @@
 .profile-items {
   display: flex;
   justify-content: space-between; 
+  flex-wrap: wrap;
   margin: 20px 0;
 }
 
@@ -330,6 +343,30 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
+}
+
+/* Hết */
+
+/* Các class css của Profile.js */
+
+.paginate {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.btn-paginate, .btn-paginate-change {
+  margin: 0 8px;
+  padding: 4px 10px;
+  border-color: transparent;
+}
+
+.btn-paginate:hover, .btn-paginate-change:hover {
+  background-color: rgb(173, 168, 168);
+}
+
+.btn-paginate.active-paginate {
+  background-color: rgb(92, 124, 227);
+  color: white;
 }
 
 /* Hết */

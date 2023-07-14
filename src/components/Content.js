@@ -8,6 +8,12 @@ const Content = () => {
     const [cateID, setCateID] = useState(1);
     const [accounts, setAccounts] = useState([]);
 
+    const [startIndex, setStartIndex] = useState(0);
+    const [endIndex, setEndIndex] = useState(4);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [paginates, setPaginates] = useState([]);
+    const [totalPaginate, setTotalPaginate] = useState();
+
     useEffect(() => {
         fetch('http://localhost:9999/category')
             .then(res => res.json())
@@ -23,15 +29,52 @@ const Content = () => {
     useEffect(() => {
         fetch(`http://localhost:9999/houseInformation?category_id=${cateID}`)
             .then(res => res.json())
-            .then(data => setHouses(data))
-    }, [cateID])
+            .then(data => {
+                const t = data.length;
+                const total = Math.ceil(t/3);
+                let array = [];
+                for(var i = 0; i < total; i++) {
+                    array.push(i+1);
+                }
+                setTotalPaginate(total);
+                setPaginates(array);
+                setHouses(data.slice(startIndex, endIndex));
+            })
+    }, [cateID, startIndex])
+
+
+    const handlePaginate = (paginate) => {
+        setStartIndex((paginate-1)*4);
+        setEndIndex((paginate-1)*4+4);
+        setCurrentPage(paginate);
+    }
+
+    const chageCateID = (id) => {
+        setCateID(id);
+        setStartIndex(0);
+        setEndIndex(4);
+        setCurrentPage(1);
+    }
+
+    const prevPaginate = () => {
+        setCurrentPage(current => current - 1);
+        setStartIndex(start => start-4);
+        setEndIndex(end => end-4)
+    }
+
+    const nextPaginate = () => {
+        setCurrentPage(current => current + 1);
+        setStartIndex(start => start+4);
+        setEndIndex(end => end + 4)
+    }
+
 
     return (
         <div className="container content">
             <div className='category'>
                 {
                     categories.map(category =>
-                        <button key={category.id} onClick={() => setCateID(category.id)} className={category.id === cateID ? 'btn-category active-category' : 'btn-category'}>{category.name}</button>
+                        <button key={category.id} onClick={() => chageCateID(category.id)} className={category.id === cateID ? 'btn-category active-category' : 'btn-category'}>{category.name}</button>
                     )
                 }
             </div>
@@ -57,6 +100,16 @@ const Content = () => {
                         </div>
                     )
                 }
+            </div>
+
+            <div className='paginate'>
+                <button disabled={currentPage === 1 ? 'true' : ''} onClick={() => prevPaginate()} className='btn-paginate-change disabled'><i class="fas fa-angle-left"></i></button>
+                {
+                    paginates.map(paginate =>
+                        <button onClick={() => handlePaginate(paginate)} className={paginate === currentPage ? 'btn-paginate active-paginate' : 'btn-paginate'}>{paginate}</button>
+                    )
+                }
+                <button disabled={currentPage === totalPaginate ? 'true' : ''} onClick={() => nextPaginate()} className='btn-paginate-change'><i class="fas fa-angle-right"></i></button>
             </div>
         </div>
     );
