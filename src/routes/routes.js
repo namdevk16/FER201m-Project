@@ -13,6 +13,7 @@ import EditHousePage from '../pages/EditHousePage';
 import ProfilePage from '../pages/ProfilePage';
 import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
+import Dashboard from '../components/Dashboard';
 
 
 const ListRoutes = () => {
@@ -27,7 +28,7 @@ const ListRoutes = () => {
             <Route path='/post' element={<PostPage />}></Route>
             <Route path='/post/edit/:id' element={<EditPostPage />}></Route>
             <Route path='/house/edit/:id' element={<EditHousePage />}></Route>
-            <Route path='/admin' element={<AdminPage />}></Route>
+            <Route path='/admin' element={<Dashboard/>}></Route>
             <Route path='/houseofhost' element={<HouseOfHostPage />}></Route>
             <Route path='/profile' element={<ProfilePage />}></Route>
             <Route path='/forgotpassword' element={<ForgotPasswordPage />}></Route>
