@@ -13957,8 +13957,9 @@ span {
 * ==========================================================
 */
 nav.navbar {
-  padding: 0.8rem 0;
-  background: #393836;
+  padding: 0.8rem;
+  background: #428f55;
+  border: 1px solid white;
   width: calc(100% - 200px);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -14029,31 +14030,29 @@ nav.navbar .dropdown-menu.show {
   transition: all 0.3s;
   text-align: left;
   color: #fff;
-  background: #393836;
-  z-index: 999;
+  background: #428f55;
+  border: 1px solid white;
+  z-index: 1050;
   transition: all 0.3s;
   overflow: hidden;
   /*  Side navbar small ------------------------ */
 }
 .side-navbar-inner {
-  background: #393836;
+  background: #428f55;
+  border: 1px solid white;
 }
 .side-navbar .scrolled-wrapper {
   width: 100%;
   height: 100%;
 }
 .side-navbar .sidebar-header {
-  background: #292929;
+  background: #428f55;
+  border: 1px solid white;
 }
 .side-navbar.hide {
   left: -70px;
 }
 @media (max-width: 1199.98px) {
-  .side-navbar {
-    left: -200px;
-    width: 200px;
-    text-align: center;
-  }
   .side-navbar.show-sm {
     left: 0 !important;
   }
@@ -14102,7 +14101,7 @@ nav.navbar .dropdown-menu.show {
 }
 .sidebar-item li a {
   padding-left: 2.5rem;
-  background: #292929;
+  background: #1f442a;
 }
 .sidebar-item.active > .sidebar-link {
   color: #fff;

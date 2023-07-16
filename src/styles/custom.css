@@ -1,1 +1,36 @@
-/* your styles go here */
+.card-header a{
+    text-decoration: none;
+}
+
+.chart-card{
+    padding: 1rem;
+}
+
+.card-body i{
+    font-size: 4rem;
+}
+
+.breadcrumbbb{
+    background-color: #e9ecef;
+}
+
+.item_house{
+    background-color: #71995724;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.item_house:hover{
+    background-color: rgb(0 0 0 / 35%) 0px 5px 15px;
+    transform: scale(1.1);
+}
+
+.house-detail-img{
+
+}
+.house-detail-img img{
+    max-width: 100%;
+    height: -webkit-fill-available;
+}
+

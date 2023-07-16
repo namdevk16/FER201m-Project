@@ -14,6 +14,8 @@ import ProfilePage from '../pages/ProfilePage';
 import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 import Dashboard from '../components/Dashboard';
+import ListHouseDashboard from '../components/ListHouseDashboard';
+import ListUserDashboard from '../components/ListUser_Dashboard';
 
 
 const ListRoutes = () => {
@@ -29,10 +31,13 @@ const ListRoutes = () => {
             <Route path='/post/edit/:id' element={<EditPostPage />}></Route>
             <Route path='/house/edit/:id' element={<EditHousePage />}></Route>
             <Route path='/admin' element={<Dashboard/>}></Route>
+            <Route path='/manageuser' element={<ListUserDashboard/>}></Route>
+            <Route path='/managehouse' element={<ListHouseDashboard/>}></Route>
             <Route path='/houseofhost' element={<HouseOfHostPage />}></Route>
             <Route path='/profile' element={<ProfilePage />}></Route>
             <Route path='/forgotpassword' element={<ForgotPasswordPage />}></Route>
             <Route path='/resetpassword/:email' element={<ResetPasswordPage />}></Route>
+
         </Routes>
     );
 }
