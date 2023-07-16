@@ -36,6 +36,9 @@ const Detail = () => {
                     <p className='title-text'>{house.name}</p>
                 </div>
                 <div className='detail-address'>
+                    <div style={{marginBottom:'12px'}}>
+                        <span>Giá: {house.price}tr/tháng</span>
+                    </div>
                     <i class="fas fa-map-marker-alt"></i>
                     <span>{house.address}</span>
                 </div>

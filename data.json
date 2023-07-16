@@ -193,192 +193,192 @@
       "category_id": 2,
       "host_id": 3,
       "name": "Nhà Trọ Anh Khánh",
-      "price": "1.8-2tr/tháng",
-      "description": "Giá Phòng 1.8tr-2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "price": 1.8,
+      "description": "Cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 11,
       "address": "Thôn 4 Hạ Bằng",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Khanh.png",
-      "area": "18-20m2"
+      "area": 20
     },
     {
       "id": 3,
       "category_id": 3,
       "host_id": 4,
       "name": "Nhà Trọ Long Thành",
-      "price": "1.6-2.2/tháng",
-      "description": "Giá Phòng 1.6tr-2.2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "price": 2,
+      "description": "Cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 4 Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Nhuan.png",
-      "area": "15-20m2"
+      "area": 20
     },
     {
       "id": 4,
       "category_id": 3,
       "host_id": 2,
       "name": "Nhà Trọ Anh Sơn",
-      "price": "2-3tr/tháng",
-      "description": "Giá Phòng 2tr-3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "price": 3,
+      "description": "Cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 1 Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Sơn.jpeg",
-      "area": "15-30m2"
+      "area": 18
     },
     {
       "id": 5,
       "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Anh Thu",
-      "price": "1.8-2.5tr/tháng",
-      "description": "Giá Phòng 1.8tr-2.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
+      "price": 2,
+      "description": "Cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 10,
       "address": "Đồng Trạng Đồng Trúc, ST",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Thu.jpg",
-      "area": "20-25m2"
+      "area": 25
     },
     {
       "id": 6,
       "category_id": 1,
       "host_id": 4,
       "name": "Nhà trọ Anh Tuấn",
-      "price": "1.7tr/tháng",
+      "price": 1.7,
       "description": "Giá Phòng 1.7tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 18,
       "address": "Mục Uyên 1 Tân xã, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Anh-Tuan.png",
-      "area": "16m2"
+      "area": 16  
     },
     {
       "id": 7,
       "category_id": 1,
       "host_id": 2,
       "name": "Nhà trọ Bác Chính",
-      "price": "1.2tr/tháng",
+      "price": 1.2,
       "description": "Giá Phòng 1.2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 11,
       "address": "Thôn 3 Hạ Bằng",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Bac-chinh.png",
-      "area": "20m2"
+      "area": 20
     },
     {
       "id": 8,
       "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Chị Hương",
-      "price": "1.8-2.4tr/tháng",
+      "price": 2.4,
       "description": "Giá Phòng 1.8tr-2.4tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 4, Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Huong.png",
-      "area": "15-20m2"
+      "area": 18
     },
     {
       "id": 9,
       "category_id": 3,
       "host_id": 4,
       "name": "Nhà trọ Chị Phương",
-      "price": "3.2tr/tháng",
+      "price": 3.2,
       "description": "Giá Phòng 3.2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 2 Thạch Hòa , Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Phuong.png",
-      "area": "30m2"
+      "area": 30
     },
     {
       "id": 10,
       "category_id": 1,
       "host_id": 2,
       "name": "Nhà trọ Chị Thu",
-      "price": "3-3.5tr/tháng",
+      "price": 3,
       "description": "Giá Phòng 3tr-3.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 18,
       "address": "Thôn Mục Uyên Tân Xã, ngã 3 chợ Tân Xã",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Chi-Thu.png",
-      "area": "30m2"
+      "area": 30
     },
     {
       "id": 11,
       "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Hải Anh",
-      "price": "3-4tr/tháng",
+      "price": 4,
       "description": "Giá Phòng 3tr-4tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Phú Cát, Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Hai-anh.png",
-      "area": "25 - 35m2"
+      "area": 35
     },
     {
       "id": 12,
       "category_id": 3,
       "host_id": 4,
       "name": "Tòa nhà Happy House",
-      "price": "3tr/tháng",
+      "price": 3,
       "description": "Giá Phòng 3tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 2, Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Happy-house.jpg",
-      "area": "18 - 22m2"
+      "area": 15
     },
     {
       "id": 14,
       "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ anh Thuận",
-      "price": "1.5-2tr/tháng",
+      "price": 1.5,
       "description": "Giá Phòng 1.5tr-2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Thôn 4 Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Nha-tro-anh-Thuan.png",
-      "area": "18m2"
+      "area": 16
     },
     {
       "id": 15,
       "category_id": 3,
       "host_id": 4,
       "name": "Nhà trọ Sky - Homes",
-      "price": "3.5tr/tháng",
+      "price": 3.5,
       "description": "Giá Phòng 3.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Khu TĐC Thạch Hòa, Thạch Thất, cách Phenikaa 200m",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Sky-homes.png",
-      "area": "26m2"
+      "area": 26
     },
     {
       "id": 16,
       "category_id": 1,
       "host_id": 2,
       "name": "Nhà Trọ Việt Anh",
-      "price": "3-4.5tr/tháng",
+      "price": 4,
       "description": "Giá Phòng 3tr-4.5tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Khu tái định cư, Phú Cát, Thạch Hòa",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Viet-anh.png",
-      "area": "25 - 32m2"
+      "area": 32
     },
     {
       "id": 17,
       "category_id": 2,
       "host_id": 3,
       "name": "Nhà trọ Việt Hằng",
-      "price": "2tr/tháng",
+      "price": 2,
       "description": "Giá Phòng 2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 19,
       "address": "Chợ Hòa Lạc, Thôn 5, Thạch Hòa, Thạch Thất",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Viet-Hang.jpg",
-      "area": "18 - 22m2"
+      "area": 22
     },
     {
       "id": 18,
       "category_id": 3,
       "host_id": 4,
       "name": "Nhà trọ Thúy Yêu",
-      "price": "1.8-2tr/tháng",
+      "price": 2,
       "description": "Giá Phòng 1.8tr-2tr đến xem đảm bảo ưng ý, cam kết hình đúng với thực tế. Phòng có tolet riêng, cửa sổ, ban công, có phòng dưới trệt. Cho nấu ăn trong phòng, Ở được 2-4 người, bạn bè lại chơi thoãi mái. Để xe trong sân nhà thoáng mát camera không góc chết. Điện 3.5k/số, nước 3.5k/m3, wifi 100/người. Không chung chủ (có quản lý) giúp bạn có cảm giác an toàn, thoải mái",
       "address_id": 18,
       "address": "Thôn Mục Uyên Tân Xã, Ngã 3 chợ Hòa Lạc",
       "thumb": "https://daihoc.fpt.edu.vn/wp-content/uploads/2022/09/Yeu-Thuy.png",
-      "area": "18 - 20m2"
+      "area": 22
     }
   ]
 }
