@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Signiture from '../styles/assets/img/signiture.jpg'
 import Banner from '../styles/assets/img/banner3.png'
 import { NavLink } from 'react-router-dom';
+import avatar from '../images/abv.png'
 
 const AboutUs = () => {
     const milder = {
@@ -24,7 +25,7 @@ const AboutUs = () => {
                     <Carousel.Item>
                         <Image
                             className="d-block w-100"
-                            src="https://smartslider3.com/wp-content/uploads/2019/05/sliderimages.png"
+                            src="https://www.ohanaliving.vn/542ac03681516bcca0dd605bedd41a2b.jpg"
                             alt="tu world"
                             height={300}
                         />
@@ -32,7 +33,7 @@ const AboutUs = () => {
                     <Carousel.Item>
                         <Image
                             className="d-block w-100"
-                            src="https://smartslider3.com/wp-content/uploads/2019/01/imageslider-1.png"
+                            src="https://datnendep.vn/wp-content/uploads/2020/09/cac-mau-phong-tro-dep-hien-nay-duoc-khach-hang-ua-chuong.jpg"
                             alt="hydraulic pumps"
                             height={300}
                         />
@@ -40,7 +41,7 @@ const AboutUs = () => {
                     <Carousel.Item>
                         <Image
                             className="d-block w-100"
-                            src="https://smartslider3.com/wp-content/uploads/2018/08/whatisaslider-1.png"
+                            src="https://kfa.vn/wp-content/uploads/2021/08/thiet-ke-phong-tro-dep-9.jpg"
                             alt="everything industrial"
                             height={300}
                         />
@@ -97,7 +98,7 @@ const AboutUs = () => {
                 <div className='col-lg-3 col-md-6 col-sm-12'>
                     <div className='row item-member'>
                         <div className='col-12 member-img'>
-                            <img src='https://i.postimg.cc/RhYnBf5m/er-slider.jpg' alt='' />
+                            <img src={avatar} alt='' />
                         </div>
                         <div className='col-12 member-content'>
                             <p>MinhTuan</p>
@@ -108,7 +109,7 @@ const AboutUs = () => {
                 <div className='col-lg-3 col-md-6 col-sm-12'>
                     <div className='row item-member'>
                         <div className='col-12 member-img'>
-                            <img src='https://i.postimg.cc/RhYnBf5m/er-slider.jpg' alt='' />
+                            <img src={avatar} alt='' />
                         </div>
                         <div className='col-12 member-content'>
                             <p>TuAnh</p>
@@ -119,7 +120,7 @@ const AboutUs = () => {
                 <div className='col-lg-3 col-md-6 col-sm-12'>
                     <div className='row item-member'>
                         <div className='col-12 member-img'>
-                            <img src='https://i.postimg.cc/RhYnBf5m/er-slider.jpg' alt='' />
+                            <img src={avatar} alt='' />
                         </div>
                         <div className='col-12 member-content'>
                             <p>QuangBa</p>
@@ -130,7 +131,7 @@ const AboutUs = () => {
                 <div className='col-lg-3 col-md-6 col-sm-12'>
                     <div className='row item-member'>
                         <div className='col-12 member-img'>
-                            <img src='https://i.postimg.cc/RhYnBf5m/er-slider.jpg' alt='' />
+                            <img src={avatar} alt='' />
                         </div>
                         <div className='col-12 member-content'>
                             <p>HuuNam</p>

@@ -1,36 +1,74 @@
-.card-header a{
+.card-header a {
     text-decoration: none;
 }
 
-.chart-card{
+.chart-card {
     padding: 1rem;
 }
 
-.card-body i{
+.card-body i {
     font-size: 4rem;
 }
 
-.breadcrumbbb{
+.breadcrumbbb {
     background-color: #e9ecef;
 }
 
-.item_house{
+.item_house {
     background-color: #71995724;
     padding: 1rem;
     border-radius: 8px;
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
-.item_house:hover{
+.item_house:hover {
     background-color: rgb(0 0 0 / 35%) 0px 5px 15px;
     transform: scale(1.1);
 }
 
-.house-detail-img{
+.house-detail-img {}
 
-}
-.house-detail-img img{
+.house-detail-img img {
     max-width: 100%;
     height: -webkit-fill-available;
 }
 
+
+/* NOT FOUND 404 */
+.section .error {
+    font-size: 150px;
+    color: #056dbb;
+    text-shadow:
+        1px 1px 1px #056dbb,
+        2px 2px 1px #056dbb,
+        3px 3px 1px #056dbb,
+        4px 4px 1px #056dbb,
+        5px 5px 1px #056dbb,
+        6px 6px 1px #056dbb,
+        7px 7px 1px #056dbb,
+        8px 8px 1px #056dbb,
+        25px 25px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pagee {
+    margin: 2rem 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+}
+
+.back-home {
+    display: inline-block;
+    border: 2px solid #222;
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem 1rem 0.6rem;
+    transition: all 0.2s linear;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-home:hover {
+    background: #222;
+    color: #ddd;
+}

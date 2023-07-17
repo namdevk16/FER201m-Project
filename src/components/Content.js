@@ -9,8 +9,8 @@ const Content = () => {
     const [url, setUrl] = useState('');
     const [cateId, setCateId] = useState(0);
 
-    const [type, setType] = useState('');
-    const [value, setValue] = useState([0, 0]);
+    const [type, setType] = useState([]);
+    const [value, setValue] = useState([[0, 0], [0, 0]]);
     const [key, setKey] = useState(0);
 
     const [startIndex, setStartIndex] = useState(0);
@@ -52,82 +52,131 @@ const Content = () => {
         }
     }
 
+    const afterFetch = (data) => {
+        setTotalPaginate(paginateData(data).total);
+        setPaginates(paginateData(data).array);
+        setHouses(data.slice(startIndex, endIndex));
+    }
+
 
     useEffect(() => {
         fetch(`http://localhost:9999/houseInformation?${url}`)
             .then(res => res.json())
             .then(data => {
-                setTotalPaginate(paginateData(data).total);
-                setPaginates(paginateData(data).array);
-                setHouses(data.slice(startIndex, endIndex));
+                afterFetch(data)
             })
-    }, [url, startIndex])
+    }, [url, startIndex, key])
 
 
-    const handlePaginate = (paginate) => {
-        setStartIndex((paginate - 1) * 4);
-        setEndIndex((paginate - 1) * 4 + 4);
-        setCurrentPage(paginate);
+    const handlePaginate = (msg, paginate = 0) => {
+        if (msg === 'prev') {
+            setCurrentPage(current => current - 1);
+            setStartIndex(start => start - 4);
+            setEndIndex(end => end - 4)
+        }
+        if (msg === 'next') {
+            setCurrentPage(current => current + 1);
+            setStartIndex(start => start + 4);
+            setEndIndex(end => end + 4)
+        }
+        if (msg === 'click') {
+            setStartIndex((paginate - 1) * 4);
+            setEndIndex((paginate - 1) * 4 + 4);
+            setCurrentPage(paginate);
+        }
+        if (msg === 'reset') {
+            setStartIndex(0);
+            setEndIndex(4);
+            setCurrentPage(1);
+        }
     }
 
     const changeByCateId = (msg, id) => {
         setCateId(id)
         setUrl(msg);
-        setStartIndex(0);
-        setEndIndex(4);
-        setCurrentPage(1);
-    }
-
-    const prevPaginate = () => {
-        setCurrentPage(current => current - 1);
-        setStartIndex(start => start - 4);
-        setEndIndex(end => end - 4)
-    }
-
-    const nextPaginate = () => {
-        setCurrentPage(current => current + 1);
-        setStartIndex(start => start + 4);
-        setEndIndex(end => end + 4)
+        handlePaginate('reset');
     }
 
     useEffect(() => {
-        if (type === 'area') {
+        if (type.length === 1 && type[0] === 'area') {
             switch (key) {
                 case 0:
-                    setValue([0, 0]);
+                    setValue([[0, 0], [0, 0]]);
                     break;
                 case 1:
-                    setValue([18, 25]);
+                    setValue([[0, 18], [0, 0]]);
                     break;
                 case 2:
-                    setValue([25, 35]);
+                    setValue([[18, 25], [0, 0]]);
                     break;
                 case 3:
-                    setValue([25, 35]);
+                    setValue([[25, 35], [0, 0]]);
                     break;
                 case 4:
-                    setValue([35, 0]);
+                    setValue([[35, 0], [0, 0]]);
                     break;
                 default:
                     break;
             }
         }
-        if (type === 'price') {
+        if (type.length === 1 && type[0] === 'price') {
             switch (key) {
                 case 0:
-                    setValue([0, 0]);
+                    setValue([[0, 0], [0, 0]]);
                     break;
                 case 1:
-                    setValue([0, 1.6]);
+                    setValue([[0, 1.6], [0, 0]]);
                     break;
                 case 2:
-                    setValue([1.6, 2.5]);
+                    setValue([[1.6, 2.5], [0, 0]]);
                     break;
                 case 3:
-                    setValue([2.5, 3.5]);
+                    setValue([[2.5, 3.5], [0, 0]]);
                     break;
                 case 4:
-                    setValue([3.5, 0]);
+                    setValue([[3.5, 0], [0, 0]]);
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(type[0] === 'price' && type[1] === 'area') {
+            switch (key) {
+                case 0:
+                    setValue([[0, 0], [0, 0]]);
+                    break;
+                case 1:
+                    setValue([[0, 1.6], [0, 18]]);
+                    break;
+                case 2:
+                    setValue([[1.6, 2.5], [18, 25]]);
+                    break;
+                case 3:
+                    setValue([[2.5, 3.5], [25, 35]]);
+                    break;
+                case 4:
+                    setValue([[3.5, 0], [35, 0]]);
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(type[0] === 'area' && type[1] === 'price') {
+            switch (key) {
+                case 0:
+                    setValue([[0, 0], [0, 0]]);
+                    break;
+                case 1:
+                    setValue([[0, 18], [0, 1.6]]);
+                    break;
+                case 2:
+                    setValue([[18, 25], [1.6, 2.5]]);
+                    break;
+                case 3:
+                    setValue([[25, 35], [2.5, 3.5]]);
+                    break;
+                case 4:
+                    setValue([[35, 0], [3.5, 0]]);
                     break;
                 default:
                     break;
@@ -137,52 +186,67 @@ const Content = () => {
 
     const handleSelect = (e, msg) => {
         setKey(parseInt(e.target.value))
-        setType(msg);
+        let a = [...type];
+        a.push(msg);
+        setType(a);
     }
-
-
 
     const handleSearch = () => {
         if (key === 0) {
             fetch('http://localhost:9999/houseInformation')
                 .then(res => res.json())
                 .then(data => {
-                    setTotalPaginate(paginateData(data).total);
-                    setPaginates(paginateData(data).array);
-                    setHouses(data.slice(startIndex, endIndex));
+                    afterFetch(data)
                 })
         }
-        if (type === 'price') {
+        if (type.length === 1 && type[0] === 'price') {
             fetch('http://localhost:9999/houseInformation')
                 .then(res => res.json())
                 .then(data => {
+                    const v = value[0];
                     const result = data.filter(d =>
-                        d.price > value[0] && d.price < value[1]
+                        d.price >= v[0] && d.price <= v[1]
                     )
-                    setTotalPaginate(paginateData(result).total);
-                    setPaginates(paginateData(result).array);
-                    setHouses(result.slice(startIndex, endIndex));
+                    afterFetch(result);
                 }
                 )
         }
-        if (type === 'area') {
+        if (type.length === 1 && type[0] === 'area') {
             fetch('http://localhost:9999/houseInformation')
                 .then(res => res.json())
                 .then(data => {
+                    const v = value[0];
                     const result = data.filter(d =>
-                        d.area > value[0] && d.area < value[1]
+                        d.area >= v[0] && d.area <= v[1]
                     )
-                    setTotalPaginate(paginateData(result).total);
-                    setPaginates(paginateData(result).array);
-                    setHouses(result.slice(startIndex, endIndex));
+                    afterFetch(result);
+                })
+        }
+        if(type[0] === 'area' && type[1] === 'price') {
+            fetch('http://localhost:9999/houseInformation')
+                .then(res => res.json())
+                .then(data => {
+                    const v = value[0];
+                    const a = value[1];
+                    const result = data.filter(d =>
+                        d.area >= v[0] && d.area <= v[1] && d.price >= a[0] && d.price <= a[1]
+                    )
+                    afterFetch(result);
+                })
+        }
+        if(type[0] === 'price' && type[1] === 'area') {
+            fetch('http://localhost:9999/houseInformation')
+                .then(res => res.json())
+                .then(data => {
+                    const v = value[0];
+                    const a = value[1];
+                    const result = data.filter(d =>
+                        d.area >= a[0] && d.area <= a[1] && d.price >= v[0] && d.price <= v[1]
+                    )
+                    afterFetch(result);
                 })
         }
     }
-
-    console.log(`type:${type}`);
-    console.log(`key:${key}`);
-    console.log(value);
-
 
     return (
         <div className="container content">
@@ -226,13 +290,19 @@ const Content = () => {
                                     <img style={{ width: "100%", height: "300px" }} src={house.thumb} alt='#' />
                                 </div>
                                 <div className='house-name'>{house.name}</div>
-                                <div>
-                                    <span>Liên hệ: </span>
-                                    <span>
-                                        {
-                                            accounts.map(acc => acc.id === house.host_id ? acc.phone : '')
-                                        }
-                                    </span>
+                                <div style={{color:'rgb(133, 121, 121)'}}  className='house-address'>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>{house.address}</span>
+                                </div>
+                                <div style={{display:'flex', justifyContent:'space-between'}}>
+                                    <div style={{color:'rgb(133, 121, 121)'}}>
+                                        <i class="fas fa-ruler"></i>
+                                        <span>{house.area}m2</span>
+                                    </div>
+                                    <div style={{color:'rgb(133, 121, 121)'}}>
+                                        <i class="fas fa-money-bill"></i>
+                                        <span>{house.price}tr/tháng</span>
+                                    </div>
                                 </div>
                             </Link>
                         </div>
@@ -241,13 +311,13 @@ const Content = () => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div className='paginate'>
-                    <button disabled={currentPage === 1 ? 'true' : ''} onClick={() => prevPaginate()} className='btn-paginate-change disabled'><i class="fas fa-angle-left"></i></button>
+                    <button disabled={currentPage === 1 ? 'true' : ''} onClick={() => handlePaginate('prev')} className='btn-paginate-change disabled'><i class="fas fa-angle-left"></i></button>
                     {
                         paginates.map(paginate =>
-                            <button onClick={() => handlePaginate(paginate)} className={paginate === currentPage ? 'btn-paginate active-paginate' : 'btn-paginate'}>{paginate}</button>
+                            <button onClick={() => handlePaginate('click', paginate)} className={paginate === currentPage ? 'btn-paginate active-paginate' : 'btn-paginate'}>{paginate}</button>
                         )
                     }
-                    <button disabled={currentPage === totalPaginate ? 'true' : ''} onClick={() => nextPaginate()} className='btn-paginate-change'><i class="fas fa-angle-right"></i></button>
+                    <button disabled={currentPage === totalPaginate ? 'true' : ''} onClick={() => handlePaginate('next')} className='btn-paginate-change'><i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
         </div>

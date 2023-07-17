@@ -44,27 +44,10 @@ const ListUserDashboard = () => {
                 <div className='row breadcrumbbb' style={{ padding: '0 3rem' }}>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 py-3">
-                            <li class="breadcrumb-item"><Link to={''}>Bảng kiểm duyệt</Link></li>
+                            <li class="breadcrumb-item"><Link to={'/admin'}>Bảng điều khiển</Link></li>
                             <li class="breadcrumb-item active fw-light" aria-current="page">Người dùng</li>
                         </ol>
                     </nav>
-                </div>
-                <div className='row py-3' style={{ padding: '0 3rem' }}>
-                    <h4>Filter by user:</h4>
-                    <form>
-                        <div className='item_input'>
-                            <input type='radio' name='account' id='user' checked />
-                            <label htmlFor='user'>User</label>
-                        </div>
-                        <div className='item_input'>
-                            <input type='radio' name='account' id='host' checked />
-                            <label htmlFor='host'>Host</label>
-                        </div>
-                        <div className='item_input'>
-                            <input type='radio' name='account' id='all' checked />
-                            <label htmlFor='host'>All</label>
-                        </div>
-                    </form>
                 </div>
                 <div className="row py-5" style={{ padding: '0 3rem' }}>
                     <div class="col-lg-12">
@@ -77,7 +60,7 @@ const ListUserDashboard = () => {
                                     <table class="table text-sm mb-0">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>STT</th>
                                                 <th>Fullname</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
@@ -88,7 +71,7 @@ const ListUserDashboard = () => {
                                             {
                                                 userList.map((u, index) =>
                                                     <tr>
-                                                        <th scope="row">{index}</th>
+                                                        <th scope="row">{index+1}</th>
                                                         <td>{u.fullname}</td>
                                                         <td>{u.email}</td>
                                                         <td>{u.phone}</td>

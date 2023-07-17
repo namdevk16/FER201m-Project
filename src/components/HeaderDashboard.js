@@ -1,6 +1,15 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const HeaderDashboard = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('account');
+        navigate('/');
+    }
+
+
     return (
         <div className='row' style={{ height: '68px' }}>
             <header className="headermb-2">
@@ -217,16 +226,16 @@ const HeaderDashboard = () => {
                                 </li>
                                 {/* Log out*/}
                                 <li className="nav-item">
-                                    <Link
+                                    <button
                                         className="nav-link text-white text-sm ps-0"
-                                        to={'#'}
+                                        onClick={handleLogout}
                                     >
                                         {" "}
                                         <span className="d-none d-sm-inline-block">Logout</span>
                                         <svg className="svg-icon svg-icon-xs svg-icon-heavy">
                                             <use xlinkHref="#security-1"> </use>
                                         </svg>
-                                    </Link>
+                                    </button>
                                 </li>
                             </ul>
                         </div>

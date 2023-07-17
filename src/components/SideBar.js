@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import avatar from '../images/abv.png'
 
 const SideBar = () => {
     return (
@@ -10,10 +11,10 @@ const SideBar = () => {
                     <div className="sidenav-header-inner text-center">
                         <img
                             className="img-fluid rounded-circle avatar mb-3"
-                            src="https://th.bing.com/th/id/OIP.B3VYZ9tiEDzKOdTmjbtgnwHaJ8?pid=ImgDet&rs=1"
+                            src={avatar}
                             alt="person"
                         />
-                        <h2 className="h5 text-white text-uppercase mb-0">NAMNH</h2>
+                        <h2 className="h5 text-white text-uppercase mb-0">Hello, admin</h2>
                         <p className="text-sm mb-0 text-muted">Web Developer</p>
                     </div>
                 </div>
@@ -37,7 +38,7 @@ const SideBar = () => {
                             <i className="bi bi-2-circle"></i> &nbsp; Kiểm duyệt 
                         </Link>
                     </li>
-                    <li className="sidebar-item">
+                    {/* <li className="sidebar-item">
 
                         <Link to={'#exampledropdownDropdown'} className="sidebar-link" data-bs-toggle="collapse">
                             &nbsp; Example dropdown{" "}
@@ -59,7 +60,7 @@ const SideBar = () => {
                                 </Link>
                             </li>
                         </ul>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </nav>

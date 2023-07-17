@@ -13958,7 +13958,7 @@ span {
 */
 nav.navbar {
   padding: 0.8rem;
-  background: #428f55;
+  background: #056dbb;
   border: 1px solid white;
   width: calc(100% - 200px);
   -webkit-transition: all 0.3s;
@@ -14030,7 +14030,7 @@ nav.navbar .dropdown-menu.show {
   transition: all 0.3s;
   text-align: left;
   color: #fff;
-  background: #428f55;
+  background: #056dbb;
   border: 1px solid white;
   z-index: 1050;
   transition: all 0.3s;
@@ -14038,7 +14038,7 @@ nav.navbar .dropdown-menu.show {
   /*  Side navbar small ------------------------ */
 }
 .side-navbar-inner {
-  background: #428f55;
+  background: #056dbb;
   border: 1px solid white;
 }
 .side-navbar .scrolled-wrapper {
@@ -14046,7 +14046,7 @@ nav.navbar .dropdown-menu.show {
   height: 100%;
 }
 .side-navbar .sidebar-header {
-  background: #428f55;
+  background: #056dbb;
   border: 1px solid white;
 }
 .side-navbar.hide {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Post = () => {
@@ -13,14 +13,51 @@ const Post = () => {
     const [village, setVillage] = useState(1);
     const [category, setCategory] = useState(1);
 
+    const errName = useRef();
+    const errContact = useRef();
+    const errPrice = useRef();
+    const errDescription = useRef();
+    const errArea = useRef();
+    const errAddressdetail = useRef();
+
 
     const [categories, setCategories] = useState([]);
     const [region, setRegion] = useState([]);
     const [posts, setPosts] = useState([]);
     const [accounts, setAccounts] = useState([]);
 
+    const listInputs = [name, contact, price, description, area, addressdetail];
+    const listErrors = [errName, errContact, errPrice, errDescription, errArea, errAddressdetail];
+
+
 
     const navigate = useNavigate()
+
+    const checkConfirm = () => {
+        if (listInputs.every(listInput => listInput !== '')) {
+            return 1;
+        } else if (listInputs.some(listInput => listInput === '')) {
+            return 2;
+        }
+    }
+
+    const checkValidate = () => {
+        if (listInputs.every(listInput => listInput === '')) {
+            listErrors.forEach(listError =>
+                listError.current.style.display = 'block'
+            )
+        }
+        for (var i = 0; i < listInputs.length; i++) {
+            if (listInputs[i] !== '') {
+                listErrors[i].current.style.display = 'none'
+                for (var j = 0; j < listInputs.length; j++) {
+                    if (i !== j && listInputs[i] === '') {
+                        listErrors[j].current.style.display = 'block';
+                    }
+                }
+            }
+        }
+    }
 
     useEffect(() => {
         fetch(`http://localhost:9999/posts?host_id=${JSON.parse(sessionStorage.getItem('account')).id}&is_post=false`)
@@ -57,28 +94,30 @@ const Post = () => {
     }
 
     const handleImage = (e) => {
-        const fr = new FileReader();
-        fr.readAsDataURL(e.target.files[0]);
-        fr.addEventListener('load', () => {
-            setImage(fr.result)
-        })
+        if(e.target.files[0] === null) {
+            setImage('https://tse4.mm.bing.net/th?id=OIP.1Kb48pEGCuofJ2ONrfYx8wHaEi&pid=Api&P=0&h=180');
+        }  else {
+            const fr = new FileReader();
+            fr.readAsDataURL(e.target.files[0]);
+            fr.addEventListener('load', () => {
+                setImage(fr.result)
+            })
+        }
     }
 
     const hadleSubmit = (e) => {
-        const listInputs = document.querySelectorAll('.form-control');
-        const listErrors = document.querySelectorAll('.error');
-        if ([...listInputs].every(listInput => listInput.value !== '')) {
+        if (checkConfirm() === 1) {
             const data = {
                 category_id: parseInt(category),
                 host_id: JSON.parse(sessionStorage.getItem('account')).id,
                 name: name,
                 contact: contact,
-                price: `${price}tr/tháng`,
+                price: parseInt(area),
                 description: description,
                 address_id: parseInt(village),
                 address: addressdetail,
                 thumb: image,
-                area: `${area}m2`,
+                area: parseInt(area),
                 is_post: false
             }
             const option = {
@@ -96,24 +135,9 @@ const Post = () => {
                     window.location.reload();
                 }
                 )
-        }
-
-        e.preventDefault();
-        if ([...listInputs].every(listInput => listInput.value === '')) {
-            [...listErrors].forEach(listError =>
-                listError.style.display = 'block'
-            )
-        }
-        for (var i = 0; i < listInputs.length; i++) {
-            if (listInputs[i].value !== '') {
-                listErrors[i].style.display = 'none'
-                for (var j = 0; j < listInputs.length; j++) {
-                    if (i !== j && listInputs[i].value === '') {
-                        listErrors[j].style.display = 'block';
-                    }
-                }
-            }
-        }
+        } else if (checkConfirm() === 2) {
+            checkValidate();
+        } 
     }
 
     const handleDelete = (id) => {
@@ -169,32 +193,32 @@ const Post = () => {
                         <div className="input">
                             <label htmlFor="name">Name</label><br />
                             <input id="name" type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errName}>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input">
                             <label htmlFor="contact">Contact</label>
                             <input id="contact" type="text" className="form-control" value={contact} onChange={(e) => setContact(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errContact}>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input">
                             <label htmlFor="price">Price</label>
                             <input id="price" type="text" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPrice}>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input">
                             <label htmlFor="description">Description</label>
                             <textarea id="description" type="text" className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errDescription}>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input">
                             <label htmlFor="area">Area</label>
                             <input id="area" type="text" className="form-control" value={area} onChange={(e) => setArea(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errArea}>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input">
                             <label htmlFor="address">Address detail</label>
                             <input id="adress" type="text" className="form-control" value={addressdetail} onChange={(e) => setAddressdetail(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errAddressdetail}>Hãy nhập đủ thông tin</span>
                         </div>
                         <div className="input-image">
                             <label htmlFor="image">Image</label>

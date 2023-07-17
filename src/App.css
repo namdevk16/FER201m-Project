@@ -75,6 +75,7 @@
 .house-item {
   margin-bottom: 20px;
   padding: 12px 0;
+  color: rgb(134, 123, 123);
 }
 
 .house-item a {
@@ -97,9 +98,15 @@
 }
 
 
+.house i {
+  margin-right: 8px;
+}
+
+
 /* Hết */
 
 /* Các class css của Detail.js */
+
 
 .detail img {
   width: 100%;
@@ -188,10 +195,10 @@
   background: #fccb90;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to left, #e8f8ec, #57de57, #2f9831, #147129);
+  background: -webkit-linear-gradient(to left, #979baa, #1f1fb3, #056dbb, #00d4ff);
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to left, #e8f8ec, #57de57, #2f9831, #147129);
+  background: linear-gradient(to left, #979baa, #1f1fb3, #056dbb, #00d4ff);
 }
 
 

@@ -2,6 +2,7 @@ import SideBar from './SideBar';
 import HeaderDashboard from './HeaderDashboard';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import '../styles/custom.css'
 const ListHouseDashboard = () => {
 
     const [confirms, setConfirms] = useState([]);
@@ -25,6 +26,20 @@ const ListHouseDashboard = () => {
         e.preventDefault()
         sessionStorage.removeItem('account');
         navigate('/');
+    }
+
+    const handleDelete = (id) => {
+        if (window.confirm("Do you want to remove")) {
+            const option = {
+                method: "DELETE",
+            }
+            fetch(`http://localhost:9999/posts/${id}`, option)
+                .then(() => {
+                    alert("Delete success.");
+                    navigate('/managehouse')
+                }
+                )
+        }
     }
 
 
@@ -54,7 +69,7 @@ const ListHouseDashboard = () => {
             fetch(`http://localhost:9999/posts/${id}`, option)
                 .then(res => res.json())
                 .then(data => {
-                    if(data !== null) {
+                    if (data !== null) {
                         const newHouse = {
                             category_id: confirms[index].category_id,
                             host_id: confirms[index].host_id,
@@ -75,7 +90,7 @@ const ListHouseDashboard = () => {
                             },
                             body: JSON.stringify(newHouse)
                         }
-                        fetch(`http://localhost:9999/houseInformation`, createOption) 
+                        fetch(`http://localhost:9999/houseInformation`, createOption)
                             .then(res => res.json())
                             .then(() => {
                                 alert('Confirm successfully!');
@@ -96,51 +111,58 @@ const ListHouseDashboard = () => {
                 <HeaderDashboard />
                 <div className='row breadcrumbbb' style={{ padding: '0 3rem' }}>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-0 py-3">
-                            <li class="breadcrumb-item"><Link to={''}>Bảng kiểm duyệt</Link></li>
-                            <li class="breadcrumb-item active fw-light" aria-current="page">Kiểm duyệt</li>
+                        <ol className="breadcrumb mb-0 py-3">
+                            <li className="breadcrumb-item"><Link to={''}>Bảng kiểm duyệt</Link></li>
+                            <li className="breadcrumb-item active fw-light" aria-current="page">Kiểm duyệt</li>
                         </ol>
                     </nav>
                 </div>
                 <div className='row py-5' style={{ padding: '0 2rem' }}>
-                    <div className='col-lg-6 pb-3'>
-                    {
-                        confirms.map((confirm, index) =>
-                        
-                        <div className='item_house'>
-                        <div className='row house-detail'>
-                                <div className=' col-lg-5 house-detail-img'>
-                                    <img  src={confirm.thumb} alt='#' />
+                    <div className='col-lg-12 pb-3'>
+                        {
+                            confirms.length > 0 ? (
+                                confirms.map((confirm, index) =>
+
+                                    <div className='item_house'>
+                                        <div className='row house-detail'>
+                                            <div className=' col-lg-5 house-detail-img'>
+                                                <img src={confirm.thumb} alt='#' />
+                                            </div>
+                                            <div className='col-lg-7'>
+                                                <div className='house-detail-name'>
+                                                    <h2 style={{ color: 'red' }}>{confirm.name}</h2>
+                                                </div>
+                                                <div className='house-detail-address'>
+                                                    <i style={{ marginRight: '8px' }} className="fas fa-map-marker-alt"></i>
+                                                    <span>{confirm.address}</span>
+                                                </div>
+                                                <div className='house-detail-price'>
+                                                    <i style={{ marginRight: '8px' }} className="far fa-money-bill-alt"></i>
+                                                    <span>{confirm.price}</span>
+                                                </div>
+                                                <div className='house-detail-description'>
+                                                    <p style={{ fontSize: '20px', fontWeight: '700' }}>Thông tin mô tả</p>
+                                                    <p>
+                                                        {
+                                                            confirm.description && confirm.description.split('. ').map(des =>
+                                                                <p>{des}.</p>
+                                                            )
+                                                        }
+                                                    </p>
+                                                </div>
+                                                <button className='btn btn-success' onClick={() => { handleData(confirm.id, index) }}>Xác nhận</button>
+                                                <button className='btn btn-danger' style={{ float: 'right' }} onClick={() => handleDelete(confirm.id)}>Từ Chối</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            ) : (
+                                <div class="section" style={{textAlign:'center'}}>
+                                    <h1 class="error">404</h1>
+                                    <div class="pagee">Bạn Ơi! Hiện không có bài đăng nào đâu nha</div>
                                 </div>
-                            <div className='col-lg-7'>
-                                <div className='house-detail-name'>
-                                    <h2 style={{ color: 'red' }}>{confirm.name}</h2>
-                                </div>
-                                <div className='house-detail-address'>
-                                    <i style={{ marginRight: '8px' }} class="fas fa-map-marker-alt"></i>
-                                    <span>{confirm.address}</span>
-                                </div>
-                                <div className='house-detail-price'>
-                                    <i style={{ marginRight: '8px' }} class="far fa-money-bill-alt"></i>
-                                    <span>{confirm.price}</span>
-                                </div>
-                                <div className='house-detail-description'>
-                                    <p style={{ fontSize: '20px', fontWeight: '700' }}>Thông tin mô tả</p>
-                                    <p>
-                                    {
-                                    confirm.description && confirm.description.split('. ').map(des =>
-                                        <p>{des}.</p>
-                                    )
-                                }
-                                    </p>
-                                </div>
-                                <button className='btn btn-success' onClick={() => {handleData(confirm.id, index)}}>Xác nhận</button>
-                                <button className='btn btn-danger' style={{float:'right'}}>Từ Chối</button>
-                            </div>
-                        </div>
-                        </div>
-                         )         
-                    }
+                            )
+                        }
                     </div>
                 </div>
             </div>

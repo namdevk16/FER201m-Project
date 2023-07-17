@@ -16,12 +16,14 @@ import ResetPasswordPage from '../pages/ResetPasswordPage';
 import Dashboard from '../components/Dashboard';
 import ListHouseDashboard from '../components/ListHouseDashboard';
 import ListUserDashboard from '../components/ListUser_Dashboard';
+import NewHeader from '../components/NewHeader';
 
 
 const ListRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<HomePage />} />
+             <Route path='/' element={<NewHeader />} />
+            {/* <Route path='/' element={<HomePage />} />
             <Route path='/house/detail/:id' element={<DetailPage />} />
             <Route path='/changepassword' element={<ChangePasswordPage />} />
             <Route path='/login' element={<LoginPage />} />
@@ -36,7 +38,7 @@ const ListRoutes = () => {
             <Route path='/houseofhost' element={<HouseOfHostPage />}></Route>
             <Route path='/profile' element={<ProfilePage />}></Route>
             <Route path='/forgotpassword' element={<ForgotPasswordPage />}></Route>
-            <Route path='/resetpassword/:email' element={<ResetPasswordPage />}></Route>
+            <Route path='/resetpassword/:email' element={<ResetPasswordPage />}></Route> */}
 
         </Routes>
     );

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 
 
@@ -9,6 +9,14 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [role_id, setRole_id] = useState('3');
+
+    const errName = useRef();
+    const errPass = useRef();
+    const errMail = useRef();
+    const errPhone = useRef();
+    
+    const listInputs = [fullName, password, email, phoneNumber];
+    const listErrors = [errName, errPass, errMail, errPhone];
 
     const handleFullNameChange = (event) => {
         setFullName(event.target.value);
@@ -31,9 +39,7 @@ const SignUp = () => {
     };
 
     const handleRegister = (e) => {
-        const listInputs = document.querySelectorAll('.form-control');
-        const listErrors = document.querySelectorAll('.error');
-        if ([...listInputs].every(listInput => listInput.value !== '')) {
+        if (listInputs.every(listInput => listInput !== '')) {
             const newAccount = {
                 fullName: fullName,
                 password: password,
@@ -60,17 +66,17 @@ const SignUp = () => {
                 });
         }
         e.preventDefault();
-        if ([...listInputs].every(listInput => listInput.value === '')) {
-            [...listErrors].forEach(listError =>
-                listError.style.display = 'block'
+        if (listInputs.every(listInput => listInput === '')) {
+            listErrors.forEach(listError =>
+                listError.current.style.display = 'block'
             )
         }
         for (var i = 0; i < listInputs.length; i++) {
-            if (listInputs[i].value !== '') {
-                listErrors[i].style.display = 'none'
+            if (listInputs[i] !== '') {
+                listErrors[i].current.style.display = 'none'
                 for (var j = 0; j < listInputs.length; j++) {
-                    if (i !== j && listInputs[i].value === '') {
-                        listErrors[j].style.display = 'block';
+                    if (i !== j && listInputs[i] === '') {
+                        listErrors[j].current.style.display = 'block';
                     }
                 }
             }
@@ -103,22 +109,22 @@ const SignUp = () => {
                             <div className="input">
                                 <label>FullName</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='text' value={fullName} onChange={handleFullNameChange} />
-                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errName}>Hãy nhập đủ thông tin</span>
                             </div>
                             <div className="input">
                                 <label>Password</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='password' value={password} onChange={handlePasswordChange} />
-                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPass}>Hãy nhập đủ thông tin</span>
                             </div>
                             <div className="input">
                                 <label>Email address</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='email' value={email} onChange={handleEmailChange} />
-                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errMail}>Hãy nhập đủ thông tin</span>
                             </div>
                             <div className="input">
                                 <label>Phone Number</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='number' value={phoneNumber} onChange={handlePhoneNumberChange} />
-                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPhone}>Hãy nhập đủ thông tin</span>
                             </div>
                             <label>Role</label>
                             <select value={role_id} style={{ padding: '5px', borderRadius: '7px' }} onChange={handleRoleChange} >
