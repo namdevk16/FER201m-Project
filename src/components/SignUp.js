@@ -2,11 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-=======
->>>>>>> 27ff843e5d80a9fbd8919b2396cb681bdfe2836d
 
 
 const SignUp = () => {
@@ -47,10 +44,7 @@ const SignUp = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-<<<<<<< HEAD
         
-=======
->>>>>>> 27ff843e5d80a9fbd8919b2396cb681bdfe2836d
 
         fetch('http://localhost:9999/account')
             .then(response => response.json())
@@ -58,11 +52,7 @@ const SignUp = () => {
                 const emailExists = data.some(item => item.email === email);
 
                 if (emailExists) {
-<<<<<<< HEAD
                     toast.error('Email dã tồn tại!');
-=======
-                    alert('Email already exists!');
->>>>>>> 27ff843e5d80a9fbd8919b2396cb681bdfe2836d
                 } else if (listInputs.every(listInput => listInput !== '')) {
                     const newAccount = {
                         fullName: fullName,
@@ -82,20 +72,12 @@ const SignUp = () => {
                     fetch(`http://localhost:9999/account`, option)
                         .then(res => res.json())
                         .then(() => {
-<<<<<<< HEAD
                             toast.success('Đăng ký thành công.');
-=======
-                            alert('Đăng ký thành công.');
->>>>>>> 27ff843e5d80a9fbd8919b2396cb681bdfe2836d
                             navigate('/login')
                         })
                         .catch((error) => {
                             console.log(error);
-<<<<<<< HEAD
                             toast.error('Có lỗi xảy ra khi đăng ký.');
-=======
-                            alert('Có lỗi xảy ra khi đăng ký.');
->>>>>>> 27ff843e5d80a9fbd8919b2396cb681bdfe2836d
                         });
                 }
             })
