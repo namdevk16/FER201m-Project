@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 const Profile = () => {
 
@@ -52,7 +53,7 @@ const Profile = () => {
             .then(data => {
                 if(data !== null) {
                     sessionStorage.setItem('account', JSON.stringify(data));
-                    alert('Thông tin cá nhân của bạn đã thay đổi thành công');
+                    toast.success('Thông tin cá nhân của bạn đã thay đổi thành công');
                     navigate('/');
                 }
             })

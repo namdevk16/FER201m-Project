@@ -1,6 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUp = () => {
@@ -9,12 +12,13 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [role_id, setRole_id] = useState('3');
+    const navigate = useNavigate();
 
     const errName = useRef();
     const errPass = useRef();
     const errMail = useRef();
     const errPhone = useRef();
-    
+
     const listInputs = [fullName, password, email, phoneNumber];
     const listErrors = [errName, errPass, errMail, errPhone];
 
@@ -39,32 +43,47 @@ const SignUp = () => {
     };
 
     const handleRegister = (e) => {
-        if (listInputs.every(listInput => listInput !== '')) {
-            const newAccount = {
-                fullName: fullName,
-                password: password,
-                email: email,
-                phone: phoneNumber,
-                role_id: role_id
-            };
-            const option = {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: JSON.stringify(newAccount)
-            }
-            fetch(`http://localhost:9999/account`, option)
-                .then(res => res.json())
-                .then(() => {
-                    alert('Đăng ký thành công.');
-                })
-                .catch((error) => {
-                    console.log(error);
-                    alert('Có lỗi xảy ra khi đăng ký.');
-                });
-        }
+        e.preventDefault();
+        
+
+        fetch('http://localhost:9999/account')
+            .then(response => response.json())
+            .then(data => {
+                const emailExists = data.some(item => item.email === email);
+
+                if (emailExists) {
+                    toast.error('Email dã tồn tại!');
+                } else if (listInputs.every(listInput => listInput !== '')) {
+                    const newAccount = {
+                        fullName: fullName,
+                        password: password,
+                        email: email,
+                        phone: phoneNumber,
+                        role_id: role_id
+                    };
+                    const option = {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json'
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: JSON.stringify(newAccount)
+                    }
+                    fetch(`http://localhost:9999/account`, option)
+                        .then(res => res.json())
+                        .then(() => {
+                            toast.success('Đăng ký thành công.');
+                            navigate('/login')
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            toast.error('Có lỗi xảy ra khi đăng ký.');
+                        });
+                }
+            })
+
+
+
         e.preventDefault();
         if (listInputs.every(listInput => listInput === '')) {
             listErrors.forEach(listError =>
@@ -81,6 +100,7 @@ const SignUp = () => {
                 }
             }
         }
+
     };
 
 

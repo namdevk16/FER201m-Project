@@ -3,6 +3,9 @@ import HeaderDashboard from './HeaderDashboard';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../styles/custom.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ListHouseDashboard = () => {
 
     const [confirms, setConfirms] = useState([]);
@@ -35,7 +38,7 @@ const ListHouseDashboard = () => {
             }
             fetch(`http://localhost:9999/posts/${id}`, option)
                 .then(() => {
-                    alert("Delete success.");
+                    toast.success("Delete success.");
                     navigate('/managehouse')
                 }
                 )

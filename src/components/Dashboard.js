@@ -4,6 +4,9 @@ import SideBar from './SideBar';
 import HeaderDashboard from './HeaderDashboard';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Dashboard = () => {
     const [userCount, setUserCount] = useState(0);
     const [dormCount, setDormCount] = useState(0);
@@ -13,6 +16,7 @@ const Dashboard = () => {
     const [regions, setRegions] = useState([]);
     const [houses, setHouses] = useState([]);
     const [quantity, setQuantity] = useState([])
+
     useEffect(() => {
         const fetchUserCount = async () => {
             try {
@@ -21,7 +25,7 @@ const Dashboard = () => {
                 const filteredUsers = data.filter(user => user.role_id !== 1);
                 setUserCount(filteredUsers.length);
             } catch (error) {
-                console.error('Error fetching user count:', error);
+                toast.error('Error fetching user count:', error);
             }
         };
 
@@ -51,7 +55,7 @@ const Dashboard = () => {
                 setHotelCount(houseCounter);
                 setHouseCount(hotelCounter);
             } catch (error) {
-                console.error('Error fetching user count:', error);
+                toast.error('Error fetching user count:', error);
             }
         };
 
@@ -66,7 +70,7 @@ const Dashboard = () => {
                 const filteredVertify = data.filter(p => p.is_post !== true);
                 setVertifyCount(filteredVertify.length);
             } catch (error) {
-                console.error('Error fetching user count:', error);
+                toast.error('Error fetching user count:', error);
             }
         };
 
@@ -81,7 +85,7 @@ const Dashboard = () => {
                 const data = await response.json();
                 setRegions(data);
             } catch (error) {
-                console.error('Error fetching user count:', error);
+                toast.error('Error fetching user count:', error);
             }
         };
 

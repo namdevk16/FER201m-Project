@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Post = () => {
 
@@ -131,7 +133,7 @@ const Post = () => {
             fetch(`http://localhost:9999/posts`, option)
                 .then(res => res.json())
                 .then(() => {
-                    alert('Your request has been sent. Wait for the admin to moderate');
+                    toast.info('Your request has been sent. Wait for the admin to moderate');
                     window.location.reload();
                 }
                 )
@@ -147,7 +149,7 @@ const Post = () => {
             }
             fetch(`http://localhost:9999/posts/${id}`, option)
                 .then(() => {
-                    alert("Delete success.");
+                    toast.success("Delete success.");
                     navigate('/post')
                 }
                 )

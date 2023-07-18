@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 
 const ResetPassword = () => {
@@ -37,16 +38,16 @@ const ResetPassword = () => {
                 });
 
                 if (response.ok) {
-                    alert('Password updated successfully');
+                    toast.success('Password updated successfully');
                     navigate('/login');
                 } else {
-                    alert('Failed to update password');
+                    toast.error('Failed to update password');
                 }
             } catch (error) {
                 console.log('Error:', error);
             }
         } else {
-            alert('Passwords do not match');
+            toast.error('Passwords do not match');
         }
     };
 

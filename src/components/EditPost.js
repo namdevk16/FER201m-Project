@@ -1,5 +1,7 @@
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditPost = () => {
 
@@ -86,7 +88,7 @@ const EditPost = () => {
             .then(res => res.json())
             .then(data => {
                 if(data !== null) {
-                    alert('Cập nhật thành công');
+                    toast.success('Cập nhật thành công');
                     navigate('/post');
                 }
             })

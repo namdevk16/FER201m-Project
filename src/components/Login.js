@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {
-    MDBBtn,
-    MDBContainer,
-    MDBRow,
-    MDBCol,
-    MDBInput
-}
-    from 'mdb-react-ui-kit';
+import { MDBBtn, MDBContainer, MDBRow, MDBCol} from 'mdb-react-ui-kit';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -40,7 +35,7 @@ const Login = () => {
                     sessionStorage.setItem('account', JSON.stringify(data[0]));
                     navigate('/admin');
                 } else {
-                    alert('Your account not exist')
+                    toast.error('Your account not exist')
                 }
             })
     }
@@ -76,13 +71,13 @@ const Login = () => {
                             </div>
                             <form onSubmit={(e) => handleSubmit(e)}>
                                 <div>
-                                <label>Email address</label>
-                                <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                                    <label>Email address</label>
+                                    <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                                     <span style={{ color: "red" }} className="error-email" ></span>
                                 </div>
-                                <div>  
-                                <label>Password</label>
-                                <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>                                     <span style={{ color: "red" }} className="error-password" ></span>
+                                <div>
+                                    <label>Password</label>
+                                    <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />                                     <span style={{ color: "red" }} className="error-password" ></span>
                                 </div>
                                 <div>
                                     <input type='checkbox' checked={check} onChange={(e) => setCheck(e.target.checked)} name='Remember Me' /><i style={{ paddingLeft: '5px' }}>Remember Me</i>

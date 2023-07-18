@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ChangePasswordForm = () => {
 
@@ -66,12 +68,12 @@ const ChangePasswordForm = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data !== null) {
-                        alert('Mật khẩu của bạn đã được thay đổi thành công');
+                        toast.success('Mật khẩu của bạn đã được thay đổi thành công');
                         navigate('/');
                     }
                 })
         } else if (checkConfirm() === 2) {
-            alert('Hãy nhập đúng với mật khẩu của bạn')
+            toast.error('Hãy nhập đúng với mật khẩu của bạn')
         } else if (checkConfirm() === 3) {
             checkValidate();
         }
