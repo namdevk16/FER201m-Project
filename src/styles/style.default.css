@@ -13957,9 +13957,7 @@ span {
 * ==========================================================
 */
 nav.navbar {
-  padding: 0.8rem;
   background: #056dbb;
-  border: 1px solid white;
   width: calc(100% - 200px);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -13981,8 +13979,8 @@ nav.navbar.active-sm {
 }
 nav.navbar .badge {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -28%;
+  right: -5%;
 }
 nav.navbar .dropdown-menu {
   display: block;
@@ -14031,7 +14029,6 @@ nav.navbar .dropdown-menu.show {
   text-align: left;
   color: #fff;
   background: #056dbb;
-  border: 1px solid white;
   z-index: 1050;
   transition: all 0.3s;
   overflow: hidden;
@@ -14047,7 +14044,6 @@ nav.navbar .dropdown-menu.show {
 }
 .side-navbar .sidebar-header {
   background: #056dbb;
-  border: 1px solid white;
 }
 .side-navbar.hide {
   left: -70px;

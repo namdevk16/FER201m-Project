@@ -2,11 +2,10 @@
 const Footer = () => {
     return (
         <div className="container-fluid footer">
-            <div className='container'>
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap:'wrap'}}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap:'wrap',margin: '0 3%'}}>
                     <div style={{flexBasis:'30%'}}>
                         <div style={{textAlign:'center'}}>
-                            <h3>Member</h3>
+                            <h3>Thành viên dự án</h3>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap:'wrap'}}>
                             <div>
@@ -23,7 +22,7 @@ const Footer = () => {
 
                     <div style={{flexBasis:'15%'}}>
                         <div>
-                            <h3>Contact us</h3>
+                            <h3>Liên hệ</h3>
                         </div>
                         <div>
                             <i className="fas fa-phone-square-alt"></i>
@@ -35,7 +34,6 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

@@ -1,10 +1,10 @@
-import Header from "../components/Header";
+import NewHeader from "../components/NewHeader";
 
 
 const NoFooter = ( {children }) => {
     return (
         <>
-            <Header />
+            <NewHeader />
             {children}
         </>
     );
