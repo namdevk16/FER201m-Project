@@ -42,7 +42,7 @@ const NewHeader = () => {
     const mistype = {
         marginLeft: "0",
         width: "100%",
-        background: "#5c7ce3"
+        background: "#056dbb"
     }
     return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={mistype}>
