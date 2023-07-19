@@ -8,6 +8,7 @@ const Content = () => {
     const [accounts, setAccounts] = useState([]);
     const [url, setUrl] = useState('');
     const [cateId, setCateId] = useState(0);
+    
 
     const [type, setType] = useState([]);
     const [value, setValue] = useState([[0, 0], [0, 0]]);
