@@ -8,6 +8,8 @@ const EditPost = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
+    
+
     const [name, setName] = useState('')
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
