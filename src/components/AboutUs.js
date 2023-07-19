@@ -6,8 +6,30 @@ import Signiture from '../styles/assets/img/signiture.jpg'
 import Banner from '../styles/assets/img/banner3.png'
 import { NavLink } from 'react-router-dom';
 import avatar from '../images/abv.png'
+import { useState } from 'react';
 
 const AboutUs = () => {
+
+    const [humnan, setHumans] = useState([
+        {
+            id: 1,
+            name: "MinhTuan",
+            role: "trưởng nhóm"
+        }, {
+            id: 2,
+            name: "TuAnh",
+            role: "thành viên"
+        }, {
+            id: 3,
+            name: "QuangBa",
+            role: "thành viên"
+        }, {
+            id: 4,
+            name: "HuuNam",
+            role: "thành viên"
+        }
+
+    ]);
     const milder = {
         padding: '0',
         overflow: 'hidden',
@@ -51,7 +73,7 @@ const AboutUs = () => {
             <Row>
                 <div className='intro-system'>
                     <div className='content-intro'>
-                        <h3>About Us</h3>
+                        <h3>Giới Thiệu</h3>
                         <p>Welcome to Homedy</p>
                     </div>
                 </div>
@@ -64,19 +86,18 @@ const AboutUs = () => {
                 </div>
                 <div className='col-lg-6 col-md-12 col-sm-12 p-right'>
                     <div className='story-title'>
-                        <h3>our story</h3>
+                        <h3>Câu chuyên Homedy</h3>
                         <p></p>
                     </div>
                     <div className='story-content'>
                         <p>
-                            Homedy websites help you to search and discover suitable accommodation options. For fresh graduates, working workers or someone looking for temporary accommodation, we provide information on apartments, hostels, motel rooms and other accommodation in your area.
-                            With a hostel finder website, finding a place is easy. The simple and convenient search interface allows you to search by location, price, area and other utilities. View detailed information about each location, photos, descriptions, amenities, and contact information.
+                            Homedy giúp bạn tìm kiếm và khám phá các lựa chọn chỗ ở phù hợp. Đối với sinh viên mới tốt nghiệp, công nhân đang đi làm hoặc ai đó đang tìm chỗ ở tạm thời, chúng tôi cung cấp thông tin về căn hộ, ký túc xá, phòng trọ và các chỗ ở khác trong khu vực của bạn. Với trang web tìm nhà trọ, việc tìm kiếm một địa điểm thật dễ dàng. Giao diện tìm kiếm đơn giản và thuận tiện cho phép bạn tìm kiếm theo vị trí, giá cả, khu vực và các tiện ích khác. Xem thông tin chi tiết về từng vị trí, hình ảnh, mô tả, tiện nghi và thông tin liên hệ.
                         </p>
                         <p>
-                            The site offers reviews and comments from people who have stayed, suggesting popular and near-convenient areas such as schools, hospitals, and supermarkets.
+                            Trang web đưa ra những đánh giá, nhận xét của những người đã từng ở, gợi ý những khu vực nổi tiếng và gần khu vực thuận tiện đi lại như trường học, bệnh viện, siêu thị.
                         </p>
                         <p>
-                            We are committed to providing the best accommodation experience, saving you time and effort. Get started now and explore great hostel options in just a few clicks!
+                            Chúng tôi cam kết mang đến trải nghiệm lưu trú tốt nhất, tiết kiệm thời gian và công sức cho bạn. Bắt đầu ngay bây giờ và khám phá các lựa chọn ký túc xá tuyệt vời chỉ trong vài cú nhấp chuột!
                         </p>
                     </div>
                     <div className='signiture'>
@@ -88,63 +109,34 @@ const AboutUs = () => {
                 <div className='intro-member'>
                     <div className='content-intro'>
                         <p></p>
-                        <h3>Project Member</h3>
+                        <h3>Thành viên nhóm</h3>
                         <p></p>
                         <p></p>
                     </div>
                 </div>
             </Row>
             <Row style={machmeter}>
-                <div className='col-lg-3 col-md-6 col-sm-12'>
-                    <div className='row item-member'>
-                        <div className='col-12 member-img'>
-                            <img src={avatar} alt='' />
+                {
+                    humnan.map((h,key) => 
+                        <div className='col-lg-3 col-md-6 col-sm-12' key={key}>
+                            <div className='row item-member'>
+                                <div className='col-12 member-img'>
+                                    <img src={avatar} alt='' />
+                                </div>
+                                <div className='col-12 member-content'>
+                                    <p>{h.name}</p>
+                                    <p>{h.role}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div className='col-12 member-content'>
-                            <p>MinhTuan</p>
-                            <p>Leader</p>
-                        </div>
-                    </div>
-                </div>
-                <div className='col-lg-3 col-md-6 col-sm-12'>
-                    <div className='row item-member'>
-                        <div className='col-12 member-img'>
-                            <img src={avatar} alt='' />
-                        </div>
-                        <div className='col-12 member-content'>
-                            <p>TuAnh</p>
-                            <p>Secretary</p>
-                        </div>
-                    </div>
-                </div>
-                <div className='col-lg-3 col-md-6 col-sm-12'>
-                    <div className='row item-member'>
-                        <div className='col-12 member-img'>
-                            <img src={avatar} alt='' />
-                        </div>
-                        <div className='col-12 member-content'>
-                            <p>QuangBa</p>
-                            <p>Secretary</p>
-                        </div>
-                    </div>
-                </div>
-                <div className='col-lg-3 col-md-6 col-sm-12'>
-                    <div className='row item-member'>
-                        <div className='col-12 member-img'>
-                            <img src={avatar} alt='' />
-                        </div>
-                        <div className='col-12 member-content'>
-                            <p>HuuNam</p>
-                            <p>Secretary</p>
-                        </div>
-                    </div>
-                </div>
+                    )
+                }
             </Row>
             <Row>
                 <div className='quote'>
                     <div className='content-quote'>
                         <p></p>
-                        <h3><i>“Discover the possibilities, explore the world, and create your own journey with us.”</i></h3>
+                        <h3><i>“Khám phá các khả năng, khám phá thế giới và tạo hành trình của riêng bạn với chúng tôi.”</i></h3>
                         <p></p>
                         <p></p>
                     </div>
@@ -152,47 +144,47 @@ const AboutUs = () => {
             </Row>
             <Row>
                 <div className='col-12 advantage'>
-                    <h3>Advantage</h3>
+                    <h3>Những lợi thế của chúng tôi</h3>
                 </div>
-                <div className='col-12 --adv'>
-                    <div className='col-3 item-adv'>
+                <div className='row --adv'>
+                    <div className='col-lg-3 col-md-12 item-adv'>
                         <div className='iicon'>
                             <i className="bi bi-search"></i>
                         </div>
                         <div className='title-item'>
-                            <h4>Searching is easy</h4>
+                            <h4>Tìm kiếm dễ dàng</h4>
                         </div>
                         <div className='desc-item'>
-                            <p>The website provides a simple and convenient search interface for you to search and discover suitable accommodation options.</p>
+                            <p>Trang web cung cấp một giao diện tìm kiếm đơn giản và thuận tiện để bạn tìm kiếm và khám phá các lựa chọn chỗ ở phù hợp.</p>
                         </div>
                     </div>
-                    <div className='col-3 item-adv'>
+                    <div className='col-lg-3 col-md-12 item-adv'>
                         <div className='iicon'>
                             <i className="bi bi-info-circle"></i>
                         </div>
                         <div className='title-item'>
-                            <h4>Details and reviews:</h4>
+                            <h4>Chi tiết và đánh giá</h4>
                         </div>
                         <div className='desc-item'>
-                            <p>The website provides detailed information about each location, including photos, descriptions, amenities and contact information.</p>
+                            <p>Trang web cung cấp thông tin chi tiết về từng địa điểm, bao gồm hình ảnh, mô tả, tiện nghi và thông tin liên lạc.</p>
                         </div>
                     </div>
-                    <div className='col-3 item-adv'>
+                    <div className='col-lg-3 col-md-12 item-adv'>
                         <div className='iicon'>
                             <i className="bi bi-alarm"></i>
                         </div>
                         <div className='title-item'>
-                            <h4>Save time and effort:</h4>
+                            <h4>Tiết kiệm thời gian và công sức</h4>
                         </div>
                         <div className='desc-item'>
-                            <p>Website is committed to providing the best accommodation experience, saving you time and effort.</p>
+                            <p>Website cam kết mang lại trải nghiệm lưu trú tốt nhất, tiết kiệm thời gian và công sức cho bạn.</p>
                         </div>
                     </div>
                 </div>
             </Row>
             <Row style={{ backgroundColor: 'black' }}>
                 <div className='col-12 contact'>
-                    <h3>Contact With Us</h3>
+                    <h3>Liên hệ với chúng tôi</h3>
                 </div>
 
                 <div className='col-12 address'>
@@ -205,7 +197,7 @@ const AboutUs = () => {
                     <i className="bi bi-envelope"></i> <span>Homedy@gmail.com</span>
                 </div>
                 <div className='col-12 goback'>
-                    <NavLink to={'/'}><span>Discover Now!</span></NavLink>
+                    <NavLink to={'/'}><span>Khám phá ngay!</span></NavLink>
 
                 </div>
             </Row>

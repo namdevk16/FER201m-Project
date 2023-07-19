@@ -62,7 +62,7 @@ const Content = () => {
 
 
     useEffect(() => {
-        if(!isSearch) {
+        if (!isSearch) {
             fetch(`http://localhost:9999/houseInformation?${url}`)
                 .then(res => res.json())
                 .then(data => {
@@ -292,34 +292,35 @@ const Content = () => {
 
     return (
         <div className="container content">
-            <div className='content-header'>
-                <button onClick={() => changeByCateId(` `, 0)} className={cateId === 0 ? 'btn-category active-category' : 'btn-category'}>Tất cả</button>
-                {
-                    categories.map(category =>
-                        <button key={category.id} onClick={() => changeByCateId(`category_id=${category.id}`, category.id)} className={category.id === cateId ? 'btn-category active-category' : 'btn-category'}>{category.name}</button>
-                    )
-                }
+            <div className='row pt-3 pb-3' style={{minWidth: "1320px"}}>
+                <div className='col-lg-6 group-category' style={{minWidth: "660px"}}>
+                    <button onClick={() => changeByCateId(` `, 0)} className={cateId === 0 ? 'btn-category active-category' : 'btn-category'}>Tất cả</button>
+                    {
+                        categories.map(category =>
+                            <button key={category.id} onClick={() => changeByCateId(`category_id=${category.id}`, category.id)} className={category.id === cateId ? 'btn-category active-category' : 'btn-category'}>{category.name}</button>
+                        )
+                    }
+                </div>
 
-                <div className='search-price'>
-                    <select onChange={(e) => handleSelect(e, 'price')}>
-                        <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn giá---</option>
-                        <option value={1}>Dưới 1.6tr/tháng</option>
-                        <option value={2}>Từ 1.6 - 2.5tr/tháng</option>
-                        <option value={3}>Từ 2.5 - 3.5tr/tháng</option>
-                        <option value={4}>Trên 3.5tr/tháng</option>
-                    </select>
-                </div>
-                <div className='search-area'>
-                    <select onChange={(e) => handleSelect(e, 'area')}>
-                        <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn diện tích---</option>
-                        <option value={1}>Dưới 18m2</option>
-                        <option value={2}>Từ 18m2 - 25m2</option>
-                        <option value={3}>Từ 25m2 - 35m2</option>
-                        <option value={4}>Trên 35m2</option>
-                    </select>
-                </div>
-                <div>
-                    <button className='btn btn-primary' onClick={handleSearch}>Search</button>
+                <div className='col-lg-6 form-search' style={{minWidth: "660px"}}>
+                    
+                        <select onChange={(e) => handleSelect(e, 'price')}>
+                            <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn giá---</option>
+                            <option value={1}>Dưới 1.6tr/tháng</option>
+                            <option value={2}>Từ 1.6 - 2.5tr/tháng</option>
+                            <option value={3}>Từ 2.5 - 3.5tr/tháng</option>
+                            <option value={4}>Trên 3.5tr/tháng</option>
+                        </select>
+                        <select onChange={(e) => handleSelect(e, 'area')}>
+                            <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn diện tích---</option>
+                            <option value={1}>Dưới 18m2</option>
+                            <option value={2}>Từ 18m2 - 25m2</option>
+                            <option value={3}>Từ 25m2 - 35m2</option>
+                            <option value={4}>Trên 35m2</option>
+                        </select>
+                    <div className='search-btn'>
+                        <button className='btn btn-primary' onClick={handleSearch}>Search</button>
+                    </div>
                 </div>
             </div>
 
