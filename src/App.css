@@ -53,9 +53,9 @@
 
 /* Các class css của Content.js */
 
-.group-category {
+/* .group-category {
   min-width: 660px;
-}
+} */
 
 .btn-category {
   display: inline-block;
@@ -249,6 +249,9 @@
   .gradient-form {
     height: 100vh !important;
   }
+  .group-category{
+    text-align: center;
+  }
 }
 
 @media (max-width: 992px) {
@@ -257,6 +260,7 @@
   }
 }
 
+
 @media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
@@ -264,6 +268,17 @@
   }
 }
 
+
+
+@media (max-width: 990px) {
+  .group-category{
+    text-align: center;
+    margin-bottom: 2%;
+  }
+  .form-search{
+    text-align: center;
+  }
+}
 /* Các class css của Content.js */
 
 .create {
