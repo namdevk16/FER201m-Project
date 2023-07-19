@@ -10,7 +10,11 @@ const EditPost = () => {
 
     
 
-    const [name, setName] = useState('')
+    
+
+
+
+    const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [area, setArea] = useState('');
@@ -20,6 +24,7 @@ const EditPost = () => {
     const [category, setCategory] = useState();
     const [hostId, setHostId] = useState();
     const [isPost, setIsPost] = useState();
+
 
 
     const [categories, setCategories] = useState([]);
