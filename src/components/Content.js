@@ -289,8 +289,8 @@ const Content = () => {
 
     return (
         <div className="container content">
-            <div className='row pt-3 pb-3' style={{minWidth: "1320px"}}>
-                <div className='col-lg-6 group-category' style={{minWidth: "660px"}}>
+            <div className='row pt-3 pb-3'>
+                <div className='col-xxl-6 col-lg-6  group-category'>
                     <button onClick={() => changeByCateId(` `, 0)} className={cateId === 0 ? 'btn-category active-category' : 'btn-category'}>Tất cả</button>
                     {
                         categories.map(category =>
