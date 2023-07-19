@@ -8,6 +8,7 @@ const Content = () => {
     const [accounts, setAccounts] = useState([]);
     const [url, setUrl] = useState('');
     const [cateId, setCateId] = useState(0);
+    
 
     const [type, setType] = useState([]);
     const [value, setValue] = useState([[0, 0], [0, 0]]);
@@ -287,7 +288,7 @@ const Content = () => {
     }
 
     return (
-        <div className="container content" style={{marginTop:'10%'}}>
+        <div className="container content">
             <div className='row pt-3 pb-3' style={{minWidth: "1320px"}}>
                 <div className='col-lg-6 group-category' style={{minWidth: "660px"}}>
                     <button onClick={() => changeByCateId(` `, 0)} className={cateId === 0 ? 'btn-category active-category' : 'btn-category'}>Tất cả</button>
@@ -298,7 +299,7 @@ const Content = () => {
                     }
                 </div>
 
-                <div className='col-lg-6 form-search' style={{minWidth: "660px"}}>
+                <div className='col-xxl-6 col-lg-6 form-search'>
                     
                         <select onChange={(e) => handleSelect(e, 'price')}>
                             <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn giá---</option>

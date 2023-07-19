@@ -8,7 +8,13 @@ const EditPost = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const [name, setName] = useState('')
+    
+
+    
+
+
+
+    const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [area, setArea] = useState('');
@@ -20,6 +26,7 @@ const EditPost = () => {
     const [isPost, setIsPost] = useState();
 
 
+        
     const [categories, setCategories] = useState([]);
     const [region, setRegion] = useState([]);
 
