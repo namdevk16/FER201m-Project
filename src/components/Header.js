@@ -24,6 +24,7 @@ const Header = () => {
     const handleLogout =() => {
 
         sessionStorage.removeItem('account');
+       
         navigate('/');
     }
  
