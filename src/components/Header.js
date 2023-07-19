@@ -19,10 +19,15 @@ const Header = () => {
         }
     }, [sessionStorage.getItem('account')])
 
-    const handleLogout = () => {
+  
+
+    const handleLogout =() => {
+
         sessionStorage.removeItem('account');
+       
         navigate('/');
     }
+ 
 
     const handleCheckLogin = (e) => {
         e.preventDefault();

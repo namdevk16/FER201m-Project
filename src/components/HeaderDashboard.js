@@ -2,11 +2,16 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const HeaderDashboard = () => {
 
-    const navigate = useNavigate();
 
-    const handleLogout = () => {
-        sessionStorage.removeItem('account');
-        navigate('/');
+
+
+        const navigate = useNavigate();
+
+        const handleLogout = () => {
+
+            sessionStorage.removeItem('account');
+            navigate('/');
+        
     }
 
 
