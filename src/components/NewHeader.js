@@ -88,7 +88,7 @@ const NewHeader = () => {
                             </Link>
                         </li>
                         {
-                            JSON.parse(sessionStorage.getItem('account')).role_id === 3 ? <li className="nav-item">
+                            sessionStorage.getItem('account') && JSON.parse(sessionStorage.getItem('account')).role_id === 3 ? <li className="nav-item">
                                 <Link className="nav-link text-white position-relative"
                                     id="notifications" to={"/post"} onClick={(e) => handleCheckLogin(e)}>
                                     Bài đăng
@@ -192,7 +192,7 @@ const NewHeader = () => {
                                         </Link>
                                     </li>
                                     {
-                                        JSON.parse(sessionStorage.getItem('account')).role_id === 3 ? <li>
+                                        sessionStorage.getItem('account') && JSON.parse(sessionStorage.getItem('account')).role_id === 3 ? <li>
                                             <Link className="dropdown-item py-3" to={'/houseofhost'}>
                                                 <div className="d-flex">
                                                     <div className="ms-3">
