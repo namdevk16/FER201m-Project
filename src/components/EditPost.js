@@ -26,7 +26,7 @@ const EditPost = () => {
     const [isPost, setIsPost] = useState();
 
 
-
+        
     const [categories, setCategories] = useState([]);
     const [region, setRegion] = useState([]);
 
