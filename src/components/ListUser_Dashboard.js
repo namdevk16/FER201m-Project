@@ -43,21 +43,21 @@ const ListUserDashboard = () => {
 
                 <div className='row breadcrumbbb' style={{ padding: '0 3rem' }}>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-0 py-3">
-                            <li class="breadcrumb-item"><Link to={'/admin'}>Bảng điều khiển</Link></li>
-                            <li class="breadcrumb-item active fw-light" aria-current="page">Người dùng</li>
+                        <ol className="breadcrumb mb-0 py-3">
+                            <li className="breadcrumb-item"><Link to={'/admin'}>Bảng điều khiển</Link></li>
+                            <li className="breadcrumb-item active fw-light" aria-current="page">Người dùng</li>
                         </ol>
                     </nav>
                 </div>
                 <div className="row py-5" style={{ padding: '0 3rem' }}>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header border-bottom">
-                                <h3 class="h4 mb-0">Danh Sách người dùng</h3>
+                    <div className="col-lg-12">
+                        <div className="card">
+                            <div className="card-header border-bottom">
+                                <h3 className="h4 mb-0">Danh Sách người dùng</h3>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table text-sm mb-0">
+                            <div className="card-body">
+                                <div className="table-responsive">
+                                    <table className="table text-sm mb-0">
                                         <thead>
                                             <tr>
                                                 <th>STT</th>

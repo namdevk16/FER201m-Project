@@ -52,40 +52,40 @@ const ResetPassword = () => {
     };
 
     return (
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-                    <div class="d-table-cell align-middle">
+        <div className="container h-100">
+            <div className="row h-100">
+                <div className="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                    <div className="d-table-cell align-middle">
 
-                        <div class="text-center mt-4">
-                            <h1 class="h2">Reset password</h1>
-                            <p class="lead">
-                                Set a new password.
+                        <div className="text-center mt-4">
+                            <h1 className="h2">Reset password</h1>
+                            <p className="lead">
+                                Set a new password
                             </p>
                         </div>
 
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="m-sm-4">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="m-sm-4">
                                     <form onSubmit={handleResetPassword}>
-                                        <div class="form-group">
-                                            <input class="form-control form-control-lg"
+                                        <div className="form-group">
+                                            <input className="form-control form-control-lg"
                                                 type="password"
                                                 placeholder="New Password"
                                                 value={newPassword}
                                                 onChange={(e) => setNewPassword(e.target.value)} />
-                                            <input class="form-control form-control-lg"
+                                            <input className="form-control form-control-lg"
                                                 type="password"
                                                 placeholder="Confirm Password"
                                                 value={confirmPassword}
                                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                             />
                                         </div>
-                                        <div class="form-group">
+                                        <div className="form-group">
                                             
                                         </div>
-                                        <div class="text-center mt-3">
-                                            <button type="submit" class="btn btn-lg btn-primary">Save Change</button>
+                                        <div className="text-center mt-3">
+                                            <button type="submit" className="btn btn-lg btn-primary">Save Change</button>
                                         </div>
                                     </form>
                                 </div>

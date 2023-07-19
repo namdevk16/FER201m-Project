@@ -55,14 +55,14 @@ const HouseOfHost = () => {
                                 </div>
                                 <div className='house-name'>{house.name}</div>
                                 <div style={{ color: 'rgb(133, 121, 121)' }} className='house-address'>
-                                    <span><i class="fas fa-map-marker-alt"></i>{house.address}</span>
+                                    <span><i className="fas fa-map-marker-alt"></i>{house.address}</span>
                                 </div>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div style={{ color: 'rgb(133, 121, 121)' }}>
-                                        <span><i class="fas fa-ruler"></i>{house.area}m2</span>
+                                        <span><i className="fas fa-ruler"></i>{house.area}m2</span>
                                     </div>
                                     <div style={{ color: 'rgb(133, 121, 121)' }}>
-                                        <span><i class="fas fa-money-bill"></i>{house.price}tr/tháng</span>
+                                        <span><i className="fas fa-money-bill"></i>{house.price}tr/tháng</span>
                                     </div>
                                 </div>
                             </Link>

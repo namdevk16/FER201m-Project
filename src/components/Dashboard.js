@@ -144,7 +144,7 @@ const Dashboard = () => {
                         {/* <!-- Income--> */}
                         <div className="card text-center h-100 mb-0">
                             <div className="card-body">
-                                <i class="bi bi-person-check-fill"></i>
+                                <i className="bi bi-person-check-fill"></i>
                                 <p className="text-gray-700 display-6">{userCount}</p>
                                 <p className="text-success h2 fw-bold">Người Dùng</p>
                             </div>
@@ -154,7 +154,7 @@ const Dashboard = () => {
                         {/* <!-- Income--> */}
                         <div className="card text-center h-100 mb-0">
                             <div className="card-body">
-                                <i class="bi bi-houses"></i>
+                                <i className="bi bi-houses"></i>
                                 <p className="text-gray-700 display-6">{dormCount}</p>
                                 <p className="text-success h2 fw-bold">Dorm</p>
                             </div>
@@ -164,7 +164,7 @@ const Dashboard = () => {
                         {/* <!-- Income--> */}
                         <div className="card text-center h-100 mb-0">
                             <div className="card-body">
-                                <i class="bi bi-house-lock"></i>
+                                <i className="bi bi-house-lock"></i>
                                 <p className="text-gray-700 display-6">{hotelCount}</p>
                                 <p className="text-success h2 fw-bold">Hotel</p>
                             </div>
@@ -174,7 +174,7 @@ const Dashboard = () => {
                         {/* <!-- Income--> */}
                         <div className="card text-center h-100 mb-0">
                             <div className="card-body">
-                                <i class="bi bi-house-check-fill"></i>
+                                <i className="bi bi-house-check-fill"></i>
                                 <p className="text-gray-700 display-6">{houseCount}</p>
                                 <p className="text-success h2 fw-bold">House</p>
                             </div>
@@ -184,7 +184,7 @@ const Dashboard = () => {
                         {/* <!-- Income--> */}
                         <div className="card text-center h-100 mb-0">
                             <div className="card-body">
-                                <i class="bi bi-check-circle"></i>
+                                <i className="bi bi-check-circle"></i>
                                 <p className="text-gray-700 display-6">{vertifyCount}</p>
                                 <p className="text-success h2 fw-bold">Chưa Duyệt</p>
                             </div>

@@ -161,9 +161,9 @@ const Post = () => {
                     {
                         posts.map(post =>
                             <div key={post.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                                <Link to={`/post/edit/${post.id}`}>
+                                <Link to={`/post/edit/${post.id}`} style={{display:'block'}}>
                                     <div className='house-img'>
-                                        <img style={{ width: "100%", height: "300px" }} src={post.thumb} alt='#' />
+                                        <img style={{ width: "100%", height: "300px"}} src={post.thumb} alt='#' />
                                     </div>
                                     <div className='house-name'>{post.name}</div>
                                     <div>

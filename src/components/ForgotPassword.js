@@ -34,28 +34,28 @@ const ForgotPassword = () => {
 
 
     return (
-        <div class="container h-100">
-    		<div class="row h-100">
-				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-					<div class="d-table-cell align-middle">
+        <div clasName="container h-100">
+    		<div clasName="row h-100">
+				<div clasName="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div clasName="d-table-cell align-middle">
 
-						<div class="text-center mt-4">
-							<h1 class="h2">Forgot password</h1>
-							<p class="lead">
+						<div clasName="text-center mt-4">
+							<h1 clasName="h2">Forgot password</h1>
+							<p clasName="lead">
 								Enter your email to reset your password.
 							</p>
 						</div>
 
-						<div class="card">
-							<div class="card-body">
-								<div class="m-sm-4">
+						<div clasName="card">
+							<div clasName="card-body">
+								<div clasName="m-sm-4">
 									<form onSubmit={handleForgotPassword}>
-										<div class="form-group">
+										<div clasName="form-group">
 											<label>Email</label>
-											<input class="form-control form-control-lg" value={email} type="email" name="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)}/>
+											<input clasName="form-control form-control-lg" value={email} type="email" name="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)}/>
 										</div>
-										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-primary">Submit</button> 
+										<div clasName="text-center mt-3">
+											<button type="submit" clasName="btn btn-lg btn-primary">Submit</button> 
 										</div>
 									</form>
 								</div>

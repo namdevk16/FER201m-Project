@@ -111,10 +111,6 @@ const Content = () => {
         handlePaginate('reset');
     }
 
-    console.log(type);
-    console.log(key);
-    console.log(value);
-
     useEffect(() => {
         const a = JSON.stringify(key);
         if (type.length === 1 && type[0] === 'area') {
@@ -291,7 +287,7 @@ const Content = () => {
     }
 
     return (
-        <div className="container content">
+        <div className="container content" style={{marginTop:'10%'}}>
             <div className='row pt-3 pb-3' style={{minWidth: "1320px"}}>
                 <div className='col-lg-6 group-category' style={{minWidth: "660px"}}>
                     <button onClick={() => changeByCateId(` `, 0)} className={cateId === 0 ? 'btn-category active-category' : 'btn-category'}>Tất cả</button>
@@ -334,14 +330,14 @@ const Content = () => {
                                 </div>
                                 <div className='house-name'>{house.name}</div>
                                 <div style={{ color: 'rgb(133, 121, 121)' }} className='house-address'>
-                                    <span><i class="fas fa-map-marker-alt"></i>{house.address}</span>
+                                    <span><i className="fas fa-map-marker-alt"></i>{house.address}</span>
                                 </div>
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div style={{ color: 'rgb(133, 121, 121)' }}>
-                                        <span><i class="fas fa-ruler"></i>{house.area}m2</span>
+                                        <span><i className="fas fa-ruler"></i>{house.area}m2</span>
                                     </div>
                                     <div style={{ color: 'rgb(133, 121, 121)' }}>
-                                        <span><i class="fas fa-money-bill"></i>{house.price}tr/tháng</span>
+                                        <span><i className="fas fa-money-bill"></i>{house.price}tr/tháng</span>
                                     </div>
                                 </div>
                             </Link>
@@ -351,13 +347,13 @@ const Content = () => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div className='paginate'>
-                    <button disabled={currentPage === 1 ? 'true' : ''} onClick={() => handlePaginate('prev')} className='btn-paginate-change disabled'><i class="fas fa-angle-left"></i></button>
+                    <button disabled={currentPage === 1 ? 'true' : ''} onClick={() => handlePaginate('prev')} className='btn-paginate-change disabled'><i className="fas fa-angle-left"></i></button>
                     {
                         paginates.map(paginate =>
-                            <button onClick={() => handlePaginate('click', paginate)} className={paginate === currentPage ? 'btn-paginate active-paginate' : 'btn-paginate'}>{paginate}</button>
+                            <button key={paginate} onClick={() => handlePaginate('click', paginate)} className={paginate === currentPage ? 'btn-paginate active-paginate' : 'btn-paginate'}>{paginate}</button>
                         )
                     }
-                    <button disabled={currentPage === totalPaginate ? 'true' : ''} onClick={() => handlePaginate('next')} className='btn-paginate-change'><i class="fas fa-angle-right"></i></button>
+                    <button disabled={currentPage === totalPaginate ? 'true' : ''} onClick={() => handlePaginate('next')} className='btn-paginate-change'><i className="fas fa-angle-right"></i></button>
                 </div>
             </div>
         </div>

@@ -25,12 +25,12 @@ const SideBar = () => {
                 <ul className="list-unstyled">
                     <li className="sidebar-item">
                         <Link to={'/admin'} className="sidebar-link">
-                        <i class="bi bi-speedometer"></i> &nbsp; Bảng điều khiển
+                        <i className="bi bi-speedometer"></i> &nbsp; Bảng điều khiển
                         </Link>
                     </li>
                     <li className="sidebar-item">
                         <Link to={'/manageuser'} className="sidebar-link">
-                        <i class="bi bi-people"></i> &nbsp; Người dùng
+                        <i className="bi bi-people"></i> &nbsp; Người dùng
                         </Link>
                     </li>
                     <li className="sidebar-item">

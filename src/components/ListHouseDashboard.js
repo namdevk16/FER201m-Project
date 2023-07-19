@@ -152,8 +152,7 @@ const ListHouseDashboard = () => {
                         {
                             confirms.length > 0 ? (
                                 confirms.map((confirm, index) =>
-
-                                    <div className='item_house'>
+                                    <div className='item_house' key={index}>
                                         <div className='row house-detail'>
                                             <div className=' col-lg-5 house-detail-img'>
                                                 <img src={confirm.thumb} alt='#' />
@@ -174,8 +173,8 @@ const ListHouseDashboard = () => {
                                                     <p style={{ fontSize: '20px', fontWeight: '700' }}>Thông tin mô tả</p>
                                                     <p>
                                                         {
-                                                            confirm.description && confirm.description.split('. ').map(des =>
-                                                                <p>{des}.</p>
+                                                            confirm.description && confirm.description.split('. ').map((des, index) =>
+                                                                <p key={index}>{des}.</p>
                                                             )
                                                         }
                                                     </p>
@@ -187,9 +186,9 @@ const ListHouseDashboard = () => {
                                     </div>
                                 )
                             ) : (
-                                <div class="section" style={{textAlign:'center'}}>
-                                    <h1 class="error">404</h1>
-                                    <div class="pagee">Bạn Ơi! Hiện không có bài đăng nào đâu nha</div>
+                                <div className="section" style={{textAlign:'center'}}>
+                                    <h1 className="error">404</h1>
+                                    <div className="pagee">Bạn Ơi! Hiện không có bài đăng nào đâu nha</div>
                                 </div>
                             )
                         }

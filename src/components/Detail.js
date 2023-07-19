@@ -40,18 +40,18 @@ const Detail = () => {
                         <div style={{marginBottom:'12px'}}>
                             <span>Giá: {house.price}tr/tháng</span>
                         </div>
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i className="fas fa-map-marker-alt"></i>
                         <span>{house.address}</span>
                     </div>
                     <div className='row' style={{ marginTop: '50px' }}>
                         <div className='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
                             <div className='detail-houseinfor infor'>
-                                <i class="fas fa-home"></i>
+                                <i className="fas fa-home"></i>
                                 <span className='title'>Thông tin phòng</span>
                                 <div style={{ marginTop: '12px' }}>
                                     {
-                                        house.description && house.description.split('. ').map(des =>
-                                            <p>{des}.</p>
+                                        house.description && house.description.split('. ').map((des, index) =>
+                                            <p key={index}>{des}.</p>
                                         )
                                     }
                                 </div>
@@ -59,7 +59,7 @@ const Detail = () => {
 
                             <div className='note'>
                                 <div className='note-title infor'>
-                                    <i class="fas fa-exclamation"></i>
+                                    <i className="fas fa-exclamation"></i>
                                     <span className='title'>Lưu ý</span>
                                     <h5 style={{ marginTop: '20px' }}>Sức chứa</h5>
                                     <div className='capacity'>
@@ -81,13 +81,13 @@ const Detail = () => {
                         </div>
                         <div className='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
                             <div className='detail-hostinfor infor'>
-                                <i class="fas fa-user"></i>
+                                <i className="fas fa-user"></i>
                                 <span className='title'>Thông tin chủ phòng</span>
                                 {
                                     hosts.filter(host =>
                                         host.id === house.host_id
-                                    ).map(hostdetail =>
-                                        <div style={{ marginTop: '12px' }}>
+                                    ).map((hostdetail, index) =>
+                                        <div key={index} style={{ marginTop: '12px' }}>
                                             <div style={{ marginBottom: '12px' }} className='infor-host-item'>
                                                 <img src={hostdetail.avatar} alt='#' />
                                             </div>
