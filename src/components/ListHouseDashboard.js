@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const ListHouseDashboard = () => {
 
     const [confirms, setConfirms] = useState([]);
-    const [hosts, setHosts] = useState([]);
+    const [check, setCheck] = useState(true);
 
     const navigate = useNavigate();
 
@@ -17,21 +17,16 @@ const ListHouseDashboard = () => {
         fetch(`http://localhost:9999/posts?is_post=false`)
             .then(res => res.json())
             .then(data => setConfirms(data))
-    }, [])
+    }, [check])
 
-    useEffect(() => {
-        fetch(`http://localhost:9999/account?role_id=3`)
-            .then(res => res.json())
-            .then(data => setHosts(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch(`http://localhost:9999/account?role_id=3`)
+    //         .then(res => res.json())
+    //         .then(data => setHosts(data))
+    // }, [])
 
-    const handleLogout = (e) => {
-        e.preventDefault()
-        sessionStorage.removeItem('account');
-        navigate('/');
-    }
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, index) => {
         if (window.confirm("Do you want to remove")) {
             const option = {
                 method: "DELETE",
@@ -39,7 +34,24 @@ const ListHouseDashboard = () => {
             fetch(`http://localhost:9999/posts/${id}`, option)
                 .then(() => {
                     toast.success("Delete success.");
-                    navigate('/managehouse')
+                    const notifi = {
+                        user_id: confirms[index].host_id,
+                        content: `Yêu cầu duyệt ${confirms[index].name} của bạn đã bị từ chối vì vi phạm quy tắc cộng đồng!`
+                    }
+                    localStorage.setItem(`${id}`, JSON.stringify(notifi));
+                    const createNotifi = {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json'
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: JSON.stringify(notifi)
+                    }
+                    fetch('http://localhost:9999/notifications', createNotifi)
+                        .then(res => res.json())
+                        .then(() => {
+                            setCheck(!check);
+                        })
                 }
                 )
         }
@@ -96,10 +108,25 @@ const ListHouseDashboard = () => {
                         fetch(`http://localhost:9999/houseInformation`, createOption)
                             .then(res => res.json())
                             .then(() => {
-                                alert('Confirm successfully!');
-                                const newConfirms = [...confirms];
-                                newConfirms.splice(index, 1);
-                                setConfirms(newConfirms);
+                                toast.success("Cofirm success.");
+                                const notifi = {
+                                    user_id: confirms[index].host_id,
+                                    content: `Yêu cầu duyệt ${confirms[index].name} của bạn đã được phê duyệt!`
+                                }
+                                localStorage.setItem(`${id}`, JSON.stringify(notifi));
+                                const createNotifi = {
+                                    method: "POST",
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: JSON.stringify(notifi)
+                                }
+                                fetch('http://localhost:9999/notifications', createNotifi)
+                                    .then(res => res.json())
+                                    .then((check => {
+                                        setCheck(!check)
+                                    }))
                             })
                     }
                 })
@@ -121,7 +148,7 @@ const ListHouseDashboard = () => {
                     </nav>
                 </div>
                 <div className='row py-5' style={{ padding: '0 2rem' }}>
-                    <div className='col-lg-12 pb-3'>
+                    <div className='col-lg-6 pb-3'>
                         {
                             confirms.length > 0 ? (
                                 confirms.map((confirm, index) =>
@@ -154,7 +181,7 @@ const ListHouseDashboard = () => {
                                                     </p>
                                                 </div>
                                                 <button className='btn btn-success' onClick={() => { handleData(confirm.id, index) }}>Xác nhận</button>
-                                                <button className='btn btn-danger' style={{ float: 'right' }} onClick={() => handleDelete(confirm.id)}>Từ Chối</button>
+                                                <button className='btn btn-danger' style={{ float: 'right' }} onClick={() => handleDelete(confirm.id, index)}>Từ Chối</button>
                                             </div>
                                         </div>
                                     </div>

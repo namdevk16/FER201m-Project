@@ -44,7 +44,7 @@ const Login = () => {
 
 
     return (
-        <div className='login-form'>
+        <div className='login-form' style={{margin:'10% 0 5% 0'}}>
             <MDBContainer className="my-5 gradient-form">
 
                 <MDBRow>

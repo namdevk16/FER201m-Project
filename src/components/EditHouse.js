@@ -96,57 +96,59 @@ const EditHouse = () => {
 
     return (
         <div className='container edit-post'>
-            <div className='row'>
-                <div className='col-lg-8 col-md-6 col-sm-12 col-xs-12'>
-                    <div className='edit-post-image'>
-                        <h4>Hình ảnh</h4>
-                        <img src={image} alt='#' />
-                        <span>Thay đổi ảnh</span> <input type='file' accept='image/*' onChange={(e) => handleImage(e)} />
-                    </div>
-                </div>
-
-                <div className='col-lg-4 col-md-6 col-sm-12 col-xs-12'>
-                    <div className='edit-post-infor'>
-                        <h4>Địa chỉ cho thuê</h4>
-                        <label style={{ marginRight: '12px' }}>Xã</label> <br/>
-                        <select onChange={(e) => setVillage(e.target.value)}>
-                            {
-                                region.map(reg =>
-                                    <option key={reg.id} value={reg.id} selected={reg.id === village ? 'true' : ''}>{reg.name}</option>
-                                )
-                            }
-                        </select>
-                        <div className='form-input'>
-                            <label>Địa chỉ chi tiết</label> <br/>
-                            <input className="form-control" style={{width:'100%'}} type='text' value={addressdetail} onChange={(e) => setAddressdetail(e.target.value)}/>
-                        </div>
-
-                        <h4>Thông tin mô tả</h4>
-                        <div className='form-input'>
-                            <label>Tên</label> <br/>
-                            <input className="form-control" style={{width:'100%'}} type='text' value={name} onChange={(e) => setName(e.target.value)}/>
-                        </div>
-                        <label style={{ marginRight: '12px' }}>Loại</label> <br/>
-                        <select onChange={(e) => setCategory(e.target.value)}>
-                            {
-                                categories.map(cate =>
-                                    <option key={cate.id} value={cate.id} selected={cate.id === category ? 'true' : ''}>{cate.name}</option>
-                                )
-                            }
-                        </select>
-                        <textarea className="form-control" style={{width:'100%'}} type='text' value={description} onChange={(e) => setDescription(e.target.value)}/>
-                        <div className='form-input'>
-                            <label>Diện tích</label> <br/>
-                            <input className="form-control" style={{width:'100%'}} type='text' value={area} onChange={(e) => setArea(e.target.value)}/>
-                        </div>
-                        <div className='form-input'>
-                            <label>Giá tiền</label> <br/>
-                            <input className="form-control" style={{width:'100%'}} type='text' value={price} onChange={(e) => setPrice(e.target.value)}/>
+            <div style={{margin:'10% 0 5% 0'}}>
+                <div className='row'>
+                    <div className='col-lg-8 col-md-6 col-sm-12 col-xs-12'>
+                        <div className='edit-post-image'>
+                            <h4>Hình ảnh</h4>
+                            <img src={image} alt='#' />
+                            <span>Thay đổi ảnh</span> <input type='file' accept='image/*' onChange={(e) => handleImage(e)} />
                         </div>
                     </div>
-                    <div style={{display:'flex', justifyContent:'space-around'}}>
-                        <Link style={{textDecoration:'none'}} to={'/houseofhost'}>Cancel</Link>
-                        <button className='btn btn-primary' onClick={handleUpadate}>Cập nhật</button>       
+
+                    <div className='col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+                        <div className='edit-post-infor'>
+                            <h4>Địa chỉ cho thuê</h4>
+                            <label style={{ marginRight: '12px' }}>Xã</label> <br/>
+                            <select onChange={(e) => setVillage(e.target.value)}>
+                                {
+                                    region.map(reg =>
+                                        <option key={reg.id} value={reg.id} selected={reg.id === village ? 'true' : ''}>{reg.name}</option>
+                                    )
+                                }
+                            </select>
+                            <div className='form-input'>
+                                <label>Địa chỉ chi tiết</label> <br/>
+                                <input className="form-control" style={{width:'100%'}} type='text' value={addressdetail} onChange={(e) => setAddressdetail(e.target.value)}/>
+                            </div>
+
+                            <h4>Thông tin mô tả</h4>
+                            <div className='form-input'>
+                                <label>Tên</label> <br/>
+                                <input className="form-control" style={{width:'100%'}} type='text' value={name} onChange={(e) => setName(e.target.value)}/>
+                            </div>
+                            <label style={{ marginRight: '12px' }}>Loại</label> <br/>
+                            <select onChange={(e) => setCategory(e.target.value)}>
+                                {
+                                    categories.map(cate =>
+                                        <option key={cate.id} value={cate.id} selected={cate.id === category ? 'true' : ''}>{cate.name}</option>
+                                    )
+                                }
+                            </select>
+                            <textarea className="form-control" style={{width:'100%'}} type='text' value={description} onChange={(e) => setDescription(e.target.value)}/>
+                            <div className='form-input'>
+                                <label>Diện tích</label> <br/>
+                                <input className="form-control" style={{width:'100%'}} type='text' value={area} onChange={(e) => setArea(e.target.value)}/>
+                            </div>
+                            <div className='form-input'>
+                                <label>Giá tiền</label> <br/>
+                                <input className="form-control" style={{width:'100%'}} type='text' value={price} onChange={(e) => setPrice(e.target.value)}/>
+                            </div>
+                        </div>
+                        <div style={{display:'flex', justifyContent:'space-around'}}>
+                            <Link style={{textDecoration:'none'}} to={'/houseofhost'}>Cancel</Link>
+                            <button className='btn btn-primary' onClick={handleUpadate}>Cập nhật</button>       
+                        </div>
                     </div>
                 </div>
             </div>

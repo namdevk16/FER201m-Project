@@ -49,7 +49,7 @@ const SignUp = () => {
         fetch('http://localhost:9999/account')
             .then(response => response.json())
             .then(data => {
-                const emailExists = data.some(item => item.email === email);
+                const emailExists = data.some(item => item.email === email && item.phone === phoneNumber);
 
                 if (emailExists) {
                     toast.error('Email dã tồn tại!');
@@ -107,7 +107,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='signup-form'>
+        <div className='signup-form' style={{margin:'10% 0 5% 0'}}>
             <Container className="my-5 gradient-form">
 
                 <Row>

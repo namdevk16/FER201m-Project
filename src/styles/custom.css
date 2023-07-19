@@ -21,10 +21,7 @@
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
 
-.item_house:hover {
-    background-color: rgb(0 0 0 / 35%) 0px 5px 15px;
-    transform: scale(1.1);
-}
+
 
 .house-detail-img {}
 

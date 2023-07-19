@@ -1,13 +1,28 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../styles/custom.css'
 
 const NewHeader = () => {
 
+
+    const [notifications, setNotifications] = useState([]);
+    const [numberNotifi, setnumberNotifi] = useState(0);
+    const [quantity, setQuantity] = useState();
+
     const navigate = useNavigate();
 
-    const [quantity, setQuantity] = useState();
+    useEffect(() => {
+        if (sessionStorage.getItem('account') !== null) {
+            fetch(`http://localhost:9999/notifications?user_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setNotifications(data.reverse());
+                    setnumberNotifi(data.length);
+                })
+        }
+    }, [])
+
+
 
     useEffect(() => {
         if (sessionStorage.getItem('account') == null) {
@@ -17,9 +32,10 @@ const NewHeader = () => {
                 .then(res => res.json())
                 .then(data => setQuantity(data.length))
         }
-    }, [sessionStorage.getItem('account')])
+    }, [])
 
-    const handleLogout = () => {
+    const handleLogout = (e) => {
+        e.preventDefault();
         sessionStorage.removeItem('account');
         navigate('/');
     }
@@ -37,6 +53,11 @@ const NewHeader = () => {
         }
     }
 
+    const handleNumberNotifi = (e) => {
+        e.preventDefault();
+        setnumberNotifi(0)
+    }
+
 
 
     const mistype = {
@@ -47,41 +68,42 @@ const NewHeader = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={mistype}>
             <div className="container">
-                <a className="navbar-brand" href="/">
+                <Link className="navbar-brand" to={"/"}>
                     <img style={{ height: '56px' }} src='https://admin.googleusercontent.com/logo-scs-key2294502' alt='#' />
-                </a>
+                </Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent" style={{ justifyContent: 'end' }}>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="/">
+                            <Link className="nav-link" to={"/"}>
                                 Trang chủ
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/aboutus">
+                            <Link className="nav-link" to={"/aboutus"}>
                                 Giới thiệu
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link text-white position-relative"
-                                id="notifications" href="/post" onClick={(e) => handleCheckLogin(e)}>
+                            <Link className="nav-link text-white position-relative"
+                                id="notifications" to={"/post"} onClick={(e) => handleCheckLogin(e)}>
                                 Bài đăng
-                                <span className="badge bg-warning">4</span>
-                            </a>
+                                <span className="badge bg-warning">{sessionStorage.getItem('account') === null ? '' : quantity}</span>
+                            </Link>
                         </li>
                         {
                             !sessionStorage.getItem('account') ?
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/signup">
+                                    <Link className="nav-link" to={"/signup"}>
                                         Đăng ký
-                                    </a>
+                                    </Link>
                                 </li> :
                                 <li className="nav-item dropdown">
                                     {" "}
                                     <Link
+                                        onClick={e => handleNumberNotifi(e)}
                                         className="nav-link text-white position-relative"
                                         id="notifications"
                                         rel="nofollow"
@@ -91,88 +113,38 @@ const NewHeader = () => {
                                         aria-haspopup="true"
                                         aria-expanded="false">
                                         <i class="bi bi-bell-fill"></i>
-                                        <span className="badge bg-warning">4</span>
+                                        <span className="badge bg-warning">{numberNotifi !== 0 ? numberNotifi : ''}</span>
                                     </Link>
                                     <ul
                                         className="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm"
                                         aria-labelledby="notifications">
-                                        <li>
-                                            <Link className="dropdown-item py-3" to={'#'}>
-                                                <div className="d-flex">
-                                                    <div className="icon icon-sm bg-blue">
-                                                        SOS
-                                                    </div>
-                                                    <div className="ms-3">
-                                                        <span className="h6 d-block fw-normal mb-1 text-xs text-gray-600">
-                                                            Bạn có thông báo nè!
-                                                        </span>
-                                                        <small className="small text-gray-600">
-                                                            5 phút trước
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item py-3" to={'#'}>
-                                                <div className="d-flex">
-                                                    <div className="icon icon-sm bg-green">
-                                                        SOS
-                                                    </div>
-                                                    <div className="ms-3">
-                                                        <span className="h6 d-block fw-normal mb-1 text-xs text-gray-600">
-                                                            Bạn có thông báo nè!
-                                                        </span>
-                                                        <small className="small text-gray-600">
-                                                            5 phút trước
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item py-3" to={'#'}>
-                                                <div className="d-flex">
-                                                    <div className="icon icon-sm bg-oragne">
-                                                        SOS
-                                                    </div>
-                                                    <div className="ms-3">
-                                                        <span className="h6 d-block fw-normal mb-1 text-xs text-gray-600">
-                                                            Bạn có thông báo nè!
-                                                        </span>
-                                                        <small className="small text-gray-600">
-                                                            5 phút trước
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item py-3" to={'#'}>
-                                                <div className="d-flex">
-                                                    <div className="icon icon-sm bg-blue">
-                                                        SOS
-                                                    </div>
-                                                    <div className="ms-3">
-                                                        <span className="h6 d-block fw-normal mb-1 text-xs text-gray-600">
-                                                            Bạn có thông báo nè!
-                                                        </span>
-                                                        <small className="small text-gray-600">
-                                                            5 phút trước
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </li>
+                                        {
+                                            notifications && notifications.map(notification =>
+                                                <li>
+                                                    <Link className="dropdown-item py-3" to={'#'}>
+                                                        <div className="d-flex">
+                                                            <div className="icon icon-sm bg-blue">
+                                                                Tada
+                                                            </div>
+                                                            <div className="ms-3">
+                                                                <span className="h6 d-block fw-normal mb-1 text-xs text-gray-600">
+                                                                    {notification.content}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        }
                                     </ul>
                                 </li>
                         }
-                        
+
                         {!sessionStorage.getItem('account') ?
                             <li className="nav-item">
-                                <a className="nav-link" href="/login">
+                                <Link className="nav-link" to={"/login"}>
                                     Đăng nhập
-                                </a>
+                                </Link>
                             </li> :
                             <li className="nav-item dropdown">
                                 {" "}
@@ -186,7 +158,7 @@ const NewHeader = () => {
                                     aria-haspopup="true"
                                     aria-expanded="false">
                                     <div className='avatar-popup'>
-                                        <img src={JSON.parse(sessionStorage.getItem('account')).avatar}  alt='#'
+                                        <img src={JSON.parse(sessionStorage.getItem('account')).avatar} alt='#'
                                             onError={({ currentTarget }) => {
                                                 currentTarget.onerror = null; // prevents looping
                                                 currentTarget.src = "https://sm.ign.com/t/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.300.jpg";
@@ -197,6 +169,15 @@ const NewHeader = () => {
                                 <ul
                                     className="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm"
                                     aria-labelledby="notifications">
+                                    <li>
+                                        <Link className="dropdown-item py-3" to={'/profile'}>
+                                            <div className="d-flex">
+                                                <div className="ms-3">
+                                                    {JSON.parse(sessionStorage.getItem('account')).fullname}
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </li>
                                     <li>
                                         <Link className="dropdown-item py-3" to={'/profile'}>
                                             <div className="d-flex">
@@ -225,13 +206,13 @@ const NewHeader = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item py-3" to={'#'}>
+                                        <NavLink className="dropdown-item py-3" onClick={e => handleLogout(e)}>
                                             <div className="d-flex">
                                                 <div className="ms-3">
                                                     Đăng xuất
                                                 </div>
                                             </div>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                 </ul>
                             </li>

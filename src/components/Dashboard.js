@@ -54,6 +54,7 @@ const Dashboard = () => {
                 setDormCount(dormCounter);
                 setHotelCount(houseCounter);
                 setHouseCount(hotelCounter);
+                setHouses(data);
             } catch (error) {
                 toast.error('Error fetching user count:', error);
             }
@@ -92,63 +93,9 @@ const Dashboard = () => {
         fetchRegion();
     }, []);
 
-    // useEffect(() => {
-    //     Promise.all([
-    //         fetch(`http://localhost:9999/houseInformation`),
-    //         fetch(`http://localhost:9999/region`)
-    //     ])
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             const house = data[0];
-    //             const re = data[1];
-    //             let arr = []
-    //             for (var i = 0; i < house.length; i++) {
-    //                 let count = 0;
-    //                 for (var j = 0; j < re.length; j++) {
-    //                     if (house[j].address_id === re[i].id) {
-    //                         count++;
-    //                     }
-    //                 }
-    //                 arr.push({
-    //                     reg_id: re[i].id,
-    //                     count: count
-    //                 })
-    //             }
-    //             setQuantity(arr)
-    //         })
-    //         .catch(err => {
-    //             console.log(err.message);
-    //         });
-    // }, [])
 
-    // console.log(quantity);
-
-
-    const options = {
-        chart: {
-            id: "basic-bar"
-        },
-        xaxis: {
-            categories: ['Thị trấn Liên Quan','Xã Bình Phú','Xã Bình Yên','Xã Cẩm Yên','Xã Cần Kiệm','Xã Canh Nậu',
-                         'Xã Chàng Sơn','Xã Đại Đồng','Xã Dị Nậu','Xã Đồng Trúc','Xã Hạ Bằng','Xã Hương Ngải','Xã Hữu Bằng','Xã Kim Quan',
-                         'Xã Lại Thượng','Xã Phú Kim','Xã Phùng Xá','Xã Tân Xã','Xã Thạch Hoà','Xã Thạch Xá','Xã Tiến Xuân','Xã Yên Bình','Xã Yên Trung']
-            // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
-    };
-
-    const series = [
-        {
-            name: "series-1",
-            data: [0,0,0,0,0,0,0,0,0,1,3,0,0,0,0,0,0,2,14,0,0,0,0]
-            // data: [30, 40, 45, 50, 49, 60, 70, 91]
-        }
-    ];
 
     useEffect(() => {
-        console.log("Handle quantity:");
-        console.log(quantity);
-        console.log(regions);
-        console.log(houses);
         let arr = []
         for (var i = 0; i < regions.length; i++) {
             let count = 0;
@@ -157,17 +104,33 @@ const Dashboard = () => {
                     count++;
                 }
             }
-            arr.push({
-                reg_id: regions[i].id,
-                count: count
-            })
+            arr.push(count)
         }
         setQuantity(arr)
-    }, [])
+    }, [houses])
 
-    // console.log(quantity);
-    // console.log(regions);
-    // console.log(houses);
+    const options = {
+        chart: {
+            id: "basic-bar"
+        },
+        xaxis: {
+            categories: regions.map(r => r.name)
+            // categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+    };
+
+    const series = [
+        {
+            name: "series-1",
+            data: quantity
+            // data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
+    ];
+
+    console.log(quantity);
+    console.log(options.xaxis.categories);
+    console.log(series.data);
+
     return (
         <>
             <SideBar />

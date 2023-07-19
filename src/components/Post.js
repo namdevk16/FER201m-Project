@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Post = () => {
 
     const [name, setName] = useState('');
-    const [contact, setContact] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [area, setArea] = useState('');
@@ -16,7 +15,6 @@ const Post = () => {
     const [category, setCategory] = useState(1);
 
     const errName = useRef();
-    const errContact = useRef();
     const errPrice = useRef();
     const errDescription = useRef();
     const errArea = useRef();
@@ -28,8 +26,8 @@ const Post = () => {
     const [posts, setPosts] = useState([]);
     const [accounts, setAccounts] = useState([]);
 
-    const listInputs = [name, contact, price, description, area, addressdetail];
-    const listErrors = [errName, errContact, errPrice, errDescription, errArea, errAddressdetail];
+    const listInputs = [name, price, description, area, addressdetail];
+    const listErrors = [errName, errPrice, errDescription, errArea, errAddressdetail];
 
 
 
@@ -107,13 +105,12 @@ const Post = () => {
         }
     }
 
-    const hadleSubmit = (e) => {
+    const handleSubmit = () => {
         if (checkConfirm() === 1) {
             const data = {
                 category_id: parseInt(category),
                 host_id: JSON.parse(sessionStorage.getItem('account')).id,
                 name: name,
-                contact: contact,
                 price: parseInt(area),
                 description: description,
                 address_id: parseInt(village),
@@ -158,102 +155,97 @@ const Post = () => {
 
     return (
         <div className="container post">
+            <div style={{margin:'10% 0 5% 0'}}>
+                <button className='create' onClick={openModal}>Post an house</button>
+                <div className='row'>
+                    {
+                        posts.map(post =>
+                            <div key={post.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                <Link to={`/post/edit/${post.id}`}>
+                                    <div className='house-img'>
+                                        <img style={{ width: "100%", height: "300px" }} src={post.thumb} alt='#' />
+                                    </div>
+                                    <div className='house-name'>{post.name}</div>
+                                    <div>
+                                        <span>Liên hệ: </span>
+                                        <span>
+                                            {
+                                                accounts.map(acc => acc.id === post.host_id ? acc.phone : '')
+                                            }
+                                        </span>
+                                    </div>
+                                </Link>
+                                <span style={{ float: "left" }}><button className="btn btn-success"><Link style={{color:'white'}} to={`/post/edit/${post.id}`}>Edit</Link></button></span>
+                                <span style={{ float: "right" }}><button className="btn btn-danger" onClick={(() => handleDelete(post.id))}>Reject</button></span>
+                            </div>
+                        )
+                    }
+                </div>
 
-            <button className='create' onClick={openModal}>Post an house</button>
-
-            <div className='row'>
-                {
-                    posts.map(post =>
-                        <div key={post.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                            <Link to={`/post/edit/${post.id}`}>
-                                <div className='house-img'>
-                                    <img style={{ width: "100%", height: "300px" }} src={post.thumb} alt='#' />
-                                </div>
-                                <div className='house-name'>{post.name}</div>
-                                <div>
-                                    <span>Liên hệ: </span>
-                                    <span>
+                <div className="modal-house">
+                    <div className="modal-container-house">
+                        <div className="modal-house-title">
+                            <h5>Create new house</h5>
+                        </div>
+                        <div>
+                            <div className="input">
+                                <label htmlFor="name">Name</label><br />
+                                <input id="name" type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errName}>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label htmlFor="price">Price</label>
+                                <input id="price" type="text" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPrice}>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label htmlFor="description">Description</label>
+                                <textarea id="description" type="text" className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errDescription}>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label htmlFor="area">Area</label>
+                                <input id="area" type="text" className="form-control" value={area} onChange={(e) => setArea(e.target.value)} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errArea}>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input">
+                                <label htmlFor="address">Address detail</label>
+                                <input id="adress" type="text" className="form-control" value={addressdetail} onChange={(e) => setAddressdetail(e.target.value)} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errAddressdetail}>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="input-image">
+                                <label htmlFor="image">Image</label>
+                                <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => handleImage(e)} />
+                                <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
+                            </div>
+                            <div className="select">
+                                <div className='category'>
+                                    <label style={{ marginRight: '8px' }}>Category</label>
+                                    <select onChange={(e) => setCategory(e.target.value)}>
                                         {
-                                            accounts.map(acc => acc.id === post.host_id ? acc.phone : '')
+                                            categories.map(cate =>
+                                                <option key={cate.id} value={cate.id}>{cate.name}</option>
+                                            )
                                         }
-                                    </span>
+                                    </select>
                                 </div>
-                            </Link>
-                            <span style={{ float: "left" }}><button className="btn btn-success"><Link style={{color:'white'}} to={`/post/edit/${post.id}`}>Edit</Link></button></span>
-                            <span style={{ float: "right" }}><button className="btn btn-danger" onClick={(() => handleDelete(post.id))}>Delete</button></span>
+                                <div className='village'>
+                                    <label style={{ marginRight: '8px' }}>Village</label>
+                                    <select onChange={(e) => setVillage(e.target.value)}>
+                                        {
+                                            region.map(reg =>
+                                                <option key={reg.id} value={reg.id}>{reg.name}</option>
+                                            )
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="button" style={{marginTop:'12px'}}>
+                                <span className="btn-cancel" onClick={closeModal}>Cancel</span>
+                                <button style={{ marginLeft: "6px" }} className="btn-create" onClick={handleSubmit}>Create</button>
+                            </div>
                         </div>
-                    )
-                }
-            </div>
-
-            <div className="modal-house">
-                <div className="modal-container-house">
-                    <div className="modal-house-title">
-                        <h5>Create new house</h5>
                     </div>
-                    <form onSubmit={(e) => hadleSubmit(e)}>
-                        <div className="input">
-                            <label htmlFor="name">Name</label><br />
-                            <input id="name" type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errName}>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="input">
-                            <label htmlFor="contact">Contact</label>
-                            <input id="contact" type="text" className="form-control" value={contact} onChange={(e) => setContact(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errContact}>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="input">
-                            <label htmlFor="price">Price</label>
-                            <input id="price" type="text" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPrice}>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="input">
-                            <label htmlFor="description">Description</label>
-                            <textarea id="description" type="text" className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errDescription}>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="input">
-                            <label htmlFor="area">Area</label>
-                            <input id="area" type="text" className="form-control" value={area} onChange={(e) => setArea(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errArea}>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="input">
-                            <label htmlFor="address">Address detail</label>
-                            <input id="adress" type="text" className="form-control" value={addressdetail} onChange={(e) => setAddressdetail(e.target.value)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errAddressdetail}>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="input-image">
-                            <label htmlFor="image">Image</label>
-                            <input id="image" type="file" className="form-control" accept='image/*' onChange={(e) => handleImage(e)} />
-                            <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error'>Hãy nhập đủ thông tin</span>
-                        </div>
-                        <div className="select">
-                            <div className='category'>
-                                <label style={{ marginRight: '8px' }}>Category</label>
-                                <select onChange={(e) => setCategory(e.target.value)}>
-                                    {
-                                        categories.map(cate =>
-                                            <option key={cate.id} value={cate.id}>{cate.name}</option>
-                                        )
-                                    }
-                                </select>
-                            </div>
-                            <div className='village'>
-                                <label style={{ marginRight: '8px' }}>Village</label>
-                                <select onChange={(e) => setVillage(e.target.value)}>
-                                    {
-                                        region.map(reg =>
-                                            <option key={reg.id} value={reg.id}>{reg.name}</option>
-                                        )
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                        <div className="button">
-                            <span className="btn-cancel" onClick={closeModal}>Cancel</span>
-                            <button type='submit' style={{ marginLeft: "6px" }} className="btn-create">Create</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

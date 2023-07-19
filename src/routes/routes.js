@@ -22,7 +22,6 @@ import NewHeader from '../components/NewHeader';
 const ListRoutes = () => {
     return (
         <Routes>
-
             <Route path='/' element={<HomePage />} />
             <Route path='/house/detail/:id' element={<DetailPage />} />
             <Route path='/changepassword' element={<ChangePasswordPage />} />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Content = () => {
@@ -11,7 +11,9 @@ const Content = () => {
 
     const [type, setType] = useState([]);
     const [value, setValue] = useState([[0, 0], [0, 0]]);
-    const [key, setKey] = useState(0);
+    const [key, setKey] = useState([]);
+
+    const [isSearch, setIsSearch] = useState(false);
 
     const [startIndex, setStartIndex] = useState(0);
     const [endIndex, setEndIndex] = useState(4);
@@ -60,12 +62,16 @@ const Content = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:9999/houseInformation?${url}`)
-            .then(res => res.json())
-            .then(data => {
-                afterFetch(data)
-            })
-    }, [url, startIndex, key])
+        if(!isSearch) {
+            fetch(`http://localhost:9999/houseInformation?${url}`)
+                .then(res => res.json())
+                .then(data => {
+                    afterFetch(data)
+                })
+        } else {
+            handleSearch();
+        }
+    }, [url, startIndex])
 
 
     const handlePaginate = (msg, paginate = 0) => {
@@ -92,27 +98,37 @@ const Content = () => {
     }
 
     const changeByCateId = (msg, id) => {
+        if (id === 0) {
+            setCateId(id)
+            setUrl(msg);
+            handlePaginate('reset');
+            setKey([]);
+            setType([]);
+            setIsSearch(false);
+        }
         setCateId(id)
         setUrl(msg);
         handlePaginate('reset');
     }
 
+    console.log(type);
+    console.log(key);
+    console.log(value);
+
     useEffect(() => {
+        const a = JSON.stringify(key);
         if (type.length === 1 && type[0] === 'area') {
-            switch (key) {
-                case 0:
-                    setValue([[0, 0], [0, 0]]);
-                    break;
-                case 1:
+            switch (a) {
+                case '[1]':
                     setValue([[0, 18], [0, 0]]);
                     break;
-                case 2:
+                case '[2]':
                     setValue([[18, 25], [0, 0]]);
                     break;
-                case 3:
+                case '[3]':
                     setValue([[25, 35], [0, 0]]);
                     break;
-                case 4:
+                case '[4]':
                     setValue([[35, 0], [0, 0]]);
                     break;
                 default:
@@ -120,87 +136,113 @@ const Content = () => {
             }
         }
         if (type.length === 1 && type[0] === 'price') {
-            switch (key) {
-                case 0:
-                    setValue([[0, 0], [0, 0]]);
-                    break;
-                case 1:
+            const a = JSON.stringify(key);
+            switch (a) {
+                case '[1]':
                     setValue([[0, 1.6], [0, 0]]);
                     break;
-                case 2:
+                case '[2]':
                     setValue([[1.6, 2.5], [0, 0]]);
                     break;
-                case 3:
+                case '[3]':
                     setValue([[2.5, 3.5], [0, 0]]);
                     break;
-                case 4:
+                case '[4]':
                     setValue([[3.5, 0], [0, 0]]);
                     break;
                 default:
                     break;
             }
         }
-        if(type[0] === 'price' && type[1] === 'area') {
-            switch (key) {
-                case 0:
-                    setValue([[0, 0], [0, 0]]);
-                    break;
-                case 1:
+        if (type.length === 2) {
+            const a = JSON.stringify(key);
+            switch (a) {
+                case '[1,1]':
                     setValue([[0, 1.6], [0, 18]]);
                     break;
-                case 2:
+                case '[1,2]':
+                    setValue([[0, 1.6], [18, 25]]);
+                    break;
+                case '[1,3]':
+                    setValue([[0, 1.6], [25, 35]]);
+                    break;
+                case '[1,4]':
+                    setValue([[0, 1.6], [35, 0]]);
+                    break;
+                case '[2,1]':
+                    setValue([[1.6, 2.5], [0, 18]]);
+                    break;
+                case '[2,2]':
                     setValue([[1.6, 2.5], [18, 25]]);
                     break;
-                case 3:
+                case '[2,3]':
                     setValue([[2.5, 3.5], [25, 35]]);
                     break;
-                case 4:
+                case '[2,4]':
+                    setValue([[0, 1.6], [35, 0]]);
+                    break;
+                case '[3,1]':
+                    setValue([[2.5, 3.5], [0, 18]]);
+                    break;
+                case '[3,2]':
+                    setValue([[2.5, 3.5], [18, 25]]);
+                    break;
+                case '[3,3]':
+                    setValue([[2.5, 3.5], [25, 35]]);
+                    break;
+                case '[3,4]':
+                    setValue([[2.5, 3.5], [35, 0]]);
+                    break;
+                case '[4,1]':
+                    setValue([[3.5, 0], [0, 18]]);
+                    break;
+                case '[4,2]':
+                    setValue([[3.5, 0], [18, 25]]);
+                    break;
+                case '[4,3]':
+                    setValue([[3.5, 0], [25, 35]]);
+                    break;
+                case '[4,4]':
                     setValue([[3.5, 0], [35, 0]]);
                     break;
                 default:
                     break;
             }
         }
-        if(type[0] === 'area' && type[1] === 'price') {
-            switch (key) {
-                case 0:
-                    setValue([[0, 0], [0, 0]]);
-                    break;
-                case 1:
-                    setValue([[0, 18], [0, 1.6]]);
-                    break;
-                case 2:
-                    setValue([[18, 25], [1.6, 2.5]]);
-                    break;
-                case 3:
-                    setValue([[25, 35], [2.5, 3.5]]);
-                    break;
-                case 4:
-                    setValue([[35, 0], [3.5, 0]]);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }, [key, type])
+    }, [key])
+
 
     const handleSelect = (e, msg) => {
-        setKey(parseInt(e.target.value))
-        let a = [...type];
-        a.push(msg);
-        setType(a);
+        let b = [...key];
+        let a = [...type]
+        if (a.some((k) => k === msg)) {
+            let i = 0;
+            a.forEach((k, index) => {
+                if (k === msg) {
+                    i = index
+                }
+            })
+            b.splice(i, 1, parseInt(e.target.value));
+            setKey(b)
+        } else {
+            b.push(parseInt(e.target.value))
+            setKey(b)
+            a.push(msg);
+            setType(a);
+        }
     }
 
     const handleSearch = () => {
-        if (key === 0) {
-            fetch('http://localhost:9999/houseInformation')
+        setIsSearch(true);
+        if (JSON.stringify(key) === '[]' || JSON.stringify(key) === '[0, 0]') {
+            fetch(`http://localhost:9999/houseInformation?${url}`)
                 .then(res => res.json())
                 .then(data => {
                     afterFetch(data)
                 })
         }
         if (type.length === 1 && type[0] === 'price') {
-            fetch('http://localhost:9999/houseInformation')
+            fetch(`http://localhost:9999/houseInformation?${url}`)
                 .then(res => res.json())
                 .then(data => {
                     const v = value[0];
@@ -211,8 +253,8 @@ const Content = () => {
                 }
                 )
         }
-        if (type.length === 1 && type[0] === 'area') {
-            fetch('http://localhost:9999/houseInformation')
+        if (type.length === 1 && type[0] === `area`) {
+            fetch(`http://localhost:9999/houseInformation?${url}`)
                 .then(res => res.json())
                 .then(data => {
                     const v = value[0];
@@ -222,26 +264,26 @@ const Content = () => {
                     afterFetch(result);
                 })
         }
-        if(type[0] === 'area' && type[1] === 'price') {
-            fetch('http://localhost:9999/houseInformation')
+        if (type[0] === 'area' && type[1] === 'price') {
+            fetch(`http://localhost:9999/houseInformation?${url}`)
                 .then(res => res.json())
                 .then(data => {
-                    const v = value[0];
-                    const a = value[1];
+                    const a = value[0];
+                    const v = value[1];
                     const result = data.filter(d =>
-                        d.area >= v[0] && d.area <= v[1] && d.price >= a[0] && d.price <= a[1]
+                        (d.area >= v[0] && d.area <= v[1]) && (d.price >= a[0] && d.price <= a[1])
                     )
                     afterFetch(result);
                 })
         }
-        if(type[0] === 'price' && type[1] === 'area') {
-            fetch('http://localhost:9999/houseInformation')
+        if (type[0] === `price` && type[1] === `area`) {
+            fetch(`http://localhost:9999/houseInformation?${url}`)
                 .then(res => res.json())
                 .then(data => {
                     const v = value[0];
                     const a = value[1];
                     const result = data.filter(d =>
-                        d.area >= a[0] && d.area <= a[1] && d.price >= v[0] && d.price <= v[1]
+                        (d.area >= a[0] && d.area <= a[1]) && (d.price >= v[0] && d.price <= v[1])
                     )
                     afterFetch(result);
                 })
@@ -260,7 +302,7 @@ const Content = () => {
 
                 <div className='search-price'>
                     <select onChange={(e) => handleSelect(e, 'price')}>
-                        <option value={0}>---Chọn giá---</option>
+                        <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn giá---</option>
                         <option value={1}>Dưới 1.6tr/tháng</option>
                         <option value={2}>Từ 1.6 - 2.5tr/tháng</option>
                         <option value={3}>Từ 2.5 - 3.5tr/tháng</option>
@@ -269,7 +311,7 @@ const Content = () => {
                 </div>
                 <div className='search-area'>
                     <select onChange={(e) => handleSelect(e, 'area')}>
-                        <option value={0}>---Chọn diện tích---</option>
+                        <option selected={JSON.stringify(key) === '[]' ? 'true' : ''} value={0}>---Chọn diện tích---</option>
                         <option value={1}>Dưới 18m2</option>
                         <option value={2}>Từ 18m2 - 25m2</option>
                         <option value={3}>Từ 25m2 - 35m2</option>
@@ -290,18 +332,15 @@ const Content = () => {
                                     <img style={{ width: "100%", height: "300px" }} src={house.thumb} alt='#' />
                                 </div>
                                 <div className='house-name'>{house.name}</div>
-                                <div style={{color:'rgb(133, 121, 121)'}}  className='house-address'>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>{house.address}</span>
+                                <div style={{ color: 'rgb(133, 121, 121)' }} className='house-address'>
+                                    <span><i class="fas fa-map-marker-alt"></i>{house.address}</span>
                                 </div>
-                                <div style={{display:'flex', justifyContent:'space-between'}}>
-                                    <div style={{color:'rgb(133, 121, 121)'}}>
-                                        <i class="fas fa-ruler"></i>
-                                        <span>{house.area}m2</span>
+                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div style={{ color: 'rgb(133, 121, 121)' }}>
+                                        <span><i class="fas fa-ruler"></i>{house.area}m2</span>
                                     </div>
-                                    <div style={{color:'rgb(133, 121, 121)'}}>
-                                        <i class="fas fa-money-bill"></i>
-                                        <span>{house.price}tr/tháng</span>
+                                    <div style={{ color: 'rgb(133, 121, 121)' }}>
+                                        <span><i class="fas fa-money-bill"></i>{house.price}tr/tháng</span>
                                     </div>
                                 </div>
                             </Link>

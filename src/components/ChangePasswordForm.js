@@ -80,7 +80,7 @@ const ChangePasswordForm = () => {
     }
 
     return (
-        <div className='signup-form'>
+        <div className='signup-form' style={{margin:'10% 0 5% 0'}}>
             <Container className="my-5 gradient-form">
 
                 <Row>

@@ -11,10 +11,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <ToastContainer />
-      <ListRoutes />
-    </BrowserRouter>
+      <BrowserRouter>
+        <ListRoutes />
+      </BrowserRouter>
+    </>
   );
 }
 

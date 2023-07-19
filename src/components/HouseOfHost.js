@@ -45,7 +45,7 @@ const HouseOfHost = () => {
     return (
         <div className="container post">
 
-            <div className='row'>
+            <div className='row' style={{margin:'10% 0 5% 0'}}>
                 {
                     houses.map(house =>
                         <div key={house.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
@@ -54,13 +54,16 @@ const HouseOfHost = () => {
                                     <img style={{ width: "100%", height: "300px" }} src={house.thumb} alt='#' />
                                 </div>
                                 <div className='house-name'>{house.name}</div>
-                                <div>
-                                    <span>Liên hệ: </span>
-                                    <span>
-                                        {
-                                            accounts.map(acc => acc.id === house.host_id ? acc.phone : '')
-                                        }
-                                    </span>
+                                <div style={{ color: 'rgb(133, 121, 121)' }} className='house-address'>
+                                    <span><i class="fas fa-map-marker-alt"></i>{house.address}</span>
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div style={{ color: 'rgb(133, 121, 121)' }}>
+                                        <span><i class="fas fa-ruler"></i>{house.area}m2</span>
+                                    </div>
+                                    <div style={{ color: 'rgb(133, 121, 121)' }}>
+                                        <span><i class="fas fa-money-bill"></i>{house.price}tr/tháng</span>
+                                    </div>
                                 </div>
                             </Link>
                             <span style={{ float: "left" }}><button className="btn btn-success">Edit</button></span>
