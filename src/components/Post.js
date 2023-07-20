@@ -41,22 +41,22 @@ const Post = () => {
         }
     }
 
-    const checkValidate = () => {
+      const checkValidate = () => {
         if (listInputs.every(listInput => listInput === '')) {
             listErrors.forEach(listError =>
                 listError.current.style.display = 'block'
             )
         }
-        for (var i = 0; i < listInputs.length; i++) {
-            if (listInputs[i] !== '') {
-                listErrors[i].current.style.display = 'none'
-                for (var j = 0; j < listInputs.length; j++) {
-                    if (i !== j && listInputs[i] === '') {
-                        listErrors[j].current.style.display = 'block';
-                    }
-                }
+
+        listInputs.forEach(
+            (inn,index) => {
+                if (inn === '') {
+                    listErrors[index].current.style.display = 'block'
+                  } else {
+                    listErrors[index].current = '';
+                  }
             }
-        }
+        )
     }
 
     useEffect(() => {
