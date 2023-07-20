@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import ReactApexChart from 'react-apexcharts';
 const Dashboard = () => {
     const [userCount, setUserCount] = useState(0);
     const [dormCount, setDormCount] = useState(0);
@@ -127,9 +127,24 @@ const Dashboard = () => {
         }
     ];
 
-    console.log(quantity);
-    console.log(options.xaxis.categories);
-    console.log(series.data);
+    const seriess = quantity;
+    const optionss = {
+        chart: {
+            type: 'donut',
+        },
+        labels: regions.map(r => r.name),
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 150
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
 
     return (
         <>
@@ -214,6 +229,19 @@ const Dashboard = () => {
                     </div>
                 </div>
 
+                     {/* chart */}
+                <div className='row py-3' style={{ padding: '0 3rem' }}>
+                    <div className='col-lg-2 col-md-2'></div>
+                    <div className='col-lg-8 col-md-8'>
+                        <div className="card shadow-0 chart-card">
+                        <h5 className="h5 fw-normal">Góc nhìn biểu đồ vòng</h5>
+                            <div id="chart">
+                                <ReactApexChart options={optionss} series={seriess} type="donut" />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-lg-2 col-md-2'></div>
+                </div>
 
                 <footer
                     className="row main-footer w-100 position-absolute bottom-0 start-0 py-2"
