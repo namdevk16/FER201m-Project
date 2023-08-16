@@ -28,7 +28,7 @@ const Content = () => {
         fetch('http://localhost:9999/category')
             .then(res => res.json())
             .then(data => setCategories(data))
-    }, [])
+    }, [categories])
 
     useEffect(() => {
         fetch('http://localhost:9999/account')
@@ -105,6 +105,7 @@ const Content = () => {
             handlePaginate('reset');
             setKey([]);
             setType([]);
+            setValue([[0, 0], [0, 0]])
             setIsSearch(false);
         }
         setCateId(id)

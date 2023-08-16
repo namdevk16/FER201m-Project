@@ -76,7 +76,7 @@ const SignUp = () => {
                             navigate('/login')
                         })
                         .catch((error) => {
-                            console.log(error);
+                            // console.log(error);
                             toast.error('Có lỗi xảy ra khi đăng ký.');
                         });
                 }
@@ -115,8 +115,7 @@ const SignUp = () => {
                         <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
 
                             <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                                <h4 className="mb-4">Do you already have an account?</h4>
-                                <p className="small mb-0">Back to Login</p>
+                                <h4 className="mb-4">Bạn đã có tài khoản chưa?</h4>
                             </div>
 
                         </div>
@@ -125,28 +124,28 @@ const SignUp = () => {
 
                     <form onSubmit={e => handleRegister(e)} className='col-lg-6 col-md-12 col-sm-12 p-right' >
                         <div className="d-flex flex-column ms-5">
-                            <h3>Sign Up</h3>
+                            <h3>Đăng ký</h3>
                             <div className="input">
-                                <label>FullName</label>
+                                <label>Họ và tên</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='text' value={fullName} onChange={handleFullNameChange} />
                                 <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errName}>Hãy nhập đủ thông tin</span>
                             </div>
                             <div className="input">
-                                <label>Password</label>
+                                <label>Mật khẩu</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='password' value={password} onChange={handlePasswordChange} />
                                 <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPass}>Hãy nhập đủ thông tin</span>
                             </div>
                             <div className="input">
-                                <label>Email address</label>
+                                <label>Email</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='email' value={email} onChange={handleEmailChange} />
                                 <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errMail}>Hãy nhập đủ thông tin</span>
                             </div>
                             <div className="input">
-                                <label>Phone Number</label>
+                                <label>Số điện thoại</label>
                                 <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} type='number' value={phoneNumber} onChange={handlePhoneNumberChange} />
                                 <span style={{ color: 'red', display: 'none', fontSize: '12px' }} className='error' ref={errPhone}>Hãy nhập đủ thông tin</span>
                             </div>
-                            <label>Role</label>
+                            <label>Vai trò</label>
                             <select value={role_id} style={{ padding: '5px', borderRadius: '7px' }} onChange={handleRoleChange} >
                                 <option value={3} selected>Chủ sở hữu</option>
                                 <option value={2}>Người dùng</option>
@@ -154,8 +153,8 @@ const SignUp = () => {
 
 
                             <div className="text-center pt-1 mb-5 pb-1" style={{ marginTop: '20px' }}>
-                                <button className="mb-4 w-100 gradient-custom-2" style={{ padding: '5px', color: 'white' }} type='submit'>Sign Up</button>
-                                <NavLink to={'/login'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Back to Login?</NavLink>
+                                <button className="mb-4 w-100 gradient-custom-2" style={{ padding: '5px', color: 'white' }} type='submit'>Đăng ký</button>
+                                <NavLink to={'/login'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Đăng nhập?</NavLink>
                             </div>
 
                         </div>

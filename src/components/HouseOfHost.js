@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { RerenderContext } from './Context'
 
 const HouseOfHost = () => {
 
     const [houses, setHouses] = useState([]);
     const [accounts, setAccounts] = useState([]);
+    const context = useContext(RerenderContext);
 
     useEffect(() => {
         fetch(`http://localhost:9999/houseInformation?host_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
             .then(res => res.json())
             .then(data => setHouses(data))
-    }, [])
+    }, [context.reRender])
 
     useEffect(() => {
         fetch('http://localhost:9999/account')
@@ -30,13 +32,10 @@ const HouseOfHost = () => {
             ])
                 .then(() => {
                     alert("Delete success.");
-                    // Sau khi xóa thành công, cần cập nhật danh sách bài đăng
-                    fetch(`http://localhost:9999/houseInformation?host_id=${JSON.parse(sessionStorage.getItem('account')).id}`)
-                        .then(res => res.json())
-                        .then(data => setHouses(data));
+                    context.changeRerender();
                 })
                 .catch(err => {
-                    console.log(err.message);
+                    // console.log(err.message);
                 });
         }
     };
@@ -45,7 +44,7 @@ const HouseOfHost = () => {
     return (
         <div className="container post">
 
-            <div className='row' style={{margin:'10% 0 5% 0'}}>
+            <div className='row' style={{ margin: '10% 0 5% 0' }}>
                 {
                     houses.map(house =>
                         <div key={house.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>

@@ -88,7 +88,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div  style={{display:'flex', justifyContent:'space-around'}}>
-                    <Link style={{ textDecoration: 'none' }} to={'/'}>Cancel</Link>
+                    <Link style={{ textDecoration: 'none' }} to={'/'}>Hủy</Link>
                     <button className='btn btn-primary' onClick={handleUpadate}>Cập nhật</button>
                 </div>
             </div>

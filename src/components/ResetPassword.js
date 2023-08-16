@@ -44,7 +44,7 @@ const ResetPassword = () => {
                     toast.error('Failed to update password');
                 }
             } catch (error) {
-                console.log('Error:', error);
+                // console.log('Error:', error);
             }
         } else {
             toast.error('Passwords do not match');

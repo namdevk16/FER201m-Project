@@ -26,7 +26,7 @@ const ForgotPassword = () => {
                 toast.error('Email không tồn tại');
             }	
         } catch (error) {
-            console.log('Error:', error);
+            // console.log('Error:', error);
         }
     };
 

@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../styles/custom.css'
+import { RerenderContext } from './Context'
 import { toast } from 'react-toastify';
 
 const NewHeader = () => {
@@ -9,6 +10,8 @@ const NewHeader = () => {
     const [notifications, setNotifications] = useState([]);
     const [numberNotifi, setnumberNotifi] = useState(0);
     const [quantity, setQuantity] = useState();
+    
+    const context = useContext(RerenderContext);
 
     const navigate = useNavigate();
 
@@ -21,7 +24,7 @@ const NewHeader = () => {
                     setnumberNotifi(data.length);
                 })
         }
-    }, [])
+    }, [context.reRender])
 
 
 
@@ -33,7 +36,7 @@ const NewHeader = () => {
                 .then(res => res.json())
                 .then(data => setQuantity(data.length))
         }
-    }, [])
+    }, [context.reRender])
 
     const handleLogout = (e) => {
         e.preventDefault();

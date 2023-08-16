@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { MDBBtn, MDBContainer, MDBRow, MDBCol} from 'mdb-react-ui-kit';
 import { toast } from 'react-toastify';
@@ -12,13 +12,13 @@ const Login = () => {
     const [check, setCheck] = useState(false);
     const navigate = useNavigate();
 
-    const loginRemember = () => {
-        if (localStorage.getItem('account')) {
-            const obj = JSON.parse(localStorage.getItem('account'));
-            setEmail(obj.email);
-            setPassword(obj.password);
-        }
-    }
+    // const loginRemember = () => {
+    //     if (localStorage.getItem('account')) {
+    //         const obj = JSON.parse(localStorage.getItem('account'));
+    //         setEmail(obj.email);
+    //         setPassword(obj.password);
+    //     }
+    // }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -52,8 +52,8 @@ const Login = () => {
                         <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
 
                             <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                                <h4 className="mb-4">First Time Here?</h4>
-                                <p className="small mb-0">Feel free to join with us</p>
+                                <h4 className="mb-4">Lần đầu bạn đến với chúng tôi?</h4>
+                                <p className="small mb-0">Tham gia miễn phí với chúng tôi</p>
                             </div>
 
                         </div>
@@ -71,23 +71,23 @@ const Login = () => {
                             </div>
                             <form onSubmit={(e) => handleSubmit(e)}>
                                 <div>
-                                    <label>Email address</label>
+                                    <label>Email</label>
                                     <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} id='form1' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
                                     <span style={{ color: "red" }} className="error-email" ></span>
                                 </div>
                                 <div>
-                                    <label>Password</label>
+                                    <label>Mật khẩu</label>
                                     <input className="form-control" style={{ padding: '5px 0', marginTop: '10px 0' }} id='form2' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />                                     <span style={{ color: "red" }} className="error-password" ></span>
                                 </div>
                                 <div>
-                                    <input type='checkbox' checked={check} onChange={(e) => setCheck(e.target.checked)} name='Remember Me' /><i style={{ paddingLeft: '5px' }}>Remember Me</i>
+                                    <input type='checkbox' checked={check} onChange={(e) => setCheck(e.target.checked)} name='Remember Me' /><i style={{ paddingLeft: '5px' }}>Ghi nhớ</i>
                                 </div>
 
 
 
                                 <div className="text-center pt-1 mb-5 pb-1">
-                                    <MDBBtn className="mb-4 w-100 gradient-custom-2" type='submit'>Login</MDBBtn>
-                                    <NavLink to={'/forgotpassword'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Forgot Password?</NavLink>
+                                    <MDBBtn className="mb-4 w-100 gradient-custom-2" type='submit'>Đăng nhập</MDBBtn>
+                                    <NavLink to={'/forgotpassword'} style={{ color: 'rgb(42, 42, 42)' }} className={({ isActive }) => isActive ? "active-body" : ""}>Quên mật khẩu?</NavLink>
                                 </div>
                             </form>
                         </div>

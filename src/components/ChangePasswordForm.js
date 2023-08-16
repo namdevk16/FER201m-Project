@@ -16,9 +16,8 @@ const ChangePasswordForm = () => {
     const errorConfirmPass = useRef();
     const listInputs = [newpass, confirmpass];
     const listErrors = [errorNewPass, errorConfirmPass];
-    console.log(listInputs);
-    console.log(listErrors);
 
+    
     const checkConfirm = () => {
         if (listInputs.every(listInput => listInput !== '') && newpass === confirmpass) {
             return 1;

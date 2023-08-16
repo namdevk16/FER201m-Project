@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useRef, useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { RerenderContext } from './Context'
 import 'react-toastify/dist/ReactToastify.css';
 
 const Post = () => {
@@ -13,6 +14,8 @@ const Post = () => {
     const [image, setImage] = useState();
     const [village, setVillage] = useState(1);
     const [category, setCategory] = useState(1);
+
+    const context = useContext(RerenderContext);
 
     const errName = useRef();
     const errPrice = useRef();
@@ -31,7 +34,6 @@ const Post = () => {
 
 
 
-    const navigate = useNavigate()
 
     const checkConfirm = () => {
         if (listInputs.every(listInput => listInput !== '')) {
@@ -41,7 +43,7 @@ const Post = () => {
         }
     }
 
-      const checkValidate = () => {
+    const checkValidate = () => {
         if (listInputs.every(listInput => listInput === '')) {
             listErrors.forEach(listError =>
                 listError.current.style.display = 'block'
@@ -49,12 +51,12 @@ const Post = () => {
         }
 
         listInputs.forEach(
-            (inn,index) => {
+            (inn, index) => {
                 if (inn === '') {
                     listErrors[index].current.style.display = 'block'
-                  } else {
+                } else {
                     listErrors[index].current = '';
-                  }
+                }
             }
         )
     }
@@ -63,7 +65,7 @@ const Post = () => {
         fetch(`http://localhost:9999/posts?host_id=${JSON.parse(sessionStorage.getItem('account')).id}&is_post=false`)
             .then(res => res.json())
             .then(data => setPosts(data))
-    }, [])
+    }, [context.reRender])
 
     useEffect(() => {
         fetch('http://localhost:9999/region')
@@ -94,9 +96,9 @@ const Post = () => {
     }
 
     const handleImage = (e) => {
-        if(e.target.files[0] === null) {
+        if (e.target.files[0] === null) {
             setImage('https://tse4.mm.bing.net/th?id=OIP.1Kb48pEGCuofJ2ONrfYx8wHaEi&pid=Api&P=0&h=180');
-        }  else {
+        } else {
             const fr = new FileReader();
             fr.readAsDataURL(e.target.files[0]);
             fr.addEventListener('load', () => {
@@ -130,13 +132,20 @@ const Post = () => {
             fetch(`http://localhost:9999/posts`, option)
                 .then(res => res.json())
                 .then(() => {
-                    toast.info('Your request has been sent. Wait for the admin to moderate');
-                    window.location.reload();
+                    toast.info('Yêu cầu của bạn đã được gửi đi. Hãy chờ quản trị viên kiểm duyệt!');
+                    closeModal();
+                    setName('');
+                    setPrice('');
+                    setDescription('');
+                    setArea('');
+                    setAddressdetail('');
+                    setImage();
+                    context.changeRerender();
                 }
                 )
         } else if (checkConfirm() === 2) {
             checkValidate();
-        } 
+        }
     }
 
     const handleDelete = (id) => {
@@ -147,7 +156,7 @@ const Post = () => {
             fetch(`http://localhost:9999/posts/${id}`, option)
                 .then(() => {
                     toast.success("Delete success.");
-                    navigate('/post')
+                    context.changeRerender();
                 }
                 )
         }
@@ -155,15 +164,15 @@ const Post = () => {
 
     return (
         <div className="container post">
-            <div style={{margin:'10% 0 5% 0'}}>
+            <div style={{ margin: '10% 0 5% 0' }}>
                 <button className='create' onClick={openModal}>Post an house</button>
                 <div className='row'>
                     {
                         posts.map(post =>
                             <div key={post.id} className='house-item col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                                <Link to={`/post/edit/${post.id}`} style={{display:'block'}}>
+                                <Link to={`/post/edit/${post.id}`} style={{ display: 'block' }}>
                                     <div className='house-img'>
-                                        <img style={{ width: "100%", height: "300px"}} src={post.thumb} alt='#' />
+                                        <img style={{ width: "100%", height: "300px" }} src={post.thumb} alt='#' />
                                     </div>
                                     <div className='house-name'>{post.name}</div>
                                     <div>
@@ -175,7 +184,7 @@ const Post = () => {
                                         </span>
                                     </div>
                                 </Link>
-                                <span style={{ float: "left" }}><button className="btn btn-success"><Link style={{color:'white'}} to={`/post/edit/${post.id}`}>Edit</Link></button></span>
+                                <span style={{ float: "left" }}><button className="btn btn-success"><Link style={{ color: 'white' }} to={`/post/edit/${post.id}`}>Edit</Link></button></span>
                                 <span style={{ float: "right" }}><button className="btn btn-danger" onClick={(() => handleDelete(post.id))}>Reject</button></span>
                             </div>
                         )
@@ -240,7 +249,7 @@ const Post = () => {
                                     </select>
                                 </div>
                             </div>
-                            <div className="button" style={{marginTop:'12px'}}>
+                            <div className="button" style={{ marginTop: '12px' }}>
                                 <span className="btn-cancel" onClick={closeModal}>Cancel</span>
                                 <button style={{ marginLeft: "6px" }} className="btn-create" onClick={handleSubmit}>Create</button>
                             </div>
